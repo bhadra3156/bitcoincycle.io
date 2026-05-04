@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.bitcoincycle.io/sitemap.xml
+
+# Disallow any future admin/api routes
+Disallow: /api/
+Disallow: /admin/
