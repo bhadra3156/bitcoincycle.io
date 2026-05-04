@@ -1,0 +1,29 @@
+/* === FONT SHARPNESS FIX === */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Boost body text contrast */
+body {
+  color: #e8e8e8;  /* brighter than typical #aaa or #888 */
+  font-weight: 400;
+}
+
+/* Any muted/secondary text — bump it up */
+.muted, .subtitle, .label, small, .dim {
+  color: #c0c0c0 !important;  /* was probably #666 or #777 */
+  opacity: 1 !important;
+}
+
+/* Table text */
+td, th {
+  color: #e0e0e0;
+}
+
+/* Chart labels */
+.chart-label, .tick text {
+  fill: #e0e0e0 !important;
+  opacity: 1 !important;
+}
