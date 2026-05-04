@@ -158,7 +158,7 @@ body::before {
 .nav {
   display: flex; align-items: center; justify-content: space-between;
   padding: 18px 0; border-bottom: 1px solid var(--border);
-  margin-bottom: 40px; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 16px; gap: 12px; flex-wrap: wrap;
 }
 .brand {
   display: flex; align-items: center; gap: 10px;
@@ -200,6 +200,33 @@ body::before {
   border-color: var(--btc);
 }
 
+/* ── X / TWITTER TOP BANNER ── */
+.x-banner {
+  text-align: center;
+  padding: 12px 0 24px;
+}
+.x-banner a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 22px;
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 24px;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.x-banner a:hover {
+  border-color: var(--acc);
+  box-shadow: 0 0 16px rgba(56,189,248,0.2);
+  transform: translateY(-1px);
+}
+
 /* ── HERO ── */
 .hero { text-align: center; margin-bottom: 40px; }
 .eyebrow {
@@ -214,13 +241,18 @@ body::before {
 }
 .eyebrow::after { background: linear-gradient(90deg, var(--acc-d), transparent); }
 
+/* TASK 1: Hero title — solid Bitcoin orange */
 h1.hero-title {
   font-family: var(--mono); font-size: clamp(26px,5.5vw,52px);
   font-weight: 700; line-height: 1.1; margin-bottom: 12px;
 }
 .hero-title span.btc-accent {
-  background: linear-gradient(135deg, var(--btc) 0%, #ffe29a 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  /* Solid Bitcoin orange — no gradient */
+  color: #F7931A;
+  -webkit-text-fill-color: #F7931A;
+  background: none;
+  background-clip: unset;
+  -webkit-background-clip: unset;
 }
 .hero-sub { color: var(--text2); font-size: clamp(13px,2vw,15px); max-width: 520px; margin: 0 auto; line-height: 1.6; }
 
@@ -318,9 +350,7 @@ h1.hero-title {
   border-radius: var(--radius); padding: clamp(16px,3vw,24px) clamp(8px,2vw,16px) 12px;
   overflow: hidden;
 }
-.chart-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; padding: 0 4px; }
-.li { display: flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 10px; letter-spacing: 1px; color: var(--text2); text-transform: uppercase; }
-.ld { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+/* TASK 2: chart legend removed from HTML — no CSS needed */
 #pulseChart { width: 100% !important; max-height: 300px; }
 
 /* ── TABLE ── */
@@ -332,8 +362,8 @@ h1.hero-title {
 }
 .fbtn:hover { border-color: var(--acc); color: var(--acc); }
 .fbtn.a-all { background: var(--acc-d); border-color: var(--acc); color: var(--acc); }
-.fbtn.a-ath { background: var(--btc-d); border-color: var(--btc); color: var(--btc); }
-.fbtn.a-atl { background: var(--atl-d); border-color: var(--atl); color: var(--atl); }
+.fbtn.a-ath { background: rgba(255,215,0,0.12); border-color: #FFD700; color: #FFD700; }
+.fbtn.a-atl { background: rgba(79,195,247,0.12); border-color: #4FC3F7; color: #4FC3F7; }
 .tbl-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
 .tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 table { width: 100%; border-collapse: collapse; min-width: 520px; }
@@ -354,8 +384,9 @@ td { padding: 12px 16px; font-size: 13px; color: var(--text2); white-space: nowr
   font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 1px;
   padding: 2px 9px; border-radius: 4px;
 }
-.tp-ath { background: var(--btc-d); color: var(--btc); }
-.tp-atl { background: var(--atl-d); color: var(--atl); }
+/* TASK 3: ATH = yellow, ATL = blue */
+.tp-ath { background: rgba(255,215,0,0.12); color: #FFD700; border: 1px solid rgba(255,215,0,0.3); }
+.tp-atl { background: rgba(79,195,247,0.12); color: #4FC3F7; border: 1px solid rgba(79,195,247,0.3); }
 .show-more {
   width: 100%; padding: 14px; background: transparent; border: none;
   border-top: 1px solid var(--border); color: var(--text2);
@@ -459,7 +490,7 @@ footer {
 /* ── MOBILE OVERRIDES ── */
 @media (max-width: 600px) {
   .app { padding: 0 14px 60px; }
-  .nav { margin-bottom: 28px; padding: 14px 0; }
+  .nav { margin-bottom: 16px; padding: 14px 0; }
   .affiliates { gap: 10px; }
   .aff-card { padding: 13px 16px; min-width: 100%; }
   .cd-grid { gap: 3px; }
@@ -468,6 +499,7 @@ footer {
   .stats { grid-template-columns: repeat(2, 1fr); }
   .share-btn { padding: 8px 14px; font-size: 10px; gap: 6px; }
   .share-buttons { gap: 8px; }
+  .x-banner a { font-size: 11px; padding: 7px 16px; }
 }
 </style>
 </head>
@@ -487,8 +519,19 @@ footer {
   </div>
 </nav>
 
+<!-- ═══ TASK 5: X / TWITTER LINK — TOP MIDDLE ═══ -->
+<div class="x-banner">
+  <a href="https://x.com/bitcoincycle_" target="_blank" rel="noopener" aria-label="Follow @bitcoincycle_ on X">
+    <svg viewBox="0 0 24 24" fill="white" width="15" height="15" aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </svg>
+    @bitcoincycle_
+  </a>
+</div>
+
 <!-- ═══ HERO ═══ -->
 <header class="hero">
+  <!-- TASK 1: btc-accent now renders as solid Bitcoin orange via CSS -->
   <h1 class="hero-title"><span class="btc-accent">The Bitcoin Cycle</span></h1>
   <p class="hero-sub">Algorithmic cycle predictions based on the 1064-day expansion and 364-day compression model, anchored to the Nov 2022 FTX bottom ATL.</p>
 </header>
@@ -554,8 +597,6 @@ footer {
 
 <!-- ═══ CHART ═══ -->
 <section class="section" aria-labelledby="chart-heading">
-  
-  
   <div class="section-hdr">
     <div>
       <div class="sec-title" id="chart-heading">
@@ -566,13 +607,7 @@ footer {
     </div>
   </div>
   <div class="chart-card">
-
-
-    
-   
-
-      
-    </div>
+    <!-- TASK 2: Legend removed entirely -->
     <canvas id="pulseChart" role="img" aria-label="Bitcoin Cycle Chart showing alternating ATH peaks and ATL valleys from 2022 to 2038"></canvas>
   </div>
 </section>
@@ -650,10 +685,11 @@ footer {
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
+  <!-- TASK 4: "Methodology" link removed. TASK 5: @bitcoincycle_ moved to top. -->
   <div class="footer-copy">
     BitcoinCycle.io · 1064/364 Expansion–Compression Model · Anchored to 21 Nov 2022 FTX ATL<br />
-    <a href="/about.html">Methodology</a> &nbsp;·&nbsp; Not financial advice &nbsp;·&nbsp;
-    <a href="https://x.com/bitcoincycle_" target="_blank" rel="noopener">@bitcoincycle_</a>
+    Not financial advice &nbsp;·&nbsp;
+    <a href="https://x.com/bitcoincycle_" target="_blank" rel="noopener">@bitcoincycle_ on X</a>
   </div>
 
   <!-- ===== SOCIAL SHARE BAR ===== -->
@@ -708,7 +744,7 @@ footer {
 
 </div><!-- /.app -->
 
-<!-- ═══ SCRIPTS (Chart.js CDN first, then app scripts) ═══ -->
+<!-- ═══ SCRIPTS ═══ -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <script src="/public/js/main.js"></script>
 <script src="/public/js/countdown.js"></script>
