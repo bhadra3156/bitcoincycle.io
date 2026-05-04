@@ -1,72 +1,88 @@
 /**
  * chart.js — BitcoinCycle.io
  * Single clean wave: green rising, red falling
- * ATH dots = orange | ATL dots = blue | NOW = short dashed cyan (live)
+ * ATH dots = yellow (#FFD700) | ATL dots = blue (#4FC3F7) | NOW = dashed cyan (live, every second)
  */
-
-function makeNowPlugin(getNowIndex) {
-  return {
-    id: 'nowLine',
-    afterDraw: function (chart) {
-      var idx = getNowIndex();
-      if (idx < 0) return;
-
-      var c    = chart.ctx;
-      var area = chart.chartArea;
-      var x    = chart.scales.x;
-
-      var xPos = x.getPixelForValue(idx);
-      var midY = (area.top + area.bottom) / 2;
-
-      c.save();
-
-      // Full-height dashed cyan line
-      c.beginPath();
-      c.setLineDash([6, 4]);
-      c.moveTo(xPos, area.top);
-      c.lineTo(xPos, area.bottom);
-      c.strokeStyle = '#38BDF8';
-      c.lineWidth   = 1.5;
-      c.globalAlpha = 0.6;
-      c.stroke();
-      c.setLineDash([]);
-      c.globalAlpha = 1;
-
-      // "NOW" badge at vertical center
-      c.font         = 'bold 10px "Space Mono", monospace';
-      c.textAlign    = 'center';
-      c.textBaseline = 'middle';
-      var tw = c.measureText('NOW').width;
-      var bx = xPos - tw / 2 - 7;
-      var by = midY - 11;
-      var bw = tw + 14;
-      var bh = 22;
-
-      c.fillStyle = 'rgba(10,10,10,0.92)';
-      roundRect(c, bx, by, bw, bh, 4);
-      c.fill();
-      c.strokeStyle = '#38BDF8';
-      c.lineWidth   = 1.2;
-      roundRect(c, bx, by, bw, bh, 4);
-      c.stroke();
-
-      c.fillStyle = '#38BDF8';
-      c.fillText('NOW', xPos, midY);
-
-      c.restore();
-    }
-  };
-}
-
 
 (function () {
 
   var chartInstance = null;
 
+  // Rounded rectangle helper — must be defined BEFORE makeNowPlugin
+  function roundRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+  }
+
+  // NOW line plugin — full height dashed cyan, "NOW" badge at vertical centre
+  function makeNowPlugin(getNowIndex) {
+    return {
+      id: 'nowLine',
+      afterDraw: function (chart) {
+        var idx = getNowIndex();
+        if (idx < 0) return;
+
+        var c    = chart.ctx;
+        var area = chart.chartArea;
+        var x    = chart.scales.x;
+
+        var xPos = x.getPixelForValue(idx);
+        var midY = (area.top + area.bottom) / 2;
+
+        c.save();
+
+        // Full-height dashed cyan vertical line
+        c.beginPath();
+        c.setLineDash([6, 4]);
+        c.moveTo(xPos, area.top);
+        c.lineTo(xPos, area.bottom);
+        c.strokeStyle = '#38BDF8';
+        c.lineWidth   = 1.5;
+        c.globalAlpha = 0.6;
+        c.stroke();
+        c.setLineDash([]);
+        c.globalAlpha = 1;
+
+        // "NOW" badge at vertical centre of chart
+        c.font         = 'bold 10px "Space Mono", monospace';
+        c.textAlign    = 'center';
+        c.textBaseline = 'middle';
+        var tw = c.measureText('NOW').width;
+        var bx = xPos - tw / 2 - 7;
+        var by = midY - 11;
+        var bw = tw + 14;
+        var bh = 22;
+
+        c.fillStyle = 'rgba(10,10,10,0.92)';
+        roundRect(c, bx, by, bw, bh, 4);
+        c.fill();
+
+        c.strokeStyle = '#38BDF8';
+        c.lineWidth   = 1.2;
+        roundRect(c, bx, by, bw, bh, 4);
+        c.stroke();
+
+        c.fillStyle = '#38BDF8';
+        c.fillText('NOW', xPos, midY);
+
+        c.restore();
+      }
+    };
+  }
+
   function buildChartData() {
-    var now     = new Date();
-    var events  = window.btcEvents;
-    var STEPS   = 400;
+    var now    = new Date();
+    var events = window.btcEvents;
+    var STEPS  = 400;
 
     // Filter 2022–2038
     var slice = events.filter(function (e) {
@@ -116,15 +132,13 @@ function makeNowPlugin(getNowIndex) {
     var sparseColors = new Array(STEPS + 1).fill('transparent');
     var sparseRadius = new Array(STEPS + 1).fill(0);
 
-    slice.forEach(function (e, i) {
+    slice.forEach(function (e) {
       var f   = (e.date.getTime() - first) / totalMs;
       var idx = Math.round(f * STEPS);
       idx = Math.max(0, Math.min(STEPS, idx));
+      // ATH = yellow, ATL = blue
       sparseValues[idx] = e.type === 'ATH' ? 100 : 0;
-
-      
-sparseColors[idx] = e.type === 'ATH' ? '#FFD700' : '#4FC3F7';
-      
+      sparseColors[idx] = e.type === 'ATH' ? '#FFD700' : '#4FC3F7';
       sparseRadius[idx] = (window.btcNextEvt && e.id === window.btcNextEvt.id) ? 10 : (e.date < now ? 5 : 7);
     });
 
@@ -145,78 +159,6 @@ sparseColors[idx] = e.type === 'ATH' ? '#FFD700' : '#4FC3F7';
       last:         last,
       totalMs:      totalMs,
       STEPS:        STEPS
-    };
-  }
-
-  // Rounded rectangle helper
-  function roundRect(ctx, x, y, w, h, r) {
-    ctx.beginPath();
-    ctx.moveTo(x + r, y);
-    ctx.lineTo(x + w - r, y);
-    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-    ctx.lineTo(x + w, y + h - r);
-    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-    ctx.lineTo(x + r, y + h);
-    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-    ctx.lineTo(x, y + r);
-    ctx.quadraticCurveTo(x, y, x + r, y);
-    ctx.closePath();
-  }
-
-  // NOW line plugin — short, centred, live-updating
-  function makeNowPlugin(getNowIndex) {
-    return {
-      id: 'nowLine',
-      afterDraw: function (chart) {
-        var idx = getNowIndex();
-        if (idx < 0) return;
-
-        var c    = chart.ctx;
-        var area = chart.chartArea;
-        var x    = chart.scales.x;
-
-        var xPos    = x.getPixelForValue(idx);
-        var height  = area.bottom - area.top;
-        var midY    = area.top + height / 2;
-        var lineTop = midY - height * 0.22;
-        var lineBot = midY + height * 0.22;
-
-        c.save();
-
-        // Short dashed cyan vertical line
-        c.beginPath();
-        c.setLineDash([5, 4]);
-        c.moveTo(xPos, lineTop);
-        c.lineTo(xPos, lineBot);
-        c.strokeStyle = '#38BDF8';
-        c.lineWidth   = 1.8;
-        c.stroke();
-        c.setLineDash([]);
-
-        // Small "NOW" badge at midpoint
-        c.font         = 'bold 10px "Space Mono", monospace';
-        c.textAlign    = 'center';
-        c.textBaseline = 'middle';
-        var tw = c.measureText('NOW').width;
-        var bx = xPos - tw / 2 - 7;
-        var by = midY - 10;
-        var bw = tw + 14;
-        var bh = 20;
-
-        c.fillStyle = 'rgba(10,10,10,0.88)';
-        roundRect(c, bx, by, bw, bh, 4);
-        c.fill();
-
-        c.strokeStyle = '#38BDF8';
-        c.lineWidth   = 1;
-        roundRect(c, bx, by, bw, bh, 4);
-        c.stroke();
-
-        c.fillStyle = '#38BDF8';
-        c.fillText('NOW', xPos, midY);
-
-        c.restore();
-      }
     };
   }
 
@@ -259,7 +201,7 @@ sparseColors[idx] = e.type === 'ATH' ? '#FFD700' : '#4FC3F7';
             pointRadius:      0,
             pointHoverRadius: 0
           },
-          // Dataset 2: event dots only — orange ATH, blue ATL, no line
+          // Dataset 2: event dots only — yellow ATH, blue ATL, no connecting line
           {
             label:                     'Events',
             data:                      data.sparseValues,
@@ -361,13 +303,13 @@ sparseColors[idx] = e.type === 'ATH' ? '#FFD700' : '#4FC3F7';
       }
     });
 
-    // Live NOW line — recalculates every 60 seconds
+    // Live NOW line — updates every second
     setInterval(function () {
       if (!chartInstance) return;
-      var now2    = new Date();
-      var frac2   = (now2.getTime() - data.first) / data.totalMs;
-      var newIdx  = Math.round(frac2 * data.STEPS);
-      newIdx      = Math.max(1, Math.min(data.STEPS - 1, newIdx));
+      var now2   = new Date();
+      var frac2  = (now2.getTime() - data.first) / data.totalMs;
+      var newIdx = Math.round(frac2 * data.STEPS);
+      newIdx     = Math.max(1, Math.min(data.STEPS - 1, newIdx));
       liveNowIndex.val = newIdx;
       chartInstance.update('none');
     }, 1000);
