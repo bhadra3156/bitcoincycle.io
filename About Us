@@ -430,7 +430,19 @@
     }
 
     footer a { color: var(--orange); }
-  </style>
+
+body { font-size: 15px !important; line-height: 1.75 !important; }
+p, li, span { color: #c0ccd8 !important; }
+nav a { color: #b8c4d0 !important; font-size: 0.78rem !important; }
+table td { color: #b0bcc8 !important; font-size: 0.82rem !important; padding: 11px 14px !important; }
+table th { color: #7a8a9a !important; font-size: 0.69rem !important; }
+[style*="color: #888"],[style*="color:#888"],
+[style*="color: #777"],[style*="color:#777"],
+[style*="color: #666"],[style*="color:#666"],
+[style*="color: #555"],[style*="color:#555"] { color: #9aaaba !important; }
+footer, footer p, footer span, footer a { font-size: 0.75rem !important; color: #6a7a8a !important; }
+
+</style>
 </head>
 <body>
 
