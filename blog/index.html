@@ -1,30 +1,388 @@
-<article style="background:#0f0f1a;border:1px solid #1e1e32;border-radius:10px;padding:24px;margin-bottom:20px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#f7931a'" onmouseout="this.style.borderColor='#1e1e32'">
-  <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:#f7931a;margin-bottom:8px;">📘 Pillar Guide · Cycle Education</div>
-  <h2 style="font-size:1.1rem;font-weight:700;color:#f0f0f0;margin:0 0 10px;line-height:1.3;">
-    <a href="1064-364-bitcoin-cycle-model-guide-2026.html" style="color:#f7931a;text-decoration:none;">
-      The 1064/364 Bitcoin Cycle Model: Complete 2026 Guide
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blog | BitcoinCycle.io — Bitcoin Cycle Education</title>
+<meta name="description" content="In-depth guides and analysis on Bitcoin market cycles, the 1064/364 model, halving impacts, and predictions through 2050." />
+<link rel="canonical" href="https://www.bitcoincycle.io/blog/" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23F7931A'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%230A0A0A' font-weight='bold'>&#x20BF;</text></svg>" />
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #0D0D0F;
+  --surface:    #13131A;
+  --elevated:   #1A1A24;
+  --border:     #1E2030;
+  --border2:    #2A2D45;
+  --text1:  #EEEEF0;
+  --text2:  #8B8FA8;
+  --text3:  #4A4D65;
+  --btc:    #F7931A;
+  --btc-d:  rgba(247,147,26,.12);
+  --btc-g:  rgba(247,147,26,.05);
+  --green:  #34D399;
+  --purple: #818CF8;
+  --mono: 'Space Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+  --r: 10px;
+  --r-sm: 6px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text1);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.75;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background-image: radial-gradient(600px 600px at 50% -100px, rgba(247,147,26,.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.012) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.app {
+  position: relative; z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* NAV */
+.nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text1);
+  justify-self: start;
+}
+
+.brand-icon {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #F7931A 0%, #E07010 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: #0A0A0A; font-weight: 900;
+  box-shadow: 0 0 16px rgba(247,147,26,.35);
+}
+
+.nav-centre {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  color: #b0bec8;
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border: 1px solid #1e1e32;
+  border-radius: 6px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.nav-link:hover, .nav-link.active {
+  border-color: #f7931a;
+  color: #e2e8f0;
+}
+
+.nav-right { justify-self: end; }
+
+.follow-x-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  background: var(--btc);
+  color: #000;
+  border-radius: var(--r-sm);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: background .2s, transform .18s;
+  box-shadow: 0 0 20px rgba(247,147,26,.35);
+}
+.follow-x-btn:hover { background: #E07010; transform: translateY(-1px); color: #000; }
+
+/* HERO */
+.page-hero {
+  text-align: center;
+  padding: 64px 0 48px;
+}
+
+.page-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--btc);
+  margin-bottom: 20px;
+  padding: 5px 14px;
+  border: 1px solid rgba(247,147,26,.2);
+  border-radius: 20px;
+  background: var(--btc-g);
+}
+
+h1.page-title {
+  font-family: var(--mono);
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text1);
+  margin-bottom: 16px;
+}
+
+.page-sub {
+  color: var(--text2);
+  font-size: 16px;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ARTICLE CARDS */
+.articles {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.article-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 28px 32px;
+  text-decoration: none;
+  display: block;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.article-card:hover {
+  border-color: rgba(247,147,26,.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 24px rgba(247,147,26,.08);
+}
+
+.article-category {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--btc);
+  margin-bottom: 10px;
+}
+
+.article-card h2 {
+  font-family: var(--mono);
+  font-size: clamp(15px, 2.5vw, 18px);
+  font-weight: 700;
+  color: var(--text1);
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.article-card p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text3);
+  letter-spacing: 0.5px;
+}
+
+.read-link {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--btc);
+  border: 1px solid rgba(247,147,26,.4);
+  padding: 5px 14px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.article-card:hover .read-link {
+  background: rgba(247,147,26,.1);
+}
+
+/* COMING SOON */
+.coming-soon {
+  background: var(--surface);
+  border: 1px dashed var(--border2);
+  border-radius: var(--r);
+  padding: 28px 32px;
+  opacity: 0.55;
+}
+
+.coming-soon h2 {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text2);
+  margin-bottom: 8px;
+}
+
+.coming-soon p {
+  font-size: 13px;
+  color: var(--text3);
+}
+
+.soon-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--purple);
+  border: 1px solid rgba(129,140,248,.3);
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding-top: 28px;
+  text-align: center;
+  margin-top: 48px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--text3);
+  line-height: 1.9;
+}
+footer a { color: var(--text3); text-decoration: none; }
+footer a:hover { color: var(--btc); }
+
+@media (max-width: 768px) {
+  .app { padding: 0 16px 60px; }
+  .nav { grid-template-columns: 1fr auto; }
+  .nav-centre { display: none; }
+  .article-card { padding: 20px; }
+  .read-link { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- NAV -->
+  <nav class="nav" aria-label="Main navigation">
+    <a href="/" class="brand">
+      <div class="brand-icon">₿</div>
+      BitcoinCycle
     </a>
-  </h2>
-  <p style="font-size:0.84rem;color:#9aaaba;line-height:1.75;margin:0 0 16px;">
-    The definitive guide to Bitcoin's 1,064-day expansion and 364-day compression model. Covers every historical cycle from 2012–2022, why the Nov 2022 FTX bottom anchors Cycle 4, full predictions through 2050, and a 10-question FAQ.
-  </p>
-  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-    <span style="font-size:0.7rem;color:#64748b;">📅 May 4, 2026</span>
-    <span style="font-size:0.7rem;color:#64748b;">⏱ 12 min read</span>
-    <a href="1064-364-bitcoin-cycle-model-guide-2026.html" style="margin-left:auto;font-size:0.73rem;color:#f7931a;text-decoration:none;border:1px solid rgba(247,147,26,0.4);padding:4px 12px;border-radius:4px;">Read Guide →</a>
- 
-  /* === READABILITY FIX — paste just before </style> === */
-body { font-size: 15px !important; line-height: 1.75 !important; }
-p, li, span { color: #c0ccd8 !important; }
-nav a { color: #b8c4d0 !important; font-size: 0.78rem !important; }
-table td { color: #b0bcc8 !important; font-size: 0.82rem !important; padding: 11px 14px !important; }
-table th { color: #7a8a9a !important; font-size: 0.69rem !important; }
-[style*="color: #888"],[style*="color:#888"],
-[style*="color: #777"],[style*="color:#777"],
-[style*="color: #666"],[style*="color:#666"],
-[style*="color: #555"],[style*="color:#555"] { color: #9aaaba !important; }
-footer, footer p, footer span, footer a { font-size: 0.75rem !important; color: #6a7a8a !important; }
-/* === END READABILITY FIX === */
-  
+    <div class="nav-centre">
+      <a href="/blog/" class="nav-link active">BLOG</a>
+      <a href="/about.html" class="nav-link">ABOUT US</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://x.com/bitcoincycle_" target="_blank" rel="noopener" class="follow-x-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Follow on X →
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="page-eyebrow">📖 Education & Analysis</div>
+    <h1 class="page-title">The Blog</h1>
+    <p class="page-sub">Deep dives into Bitcoin market cycles, the 1064/364 model, historical analysis, and predictions through 2050.</p>
   </div>
-</article>
+
+  <!-- ARTICLES -->
+  <div class="articles">
+
+    <!-- Article 1: Pillar Guide -->
+    <a href="/blog/1064-364-bitcoin-cycle-model-guide-2026.html" class="article-card">
+      <div class="article-category">📘 Pillar Guide · Cycle Education</div>
+      <h2>The 1064/364 Bitcoin Cycle Model: Complete 2026 Guide</h2>
+      <p>The definitive guide to Bitcoin's 1,064-day expansion and 364-day compression model. Covers every historical cycle from 2012–2022, why the Nov 2022 FTX bottom anchors Cycle 4, full predictions through 2050, and a 10-question FAQ.</p>
+      <div class="article-meta">
+        <span class="meta-item">📅 May 4, 2026</span>
+        <span class="meta-item">⏱ 12 min read</span>
+        <span class="read-link">Read Guide →</span>
+      </div>
+    </a>
+
+    <!-- Coming Soon 1 -->
+    <div class="coming-soon">
+      <div class="soon-badge">Coming Soon</div>
+      <h2>Bitcoin Cycle Explained: Expansion vs Compression</h2>
+      <p>A beginner-friendly breakdown of what drives each phase of the cycle, and how to use it to navigate Bitcoin markets.</p>
+    </div>
+
+    <!-- Coming Soon 2 -->
+    <div class="coming-soon">
+      <div class="soon-badge">Coming Soon</div>
+      <h2>Does the Bitcoin Halving Still Drive the Cycle?</h2>
+      <p>With Bitcoin hitting an ATH before the 2024 halving, we examine whether the 4-year halving cycle has decoupled — and what the 1064/364 model says instead.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    BitcoinCycle.io · 1064/364 Expansion–Compression Model<br/>
+    Not financial advice &nbsp;·&nbsp;
+    <a href="/blog/">Blog</a> &nbsp;·&nbsp;
+    <a href="/about.html">About Us</a>
+  </footer>
+
+</div><!-- /.app -->
+</body>
+</html>
