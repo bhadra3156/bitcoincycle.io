@@ -3,49 +3,139 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bitcoin Cycle Blog | Insights, Analysis & Predictions</title>
-  <meta name="description" content="Expert analysis on Bitcoin cycles, halvings, and price predictions using the 1064/364 model." />
-  <link rel="canonical" href="https://bitcoincycle.io/blog/" />
+  <title>Blog | BitcoinCycle.io — Bitcoin Cycle Analysis & Insights</title>
+  <meta name="description" content="Expert analysis on Bitcoin cycles, halvings, and price predictions using the 1064/364 model. Educational insights for serious Bitcoin traders." />
+  <meta name="keywords" content="bitcoin cycle blog, bitcoin analysis, bitcoin halving, crypto market cycles, BTC prediction" />
+  <link rel="canonical" href="https://www.bitcoincycle.io/blog/" />
+  <meta property="og:title" content="Blog | BitcoinCycle.io" />
+  <meta property="og:description" content="Bitcoin cycle analysis, halving insights, and market predictions." />
+  <meta property="og:url" content="https://www.bitcoincycle.io/blog/" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23F7931A'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%230A0A0A' font-weight='bold'>₿</text></svg>" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
-    body { background: #0a0a0f; color: #e0e0e0; font-family: 'Inter', sans-serif; }
-    header { border-bottom: 1px solid #1e1e2e; padding: 1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
-    header a { color: #F7931A; text-decoration: none; font-weight: 700; font-size: 1.1rem; }
-    nav a { color: #aaa; text-decoration: none; font-size: 0.85rem; margin-left: 1.5rem; }
-    nav a:hover, nav a.active { color: #F7931A; }
-    .hero { padding: 4rem 2rem 2rem; max-width: 800px; margin: 0 auto; }
-    .hero h1 { font-size: 2rem; color: #fff; font-weight: 700; margin-bottom: 0.5rem; }
-    .hero p { color: #888; font-size: 1rem; }
-    .posts { max-width: 800px; margin: 2rem auto; padding: 0 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
-    .post-card { background: #111122; border: 1px solid #1e1e2e; border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; transition: border-color 0.2s; display: block; }
-    .post-card:hover { border-color: #F7931A; }
-    .post-tag { font-size: 0.7rem; font-weight: 700; color: #F7931A; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
-    .post-card h2 { font-size: 1.2rem; color: #fff; margin-bottom: 0.5rem; }
-    .post-card p { font-size: 0.9rem; color: #999; line-height: 1.6; }
-    .post-meta { margin-top: 1rem; font-size: 0.75rem; color: #666; }
-    footer { text-align: center; padding: 3rem 1rem; color: #444; font-size: 0.75rem; border-top: 1px solid #1a1a2e; margin-top: 4rem; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0A0A0A; --surface: #11151F; --elevated: #181E2E;
+      --border: #1E2A3A; --border2: #2A3A4A;
+      --text1: #F0F0F0; --text2: #B0BCC8; --text3: #7A8A9A;
+      --btc: #F7931A; --btc-d: rgba(247,147,26,.14); --btc-g: rgba(247,147,26,.06);
+      --acc: #38BDF8; --acc-d: rgba(56,189,248,.10);
+      --mono: 'Space Mono', monospace; --sans: 'DM Sans', sans-serif;
+      --radius: 12px;
+    }
+    body {
+      background: var(--bg); color: var(--text1); font-family: var(--sans);
+      min-height: 100vh; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(56,189,248,.025) 1px,transparent 1px), linear-gradient(90deg,rgba(56,189,248,.025) 1px,transparent 1px);
+      background-size: 44px 44px; pointer-events: none; z-index: 0;
+    }
+    .app { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 0 20px 80px; }
+
+    /* NAV */
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 0; border-bottom: 1px solid var(--border); margin-bottom: 48px; gap: 12px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 15px; font-weight: 700; letter-spacing: 2px; color: var(--text1); text-decoration: none; }
+    .brand-icon { width: 34px; height: 34px; border-radius: 8px; background: linear-gradient(135deg, var(--btc) 0%, #e07f10 100%); display: flex; align-items: center; justify-content: center; font-size: 18px; color: #0A0A0A; font-weight: 900; box-shadow: 0 0 18px rgba(247,147,26,.4); }
+    .nav-links { display: flex; align-items: center; gap: 20px; }
+    .nav-link { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; color: var(--text2); text-decoration: none; text-transform: uppercase; font-weight: 700; transition: color .2s; }
+    .nav-link:hover { color: var(--btc); }
+    .nav-link.active { color: var(--btc); border-bottom: 1px solid var(--btc); padding-bottom: 2px; }
+
+    /* HERO */
+    .blog-hero { margin-bottom: 48px; }
+    .blog-hero-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 3px; color: var(--acc); text-transform: uppercase; margin-bottom: 12px; }
+    .blog-hero h1 { font-family: var(--mono); font-size: clamp(24px,4vw,38px); font-weight: 700; color: var(--text1); margin-bottom: 10px; line-height: 1.2; }
+    .blog-hero p { color: var(--text2); font-size: 15px; line-height: 1.6; max-width: 560px; }
+
+    /* POST GRID */
+    .posts { display: flex; flex-direction: column; gap: 20px; }
+    .post-card {
+      display: block; text-decoration: none; color: inherit;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 28px 24px;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+      position: relative; overflow: hidden;
+    }
+    .post-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--btc), transparent);
+      opacity: 0; transition: opacity .2s;
+    }
+    .post-card:hover { border-color: rgba(247,147,26,.4); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,.3); }
+    .post-card:hover::before { opacity: 1; }
+    .post-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .post-tag { font-family: var(--mono); font-size: 9px; letter-spacing: 1.5px; color: var(--btc); background: var(--btc-d); padding: 2px 8px; border-radius: 4px; text-transform: uppercase; }
+    .post-card h2 { font-family: var(--mono); font-size: clamp(15px,2.5vw,18px); font-weight: 700; color: var(--text1); margin-bottom: 10px; line-height: 1.35; }
+    .post-card p { font-size: 13px; color: var(--text2); line-height: 1.7; margin-bottom: 16px; }
+    .post-meta { display: flex; align-items: center; gap: 16px; font-family: var(--mono); font-size: 10px; color: var(--text3); letter-spacing: 1px; }
+    .post-read-more { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; color: var(--btc); text-transform: uppercase; display: flex; align-items: center; gap: 5px; margin-left: auto; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding-top: 28px; margin-top: 60px; text-align: center; }
+    .footer-copy { font-family: var(--mono); font-size: 10px; letter-spacing: 1px; color: var(--text3); line-height: 1.7; }
+
+    @media (max-width: 600px) {
+      .app { padding: 0 14px 60px; }
+      .post-card { padding: 20px; }
+    }
   </style>
 </head>
 <body>
-<header>
-  <a href="/">₿ BitcoinCycle</a>
-  <nav>
-    <a href="/">Dashboard</a>
-    <a href="/blog/" class="active">Blog</a>
+<div class="app">
+
+  <nav class="nav">
+    <a href="/" class="brand">
+      <div class="brand-icon">₿</div>
+      BitcoinCycle
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Dashboard</a>
+      <a href="/blog/" class="nav-link active">Blog</a>
+    </div>
   </nav>
-</header>
-<div class="hero">
-  <h1>Bitcoin Cycle Blog</h1>
-  <p>Analysis, insights and predictions using the 1064/364 expansion–compression model.</p>
+
+  <div class="blog-hero">
+    <div class="blog-hero-tag">⬡ Bitcoin Cycle Intelligence</div>
+    <h1>The Bitcoin Cycle Blog</h1>
+    <p>Deep-dive analysis on Bitcoin cycles, halving events, and market predictions — powered by the 1064/364 expansion–compression model.</p>
+  </div>
+
+  <div class="posts">
+
+    <a href="/blog/bitcoin-halving-impact-on-price.html" class="post-card">
+      <div class="post-tags">
+        <span class="post-tag">Halving</span>
+        <span class="post-tag">Education</span>
+        <span class="post-tag">Market Cycles</span>
+      </div>
+      <h2>Bitcoin Halving and Its Impact on Bitcoin Price</h2>
+      <p>Every ~4 years, Bitcoin's block reward is cut in half. But what does this actually mean for price? We break down every halving cycle — the supply shock mechanics, historical data, and what the 2024 halving tells us about where we go next.</p>
+      <div class="post-meta">
+        <span>May 2025</span>
+        <span>·</span>
+        <span>8 min read</span>
+        <span class="post-read-more">Read →</span>
+      </div>
+    </a>
+
+  </div>
+
 </div>
-<div class="posts">
-  <a href="/blog/bitcoin-halving-impact-on-price.html" class="post-card">
-    <div class="post-tag">Halving · Education</div>
-    <h2>Bitcoin Halving and Its Impact on Bitcoin Price</h2>
-    <p>Every ~4 years, Bitcoin's block reward is cut in half. But what does this actually mean for price? We break down every halving cycle, the supply shock mechanics, and what history tells us about what comes next.</p>
-    <div class="post-meta">May 2025 · 8 min read</div>
-  </a>
-</div>
-<footer>BitcoinCycle.io · Not financial advice</footer>
+
+<footer>
+  <div class="footer-copy">
+    BitcoinCycle.io · 1064/364 Expansion–Compression Model · Not financial advice
+  </div>
+</footer>
+
 </body>
 </html>
