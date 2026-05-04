@@ -47,6 +47,7 @@
   --radius-sm: 6px;
 }
 
+
 /* Linear-style background — subtle noise grain overlay */
 body {
   background: var(--bg);
