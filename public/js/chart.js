@@ -73,7 +73,19 @@
         c.fillStyle   = '#38BDF8';
         c.font        = '10px "Space Mono", monospace';
         c.textAlign   = 'center';
-        c.fillText('NOW', xPos, top - 6);
+
+        const midY = top + (bottom - top) / 2;
+   c.font = 'bold 11px "Space Mono", monospace';
+   c.textAlign = 'center';
+   c.textBaseline = 'middle';
+   const tw = c.measureText('NOW').width;
+   c.fillStyle = 'rgba(247,147,26,0.15)';
+   c.fillRect(xPos - tw/2 - 8, midY - 11, tw + 16, 22);
+   c.strokeStyle = '#F7931A';
+   c.lineWidth = 1;
+   c.strokeRect(xPos - tw/2 - 8, midY - 11, tw + 16, 22);
+   c.fillStyle = '#F7931A';
+   c.fillText('NOW', xPos, midY);
         c.restore();
       }
     };
