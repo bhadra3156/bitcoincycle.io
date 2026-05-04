@@ -6,7 +6,7 @@
 
   <!-- ═══ SEO META TAGS ═══ -->
   <title>Bitcoin Cycle Prediction | 1064/364 Model Dashboard</title>
-  <meta name="description" content="Predicting Bitcoin's future price action using the 1064/364 expansion/compression cycle model. Live cycleand event dates to 2050." />
+  <meta name="description" content="Predicting Bitcoin's future price action using the 1064/364 expansion/compression cycle model. Live cycle and event dates to 2050." />
   <meta name="keywords" content="bitcoin cycle prediction, 1064 364 model, bitcoin ATH ATL prediction, bitcoin cycle dashboard, crypto cycle analysis" />
   <meta name="author" content="BitcoinCycle.io" />
   <link rel="canonical" href="https://www.bitcoincycle.io/" />
@@ -14,7 +14,7 @@
   <!-- ═══ OPEN GRAPH ═══ -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Bitcoin Cycle Prediction | 1064/364 Model Dashboard" />
-  <meta property="og:description" content="Predicting Bitcoin's future price action using the 1064/364 expansion/compression cycle model. Live cycleand event dates." />
+  <meta property="og:description" content="Predicting Bitcoin's future price action using the 1064/364 expansion/compression cycle model. Live cycle and event dates." />
   <meta property="og:url" content="https://www.bitcoincycle.io/" />
   <meta property="og:site_name" content="BitcoinCycle.io" />
   <meta property="og:image" content="https://www.bitcoincycle.io/public/assets/images/og-image.png" />
@@ -66,9 +66,9 @@
       --elevated: #181E2E;
       --border:   #1E2A3A;
       --border2:  #2A3A4A;
-      --text1:    #E0E0E0;
-      --text2:    #9AA5B4;
-      --text3:    #5A6A7A;
+      --text1:    #F0F0F0;
+      --text2:    #B0BCC8;
+      --text3:    #7A8A9A;
       --btc:      #F7931A;
       --btc-d:    rgba(247,147,26,.14);
       --btc-g:    rgba(247,147,26,.06);
@@ -90,6 +90,8 @@
       min-height: 100vh;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
     body::before {
       content: '';
@@ -138,12 +140,24 @@
       text-shadow: 0 0 10px rgba(247,147,26,.5);
       white-space: nowrap;
     }
-    .nav-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .nav-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
     .nav-link {
-      font-family: var(--mono); font-size: 11px; letter-spacing: 1px;
+      font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px;
       color: var(--text2); text-decoration: none; transition: color .2s;
+      text-transform: uppercase; font-weight: 700;
     }
-    .nav-link:hover { color: var(--acc); }
+    .nav-link:hover { color: var(--btc); }
+    .nav-link.blog-link {
+      color: var(--btc);
+      border: 1px solid rgba(247,147,26,.3);
+      padding: 4px 12px;
+      border-radius: 6px;
+      background: var(--btc-g);
+    }
+    .nav-link.blog-link:hover {
+      background: var(--btc-d);
+      border-color: var(--btc);
+    }
 
     /* ── HERO ── */
     .hero { text-align: center; margin-bottom: 40px; }
@@ -237,7 +251,7 @@
     .prediction-title { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--btc); text-transform: uppercase; margin-bottom: 10px; }
     .prediction-body { font-size: 14px; color: var(--text1); line-height: 1.7; }
     .disclaimer {
-      font-size: 11px; color: var(--text3); line-height: 1.6;
+      font-size: 11px; color: var(--text2); line-height: 1.6;
       border-top: 1px solid var(--border); margin-top: 16px; padding-top: 12px;
     }
 
@@ -246,7 +260,7 @@
     .section-hdr { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 16px; gap: 12px; flex-wrap: wrap; }
     .sec-title { font-family: var(--mono); font-size: clamp(12px,2vw,14px); font-weight: 700; color: var(--text1); display: flex; align-items: center; gap: 8px; }
     .sec-icon { color: var(--acc); }
-    .sec-sub { font-size: 12px; color: var(--text3); margin-top: 3px; }
+    .sec-sub { font-size: 12px; color: var(--text2); margin-top: 3px; }
     .chart-card {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--radius); padding: clamp(16px,3vw,24px) clamp(8px,2vw,16px) 12px;
@@ -273,13 +287,13 @@
     table { width: 100%; border-collapse: collapse; min-width: 520px; }
     thead th {
       font-family: var(--mono); font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--text3); padding: 12px 16px; text-align: left;
+      color: var(--text2); padding: 12px 16px; text-align: left;
       border-bottom: 1px solid var(--border); background: #0D1017; white-space: nowrap;
     }
     tbody tr { border-bottom: 1px solid rgba(30,42,58,.7); transition: background .15s; }
     tbody tr:last-child { border-bottom: none; }
     tbody tr:hover { background: rgba(255,255,255,.022); }
-    tbody tr.is-past { opacity: .38; }
+    tbody tr.is-past { opacity: .5; }
     tbody tr.is-next td { background: rgba(56,189,248,.05); }
     td { padding: 12px 16px; font-size: 13px; color: var(--text2); white-space: nowrap; }
     .mono { font-family: var(--mono); font-size: 12px; }
@@ -292,7 +306,7 @@
     .tp-atl { background: var(--atl-d); color: var(--atl); }
     .show-more {
       width: 100%; padding: 14px; background: transparent; border: none;
-      border-top: 1px solid var(--border); color: var(--text3);
+      border-top: 1px solid var(--border); color: var(--text2);
       font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
       cursor: pointer; transition: color .15s; display: flex; align-items: center; justify-content: center; gap: 7px;
     }
@@ -310,27 +324,38 @@
       text-decoration: none; transition: border-color .2s, transform .2s, box-shadow .2s;
     }
     .aff-card:hover { border-color: var(--btc); transform: translateY(-2px); box-shadow: 0 4px 24px rgba(247,147,26,.1); }
-    .aff-logo { width: 44px; height: 44px; border-radius: 8px; object-fit: contain; background: #fff; padding: 4px; flex-shrink: 0; }
-    .aff-logo-text { width: 44px; height: 44px; border-radius: 8px; background: linear-gradient(135deg,#1a1a2e,#16213e); border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--btc); flex-shrink: 0; }
+    .aff-logo {
+      width: 44px; height: 44px; border-radius: 8px;
+      object-fit: contain; flex-shrink: 0;
+      background: #ffffff;
+      padding: 4px;
+    }
+    .aff-logo-text {
+      width: 44px; height: 44px; border-radius: 8px;
+      background: linear-gradient(135deg,#1a1a2e,#16213e);
+      border: 1px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 11px; font-weight: 700;
+      color: var(--btc); flex-shrink: 0;
+    }
     .aff-info {}
     .aff-name { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--text1); letter-spacing: 1px; }
     .aff-text { font-size: 12px; color: var(--text2); margin-top: 2px; }
-    .aff-badge { font-family: var(--mono); font-size: 9px; letter-spacing: 1px; color: var(--btc); background: var(--btc-d); padding: 2px 7px; border-radius: 4px; margin-top: 5px; display: inline-block; }
+    .aff-badge {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 1px;
+      color: var(--btc); background: var(--btc-d);
+      padding: 2px 7px; border-radius: 4px; margin-top: 5px; display: inline-block;
+    }
 
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border); padding-top: 28px; margin-top: 16px;
       display: flex; flex-direction: column; align-items: center; gap: 14px;
     }
-    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-    .footer-link {
-      display: flex; align-items: center; gap: 6px;
-      font-family: var(--mono); font-size: 11px; letter-spacing: 1px;
-      color: var(--text3); text-decoration: none; transition: color .2s;
+    .footer-copy {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 1px;
+      color: var(--text3); text-align: center; line-height: 1.7;
     }
-    .footer-link:hover { color: var(--acc); }
-    .footer-link svg { width: 15px; height: 15px; flex-shrink: 0; }
-    .footer-copy { font-family: var(--mono); font-size: 10px; letter-spacing: 1px; color: var(--text3); text-align: center; line-height: 1.7; }
     .footer-copy a { color: var(--text3); text-decoration: none; }
     .footer-copy a:hover { color: var(--acc); }
 
@@ -359,6 +384,7 @@
     </a>
     <div class="nav-right">
       <div class="nav-pill" aria-label="Model: BTC 1064 over 364 days">BTC · 1064/364 MODEL</div>
+      <a href="/blog/" class="nav-link blog-link">BLOG</a>
     </div>
   </nav>
 
@@ -433,7 +459,7 @@
       <div>
         <div class="sec-title" id="chart-heading">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" class="sec-icon"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          Cycle Chart
+          Cycle Pulse Chart
         </div>
         <div class="sec-sub">2022 – 2038 · Expansion (1064 days) / Compression (364 days) wave</div>
       </div>
@@ -488,42 +514,47 @@
   </section>
 
   <!-- ═══ AFFILIATES ═══ -->
-  
- <section class="affiliates" aria-label="Partner exchanges">
+  <section class="affiliates" aria-label="Partner exchanges">
+
+    <!-- OKX — logo image, falls back to text if image missing -->
     <a href="https://web3.okx.com/join/BITCOINCYCLE" target="_blank" rel="noopener sponsored" class="aff-card" aria-label="OKX DEX — Get 10% off service fees">
-      <div class="aff-logo-text">OKX</div>
+      <img
+        src="/public/assets/okx-logo.png"
+        alt="OKX"
+        class="aff-logo"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <div class="aff-logo-text" style="display:none;">OKX</div>
       <div class="aff-info">
         <div class="aff-name">OKX DEX</div>
         <div class="aff-text">Get 10% off service fees</div>
         <span class="aff-badge">USE CODE: BITCOINCYCLE</span>
       </div>
     </a>
+
+    <!-- HYPERLIQUID — logo image, falls back to text if image missing -->
     <a href="https://app.hyperliquid.xyz/join/BITCOINCYCLE" target="_blank" rel="noopener sponsored" class="aff-card" aria-label="Hyperliquid — Unleash your potential">
-      <div class="aff-logo-text" style="color:var(--acc)">HL</div>
+      <img
+        src="/public/assets/hyperliquid-logo.png"
+        alt="Hyperliquid"
+        class="aff-logo"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <div class="aff-logo-text" style="display:none; color:var(--acc);">HL</div>
       <div class="aff-info">
         <div class="aff-name">HYPERLIQUID</div>
         <div class="aff-text">Unleash your potential.</div>
         <span class="aff-badge" style="color:var(--acc);background:var(--acc-d)">REFERRAL: BITCOINCYCLE</span>
       </div>
     </a>
+
   </section>
 
   <!-- ═══ FOOTER ═══ -->
   <footer>
-    <div class="footer-links">
-      <!-- X / Twitter -->
-      <a href="https://x.com/bitcoincycle_" target="_blank" rel="noopener" class="footer-link" aria-label="Follow @bitcoincycle_ on X">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L2.013 2.25h6.28l4.253 5.622 5.698-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        @bitcoincycle_
-      </a>
-      <a href="/about.html" class="footer-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Methodology
-      </a>
-    </div>
     <div class="footer-copy">
       BitcoinCycle.io · 1064/364 Expansion–Compression Model · Anchored to 21 Nov 2022 FTX ATL<br />
-       · Not financial advice · 
+      Not financial advice
     </div>
   </footer>
 
@@ -531,7 +562,6 @@
 
 <!-- ═══ CHART.JS CDN ═══ -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-<!-- Load main first (sets window.btcEvents), then dependents -->
 <script src="/public/js/main.js"></script>
 <script src="/public/js/countdown.js"></script>
 <script src="/public/js/chart.js"></script>
