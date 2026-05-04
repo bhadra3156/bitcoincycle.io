@@ -39,6 +39,7 @@
     }
   ],
   "rewrites": [
-    { "source": "/about", "destination": "/about.html" }
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
   ]
 }
