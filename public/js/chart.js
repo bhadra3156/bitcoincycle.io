@@ -66,7 +66,10 @@
       var idx = Math.round(f * STEPS);
       idx = Math.max(0, Math.min(STEPS, idx));
       sparseValues[idx] = e.type === 'ATH' ? 100 : 0;
-      sparseColors[idx] = e.type === 'ATH' ? '#F7931A' : '#4FC3F7';
+
+      
+sparseColors[idx] = e.type === 'ATH' ? '#FFD700' : '#4FC3F7';
+      
       sparseRadius[idx] = (window.btcNextEvt && e.id === window.btcNextEvt.id) ? 10 : (e.date < now ? 5 : 7);
     });
 
