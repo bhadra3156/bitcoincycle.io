@@ -1,8 +1,18 @@
 /* === FONT SHARPNESS FIX === */
+/* TASK 1: Force hero title to solid Bitcoin orange */
+
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+/* TASK 1: Force hero title to solid Bitcoin orange */
+.hero-title .btc-accent {
+  background: none !important;
+  -webkit-text-fill-color: #F7931A !important;
+  color: #F7931A !important;
 }
 
 /* Boost body text contrast */
