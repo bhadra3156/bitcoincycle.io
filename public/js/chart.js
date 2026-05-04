@@ -4,6 +4,61 @@
  * ATH dots = orange | ATL dots = blue | NOW = short dashed cyan (live)
  */
 
+function makeNowPlugin(getNowIndex) {
+  return {
+    id: 'nowLine',
+    afterDraw: function (chart) {
+      var idx = getNowIndex();
+      if (idx < 0) return;
+
+      var c    = chart.ctx;
+      var area = chart.chartArea;
+      var x    = chart.scales.x;
+
+      var xPos = x.getPixelForValue(idx);
+      var midY = (area.top + area.bottom) / 2;
+
+      c.save();
+
+      // Full-height dashed cyan line
+      c.beginPath();
+      c.setLineDash([6, 4]);
+      c.moveTo(xPos, area.top);
+      c.lineTo(xPos, area.bottom);
+      c.strokeStyle = '#38BDF8';
+      c.lineWidth   = 1.5;
+      c.globalAlpha = 0.6;
+      c.stroke();
+      c.setLineDash([]);
+      c.globalAlpha = 1;
+
+      // "NOW" badge at vertical center
+      c.font         = 'bold 10px "Space Mono", monospace';
+      c.textAlign    = 'center';
+      c.textBaseline = 'middle';
+      var tw = c.measureText('NOW').width;
+      var bx = xPos - tw / 2 - 7;
+      var by = midY - 11;
+      var bw = tw + 14;
+      var bh = 22;
+
+      c.fillStyle = 'rgba(10,10,10,0.92)';
+      roundRect(c, bx, by, bw, bh, 4);
+      c.fill();
+      c.strokeStyle = '#38BDF8';
+      c.lineWidth   = 1.2;
+      roundRect(c, bx, by, bw, bh, 4);
+      c.stroke();
+
+      c.fillStyle = '#38BDF8';
+      c.fillText('NOW', xPos, midY);
+
+      c.restore();
+    }
+  };
+}
+
+
 (function () {
 
   var chartInstance = null;
@@ -315,7 +370,7 @@ sparseColors[idx] = e.type === 'ATH' ? '#FFD700' : '#4FC3F7';
       newIdx      = Math.max(1, Math.min(data.STEPS - 1, newIdx));
       liveNowIndex.val = newIdx;
       chartInstance.update('none');
-    }, 60000);
+    }, 1000);
   }
 
   initChart();
