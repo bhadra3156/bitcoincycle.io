@@ -1,6 +1,6 @@
 /* ============================================================
    BitcoinCycle.io — style.css
-   Combines: font sharpness, hero accent, follow button
+   Linear-inspired dark theme + Follow on X button
    ============================================================ */
 
 /* === FONT SHARPNESS === */
@@ -10,44 +10,127 @@
   text-rendering: optimizeLegibility;
 }
 
-/* === BODY BASE === */
-body {
-  color: #e8e8e8;
-  font-weight: 400;
+/* ============================================================
+   TASK 1 — LINEAR.APP INSPIRED BACKGROUND & TEXT
+   Linear uses:
+   - Pure near-black background: #0F0F11
+   - Subtle cool-toned surface cards: #16161A
+   - Very fine grid/noise texture overlay
+   - Crisp white primary text: #F2F2F2
+   - Muted secondary text: #9B9BA4
+   - Thin, low-contrast borders: #262630
+   ============================================================ */
+
+:root {
+  /* Override your existing CSS variables to Linear-style values */
+  --bg:       #0F0F11;      /* Linear's near-black — cooler than pure #000 */
+  --surface:  #16161A;      /* Card backgrounds — very subtle lift */
+  --elevated: #1C1C22;      /* Hover / elevated cards */
+  --border:   #262630;      /* Thin cool-grey borders like Linear */
+  --border2:  #32323C;      /* Slightly brighter border on hover */
+  --text1:    #F2F2F2;      /* Crisp near-white primary text */
+  --text2:    #9B9BA4;      /* Linear's exact muted grey */
+  --text3:    #65656E;      /* Dimmed labels */
+  --btc:      #F7931A;      /* Bitcoin orange — unchanged */
+  --btc-d:    rgba(247,147,26,.14);
+  --btc-g:    rgba(247,147,26,.06);
+  --atl:      #F43F5E;
+  --atl-d:    rgba(244,63,94,.14);
+  --atl-blue: #4FC3F7;
+  --atl-blue-d: rgba(79,195,247,.14);
+  --acc:      #8B8BF8;      /* Linear uses soft indigo/purple accents */
+  --acc-d:    rgba(139,139,248,.10);
+  --green:    #22C55E;
+  --mono:     'Space Mono', monospace;
+  --sans:     'DM Sans', sans-serif;
+  --radius:   10px;         /* Linear uses slightly tighter radius */
+  --radius-sm: 6px;
 }
 
-/* === HERO TITLE — Solid Bitcoin Orange === */
+/* Linear-style background — subtle noise grain overlay */
+body {
+  background: var(--bg);
+  color: var(--text1);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Linear-style subtle grid — very faint, almost invisible */
+body::before {
+  background-image:
+    linear-gradient(rgba(139,139,248,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139,139,248,.018) 1px, transparent 1px) !important;
+  background-size: 40px 40px !important;
+}
+
+/* === HERO TITLE — Solid Bitcoin Orange (unchanged) === */
 .hero-title .btc-accent {
   background: none !important;
   -webkit-text-fill-color: #F7931A !important;
   color: #F7931A !important;
 }
 
-/* === MUTED / SECONDARY TEXT — Boosted Contrast === */
+/* === BODY TEXT CONTRAST === */
 .muted, .subtitle, .label, small, .dim {
-  color: #c0c0c0 !important;
+  color: #9B9BA4 !important;
   opacity: 1 !important;
 }
 
-/* === TABLE TEXT === */
-td, th {
-  color: #e0e0e0;
+/* === TABLE TEXT — Linear style === */
+td {
+  color: #C8C8D0;    /* Slightly brighter than --text2 for readability */
+  font-size: 13px;
+}
+th {
+  color: #65656E;    /* Dim headers like Linear's column labels */
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 /* === CHART LABELS === */
 .chart-label, .tick text {
-  fill: #e0e0e0 !important;
+  fill: #9B9BA4 !important;
   opacity: 1 !important;
 }
 
-/* === FOLLOW ON X BUTTON (top-right, orange) === */
+/* === CARDS — Linear-style subtle borders === */
+.stat,
+.cd-wrap,
+.prediction-card,
+.chart-card,
+.tbl-card,
+.aff-card {
+  border-color: var(--border) !important;
+  background: var(--surface) !important;
+}
+
+.stat:hover,
+.aff-card:hover {
+  border-color: var(--border2) !important;
+  background: var(--elevated) !important;
+}
+
+/* Linear uses a very subtle top highlight on cards */
+.cd-wrap,
+.prediction-card {
+  box-shadow:
+    0 0 0 1px var(--border),
+    inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+/* ============================================================
+   TASK 2 — FOLLOW ON X BUTTON
+   BullTheory style: bright background, bold, top-right
+   ============================================================ */
 .follow-x-btn {
   display: inline-flex;
   align-items: center;
   gap: 7px;
   padding: 8px 18px;
-  background: var(--btc);
-  color: #000;
+  background: #F7931A;           /* Bitcoin orange — solid fill like BullTheory */
+  color: #000000;
   border-radius: 8px;
   font-family: var(--mono);
   font-size: 11px;
@@ -55,18 +138,24 @@ td, th {
   letter-spacing: 1px;
   text-decoration: none;
   white-space: nowrap;
-  transition: background .2s, transform .2s, box-shadow .2s;
-  box-shadow: 0 0 18px rgba(247,147,26,.35);
+  transition: background .2s, transform .18s, box-shadow .2s;
+  box-shadow: 0 0 20px rgba(247,147,26,.40), 0 2px 8px rgba(0,0,0,.3);
   flex-shrink: 0;
+  border: none;
 }
 
 .follow-x-btn:hover {
   background: #e07f10;
   transform: translateY(-2px);
-  box-shadow: 0 0 28px rgba(247,147,26,.55);
+  box-shadow: 0 0 32px rgba(247,147,26,.60), 0 4px 16px rgba(0,0,0,.4);
+  color: #000000;
 }
 
+.follow-x-btn:active {
+  transform: translateY(0);
+}
+
+/* Hide arrow text on very small screens, keep icon */
 @media (max-width: 480px) {
-  .follow-x-btn span { display: none; }
-  .follow-x-btn { padding: 8px 12px; }
+  .follow-x-btn { padding: 8px 12px; font-size: 10px; }
 }
