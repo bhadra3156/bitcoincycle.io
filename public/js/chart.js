@@ -75,17 +75,26 @@
         c.textAlign   = 'center';
 
         const midY = top + (bottom - top) / 2;
-   c.font = 'bold 11px "Space Mono", monospace';
-   c.textAlign = 'center';
    c.textBaseline = 'middle';
    const tw = c.measureText('NOW').width;
-   c.fillStyle = 'rgba(247,147,26,0.15)';
    c.fillRect(xPos - tw/2 - 8, midY - 11, tw + 16, 22);
    c.strokeStyle = '#F7931A';
    c.lineWidth = 1;
    c.strokeRect(xPos - tw/2 - 8, midY - 11, tw + 16, 22);
    c.fillStyle = '#F7931A';
-   c.fillText('NOW', xPos, midY);
+   c.font        = 'bold 11px "Space Mono", monospace';
+c.textAlign   = 'center';
+c.textBaseline = 'middle';
+const _midY   = top + (bottom - top) / 2;
+const _tw     = c.measureText('NOW').width;
+c.fillStyle   = 'rgba(247,147,26,0.15)';
+c.fillRect(_midY && xPos - _tw/2 - 8, _midY - 11, _tw + 16, 22);
+c.strokeStyle = '#F7931A';
+c.lineWidth   = 1;
+c.strokeRect(xPos - _tw/2 - 8, _midY - 11, _tw + 16, 22);
+c.fillStyle   = '#F7931A';
+c.fillText('NOW', xPos, _midY);   
+        
         c.restore();
       }
     };
