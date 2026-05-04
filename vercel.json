@@ -1,6 +1,12 @@
 {
   "outputDirectory": ".",
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/blog/", "destination": "/blog/index.html" },
+    { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
+  ],
   "headers": [
     {
       "source": "/public/js/(.*)",
@@ -37,9 +43,5 @@
         { "key": "X-Frame-Options", "value": "DENY" }
       ]
     }
-  ],
-  "rewrites": [
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
   ]
 }
