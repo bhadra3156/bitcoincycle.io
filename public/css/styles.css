@@ -5,6 +5,60 @@
    This file handles any additional overrides only.
    ============================================================ */
 
+
+
+/* === CHART LEGEND FIX === */
+.chart-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.chart-title {
+  text-align: center;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.chart-legend {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-bottom: 16px;
+  align-self: flex-start;
+  padding-left: 16px;
+  font-size: 0.7rem;
+  color: #666;
+  font-family: monospace;
+}
+
+.chart-legend span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.chart-legend span::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.chart-legend span:last-child::before {
+  background: #ef4444;
+}
+/* === END CHART LEGEND FIX === */
+
+
 /* === FONT SHARPNESS === */
 * {
   -webkit-font-smoothing: antialiased;
