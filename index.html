@@ -219,9 +219,8 @@ h1.hero-title {
   font-weight: 700; line-height: 1.1; margin-bottom: 12px;
 }
 .hero-title span.btc-accent {
-  color: #F7931A;
-  -webkit-text-fill-color: #F7931A;
-}
+  background: linear-gradient(135deg, var(--btc) 0%, #ffe29a 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 .hero-sub { color: var(--text2); font-size: clamp(13px,2vw,15px); max-width: 520px; margin: 0 auto; line-height: 1.6; }
 
