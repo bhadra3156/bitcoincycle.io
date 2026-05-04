@@ -1,39 +1,72 @@
-/* === FONT SHARPNESS FIX === */
-/* TASK 1: Force hero title to solid Bitcoin orange */
+/* ============================================================
+   BitcoinCycle.io — style.css
+   Combines: font sharpness, hero accent, follow button
+   ============================================================ */
 
-
+/* === FONT SHARPNESS === */
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* TASK 1: Force hero title to solid Bitcoin orange */
+/* === BODY BASE === */
+body {
+  color: #e8e8e8;
+  font-weight: 400;
+}
+
+/* === HERO TITLE — Solid Bitcoin Orange === */
 .hero-title .btc-accent {
   background: none !important;
   -webkit-text-fill-color: #F7931A !important;
   color: #F7931A !important;
 }
 
-/* Boost body text contrast */
-body {
-  color: #e8e8e8;  /* brighter than typical #aaa or #888 */
-  font-weight: 400;
-}
-
-/* Any muted/secondary text — bump it up */
+/* === MUTED / SECONDARY TEXT — Boosted Contrast === */
 .muted, .subtitle, .label, small, .dim {
-  color: #c0c0c0 !important;  /* was probably #666 or #777 */
+  color: #c0c0c0 !important;
   opacity: 1 !important;
 }
 
-/* Table text */
+/* === TABLE TEXT === */
 td, th {
   color: #e0e0e0;
 }
 
-/* Chart labels */
+/* === CHART LABELS === */
 .chart-label, .tick text {
   fill: #e0e0e0 !important;
   opacity: 1 !important;
+}
+
+/* === FOLLOW ON X BUTTON (top-right, orange) === */
+.follow-x-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px;
+  background: var(--btc);
+  color: #000;
+  border-radius: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  box-shadow: 0 0 18px rgba(247,147,26,.35);
+  flex-shrink: 0;
+}
+
+.follow-x-btn:hover {
+  background: #e07f10;
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(247,147,26,.55);
+}
+
+@media (max-width: 480px) {
+  .follow-x-btn span { display: none; }
+  .follow-x-btn { padding: 8px 12px; }
 }
