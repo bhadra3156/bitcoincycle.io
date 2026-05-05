@@ -1,349 +1,286 @@
 /**
- * chart.js — BitcoinCycle.io
- * Single clean wave: green rising, red falling
- * ATH dots = yellow (#FFD700) | ATL dots = blue (#4FC3F7) | TODAY = dashed cyan (live, every second)
- * CHANGES:
- *   - "NOW" label changed to "TODAY" with auto current date below it
- *   - Hover tooltips show event name + full date
+ * BitcoinCycle.io — public/js/chart.js
+ * Cycle Pulse Chart
+ *
+ * TASK 3 changes:
+ *  - Removed "Today" marker / tooltip (was causing disappearing issues and slowing page)
+ *  - Date labels on X axis: bigger, brighter, Bitcoin orange (#F7931A)
+ *  - Y axis: shows "ATH" and "ATL" labels instead of numbers
+ *  - All ATH points (cycle peaks) and ATL points (cycle troughs) are labelled
+ *  - No hover popups on individual points — keeps page fast and clean
  */
 
 (function () {
+  'use strict';
 
-  var chartInstance = null;
+  /* ── Cycle parameters ───────────────────────────────────────── */
+  var ANCHOR      = new Date('2022-11-21');   // Cycle 4 ATL anchor
+  var EXPAND_DAYS = 1064;                      // ATL → ATH
+  var COMPRESS    = 364;                       // ATH → ATL
+  var CYCLE_LEN   = EXPAND_DAYS + COMPRESS;   // 1428
 
-  // Rounded rectangle helper
-  function roundRect(ctx, x, y, w, h, r) {
-    ctx.beginPath();
-    ctx.moveTo(x + r, y);
-    ctx.lineTo(x + w - r, y);
-    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-    ctx.lineTo(x + w, y + h - r);
-    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-    ctx.lineTo(x + r, y + h);
-    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-    ctx.lineTo(x, y + r);
-    ctx.quadraticCurveTo(x, y, x + r, y);
-    ctx.closePath();
+  /* ── Colour palette ─────────────────────────────────────────── */
+  var C_RISE  = '#34D399';   // expansion line (green)
+  var C_FALL  = '#F87171';   // compression line (red)
+  var C_ATH   = '#F0B429';   // ATH dots (amber)
+  var C_ATL   = '#60A5FA';   // ATL dots (blue)
+  var C_GRID  = 'rgba(255,255,255,0.05)';
+  var C_ORANGE = '#F7931A';  // Bitcoin orange — for date labels
+
+  /* ── Build the cycle data points ───────────────────────────── */
+  // We plot from Cycle 4 anchor (Nov 2022) through ~Cycle 8 (2038)
+  // Each cycle: sinusoidal rise for 1064 days, then fall for 364 days.
+  // We normalise the Y axis so ATH = 1, ATL = 0.
+
+  var POINT_DENSITY = 30; // one data point every N days — keeps rendering fast
+
+  function msToDay(ms) {
+    return ms / 86400000;
   }
 
-  // Format today's date for the badge, e.g. "5 May 2026"
-  function getTodayLabel() {
-    var now = new Date();
-    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    return now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
+  function dayToMs(d) {
+    return d * 86400000;
   }
 
-  // TODAY line plugin — full height dashed cyan, "TODAY" badge + current date
-  function makeNowPlugin(getNowIndex) {
-    return {
-      id: 'nowLine',
-      afterDraw: function (chart) {
-        var idx = getNowIndex();
-        if (idx < 0) return;
-
-        var c = chart.ctx;
-        var area = chart.chartArea;
-        var x = chart.scales.x;
-        var xPos = x.getPixelForValue(idx);
-        var midY = (area.top + area.bottom) / 2;
-
-        c.save();
-
-        // Full-height dashed cyan vertical line
-        c.beginPath();
-        c.setLineDash([6, 4]);
-        c.moveTo(xPos, area.top);
-        c.lineTo(xPos, area.bottom);
-        c.strokeStyle = '#38BDF8';
-        c.lineWidth = 1.5;
-        c.globalAlpha = 0.6;
-        c.stroke();
-        c.setLineDash([]);
-        c.globalAlpha = 1;
-
-        // "TODAY" badge with date underneath — centred at vertical midpoint
-        var todayLabel = getTodayLabel();
-        c.font = 'bold 10px "Space Mono", monospace';
-        c.textAlign = 'center';
-        c.textBaseline = 'middle';
-
-        var twToday = c.measureText('TODAY').width;
-        c.font = '9px "Space Mono", monospace';
-        var twDate = c.measureText(todayLabel).width;
-        var badgeW = Math.max(twToday, twDate) + 16;
-        var badgeH = 36;
-
-        var bx = xPos - badgeW / 2;
-        var by = midY - badgeH / 2;
-
-        // Badge background
-        c.fillStyle = 'rgba(10,10,10,0.92)';
-        roundRect(c, bx, by, badgeW, badgeH, 5);
-        c.fill();
-
-        // Badge border
-        c.strokeStyle = '#38BDF8';
-        c.lineWidth = 1.2;
-        roundRect(c, bx, by, badgeW, badgeH, 5);
-        c.stroke();
-
-        // "TODAY" text
-        c.font = 'bold 10px "Space Mono", monospace';
-        c.fillStyle = '#38BDF8';
-        c.fillText('TODAY', xPos, midY - 9);
-
-        // Date text below
-        c.font = '8px "Space Mono", monospace';
-        c.fillStyle = 'rgba(56,189,248,0.7)';
-        c.fillText(todayLabel, xPos, midY + 9);
-
-        c.restore();
-      }
-    };
+  function dateAddDays(base, days) {
+    return new Date(base.getTime() + dayToMs(days));
   }
 
-  function buildChartData() {
-    var now = new Date();
-    var events = window.btcEvents;
-    var STEPS = 400;
+  // Generate smooth sinusoidal Y value for a given day within the cycle
+  // pos = days within current 1428-day cycle (0 = ATL, 1064 = ATH, 1428 = next ATL)
+  function cycleY(pos) {
+    if (pos <= EXPAND_DAYS) {
+      // Rising: 0 → 1 over 1064 days (smooth sine curve)
+      return 0.5 - 0.5 * Math.cos(Math.PI * pos / EXPAND_DAYS);
+    } else {
+      // Falling: 1 → 0 over 364 days
+      var p = (pos - EXPAND_DAYS) / COMPRESS;
+      return 0.5 + 0.5 * Math.cos(Math.PI * p);
+    }
+  }
 
-    // Filter 2022–2038
-    var slice = events.filter(function (e) {
-      var t = e.date.getTime();
-      return (
-        t >= new Date('2022-01-01').getTime() &&
-        t <= new Date('2038-12-31').getTime()
-      );
-    });
+  // Build datasets
+  var riseData  = [];  // expansion segments
+  var fallData  = [];  // compression segments
+  var athPoints = [];  // ATH markers
+  var atlPoints = [];  // ATL markers (including anchor)
 
-    var first = slice[0].date.getTime();
-    var last = slice[slice.length - 1].date.getTime();
-    var totalMs = last - first;
+  // How many total cycles to show (from anchor)
+  var TOTAL_DAYS = CYCLE_LEN * 4 + EXPAND_DAYS; // ~2038
 
-    // Build 400 smooth cosine-interpolated points
-    var smoothLabels = [];
-    var smoothValues = [];
+  var day = 0;
+  while (day <= TOTAL_DAYS) {
+    var cycleOffset = day % CYCLE_LEN;
+    var date = dateAddDays(ANCHOR, day);
+    var y = cycleY(cycleOffset);
 
-    for (var i = 0; i <= STEPS; i++) {
-      var frac = i / STEPS;
-      var ms = first + frac * totalMs;
-      var d = new Date(ms);
+    var point = { x: date, y: y };
 
-      // Find which segment we're in
-      var segIdx = 0;
-      for (var j = 0; j < slice.length - 1; j++) {
-        if (ms >= slice[j].date.getTime() && ms <= slice[j + 1].date.getTime()) {
-          segIdx = j;
-          break;
-        }
-      }
-
-      var evA = slice[segIdx];
-      var evB = slice[segIdx + 1] || evA;
-      var segFrac = (ms - evA.date.getTime()) / ((evB.date.getTime() - evA.date.getTime()) || 1);
-
-      var startVal = evA.type === 'ATH' ? 100 : 0;
-      var endVal = evB.type === 'ATH' ? 100 : 0;
-      var ease = (1 - Math.cos(segFrac * Math.PI)) / 2;
-      var val = startVal + (endVal - startVal) * ease;
-
-      smoothLabels.push(window.fmtShort ? window.fmtShort(d) : d.toLocaleDateString());
-      smoothValues.push(val);
+    if (cycleOffset <= EXPAND_DAYS) {
+      riseData.push(point);
+    } else {
+      fallData.push(point);
     }
 
-    // Sparse dot arrays — null everywhere except at real event positions
-    var sparseValues = new Array(STEPS + 1).fill(null);
-    var sparseColors = new Array(STEPS + 1).fill('transparent');
-    var sparseRadius = new Array(STEPS + 1).fill(0);
-
-    // Map event index to event for tooltip lookup
-    var indexToEvent = {};
-
-    slice.forEach(function (e) {
-      var f = (e.date.getTime() - first) / totalMs;
-      var idx = Math.round(f * STEPS);
-      idx = Math.max(0, Math.min(STEPS, idx));
-
-      sparseValues[idx] = e.type === 'ATH' ? 100 : 0;
-      sparseColors[idx] = e.type === 'ATH' ? '#FFD700' : '#4FC3F7';
-      sparseRadius[idx] = (window.btcNextEvt && e.id === window.btcNextEvt.id) ? 10 : (e.date < now ? 5 : 7);
-      indexToEvent[idx] = e;
-    });
-
-    // NOW position index
-    var nowFrac = (now.getTime() - first) / totalMs;
-    var nowIndex = Math.round(nowFrac * STEPS);
-    nowIndex = Math.max(1, Math.min(STEPS - 1, nowIndex));
-
-    return {
-      slice: slice,
-      smoothLabels: smoothLabels,
-      smoothValues: smoothValues,
-      sparseValues: sparseValues,
-      sparseColors: sparseColors,
-      sparseRadius: sparseRadius,
-      indexToEvent: indexToEvent,
-      nowIndex: nowIndex,
-      first: first,
-      last: last,
-      totalMs: totalMs,
-      STEPS: STEPS
-    };
+    day += POINT_DENSITY;
   }
 
-  function initChart() {
-    var canvas = document.getElementById('pulseChart');
-    if (!canvas || typeof Chart === 'undefined' || !window.btcEvents) return;
+  // ATL points: at day 0, 1428, 2856, 4284, 5712 ...
+  var atlDay = 0;
+  while (atlDay <= TOTAL_DAYS) {
+    atlPoints.push({ x: dateAddDays(ANCHOR, atlDay), y: 0 });
+    atlDay += CYCLE_LEN;
+  }
 
-    var data = buildChartData();
-    var liveNowIndex = { val: data.nowIndex };
+  // ATH points: at day 1064, 2492, 3920, 5348 ...
+  var athDay = EXPAND_DAYS;
+  while (athDay <= TOTAL_DAYS) {
+    athPoints.push({ x: dateAddDays(ANCHOR, athDay), y: 1 });
+    athDay += CYCLE_LEN;
+  }
+
+  /* ── Wait for Chart.js to load ──────────────────────────────── */
+  function tryRender() {
+    var canvas = document.getElementById('pulseChart');
+    if (!canvas) return;
+    if (typeof Chart === 'undefined') {
+      setTimeout(tryRender, 100);
+      return;
+    }
+    renderChart(canvas);
+  }
+
+  function renderChart(canvas) {
     var ctx = canvas.getContext('2d');
 
-    // Gradient fill
-    var grad = ctx.createLinearGradient(0, 0, 0, 300);
-    grad.addColorStop(0, 'rgba(34,197,94,0.15)');
-    grad.addColorStop(0.5, 'rgba(247,147,26,0.05)');
-    grad.addColorStop(1, 'rgba(79,195,247,0.07)');
+    // Destroy existing chart if re-rendering
+    if (canvas._chartInstance) {
+      canvas._chartInstance.destroy();
+    }
 
-    var nowPlugin = makeNowPlugin(function () { return liveNowIndex.val; });
-
-    chartInstance = new Chart(ctx, {
+    var chart = new Chart(ctx, {
       type: 'line',
-      plugins: [nowPlugin],
       data: {
-        labels: data.smoothLabels,
         datasets: [
-          // Dataset 1: smooth wave line — green rising, red falling, NO dots
+          /* Expansion (rising) line */
           {
-            label: 'Cycle',
-            data: data.smoothValues,
+            label: 'Rising (Expansion)',
+            data: riseData,
+            borderColor: C_RISE,
             borderWidth: 2.5,
-            tension: 0,
-            fill: true,
-            backgroundColor: grad,
-            borderColor: '#22C55E',
-            segment: {
-              borderColor: function (ctx) {
-                return ctx.p1.parsed.y >= ctx.p0.parsed.y ? '#22C55E' : '#F43F5E';
-              }
-            },
             pointRadius: 0,
-            pointHoverRadius: 0
+            tension: 0.4,
+            fill: {
+              target: 'origin',
+              above: 'rgba(52,211,153,0.07)'
+            },
+            parsing: false,
+            order: 3
           },
-          // Dataset 2: event dots only — yellow ATH, blue ATL, no connecting line
+          /* Compression (falling) line */
           {
-            label: 'Events',
-            data: data.sparseValues,
-            borderWidth: 0,
-            tension: 0,
+            label: 'Falling (Compression)',
+            data: fallData,
+            borderColor: C_FALL,
+            borderWidth: 2.5,
+            pointRadius: 0,
+            tension: 0.4,
             fill: false,
-            backgroundColor: 'transparent',
-            borderColor: 'transparent',
-            pointBackgroundColor: data.sparseColors,
-            pointBorderColor: '#0A0A0A',
-            pointBorderWidth: 2,
-            pointRadius: data.sparseRadius,
-            pointHoverRadius: data.sparseRadius.map(function (r) { return r > 0 ? r + 3 : 0; }),
-            pointHoverBackgroundColor: data.sparseColors,
-            pointHoverBorderColor: '#ffffff',
-            pointHoverBorderWidth: 2,
-            showLine: false
+            parsing: false,
+            order: 3
+          },
+          /* ATH dots */
+          {
+            label: 'ATH',
+            data: athPoints,
+            borderColor: C_ATH,
+            backgroundColor: C_ATH,
+            pointRadius: 7,
+            pointHoverRadius: 9,
+            pointStyle: 'circle',
+            borderWidth: 2,
+            showLine: false,
+            parsing: false,
+            order: 1
+          },
+          /* ATL dots */
+          {
+            label: 'ATL',
+            data: atlPoints,
+            borderColor: C_ATL,
+            backgroundColor: C_ATL,
+            pointRadius: 7,
+            pointHoverRadius: 9,
+            pointStyle: 'circle',
+            borderWidth: 2,
+            showLine: false,
+            parsing: false,
+            order: 1
           }
         ]
       },
       options: {
         responsive: true,
-        maintainAspectRatio: false,
-        animation: { duration: 800, easing: 'easeOutQuart' },
-        interaction: { mode: 'index', intersect: false },
+        maintainAspectRatio: true,
+        animation: { duration: 400 },
+        interaction: {
+          mode: 'nearest',
+          intersect: true   // only show tooltip when hovering exactly on a dot
+        },
         plugins: {
-          legend: { display: false },
+          legend: { display: false },  // we use our own HTML legend
           tooltip: {
-            // Only show tooltip when hovering an actual event dot
+            enabled: true,
             filter: function (item) {
-              return item.datasetIndex === 1 && item.raw !== null;
+              // Only show tooltip for ATH and ATL dots, not line points
+              return item.datasetIndex === 2 || item.datasetIndex === 3;
             },
-            backgroundColor: '#11151F',
-            borderColor: '#38BDF8',
+            backgroundColor: 'rgba(13,13,15,0.95)',
+            borderColor: 'rgba(247,147,26,0.3)',
             borderWidth: 1,
-            titleColor: '#F0F0F0',
-            bodyColor: '#B0BCC8',
-            padding: 14,
-            cornerRadius: 8,
-            titleFont: { family: "'Space Mono', monospace", size: 12, weight: 'bold' },
-            bodyFont: { family: "'DM Sans', sans-serif", size: 13 },
+            padding: 10,
+            titleFont: { family: "'Space Mono', monospace", size: 11 },
+            bodyFont:  { family: "'Space Mono', monospace", size: 12 },
+            titleColor: '#9BA3B8',
+            bodyColor: '#EEEEF0',
             callbacks: {
-              // Title: event type + cycle number e.g. "↑ ATH — Cycle 2 Peak"
               title: function (items) {
-                var idx = items[0].dataIndex;
-                var evt = data.indexToEvent[idx];
-                if (!evt) return '';
-                var icon = evt.type === 'ATH' ? '🟡' : '🔵';
-                var label = evt.type === 'ATH' ? 'ATH — Cycle Peak' : 'ATL — Cycle Bottom';
-                return icon + ' ' + label;
+                if (!items.length) return '';
+                var d = new Date(items[0].raw.x);
+                return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
               },
-              // Body: the full predicted date
               label: function (item) {
-                var idx = item.dataIndex;
-                var evt = data.indexToEvent[idx];
-                if (!evt) return '';
-                var d = evt.date;
-                var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-                var dateStr = d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
-                return '📅 ' + dateStr;
-              },
-              // Colour swatch
-              labelColor: function (item) {
-                var col = data.sparseColors[item.dataIndex];
-                return {
-                  backgroundColor: (col && col !== 'transparent') ? col : '#38BDF8',
-                  borderColor: 'transparent',
-                  borderRadius: 3
-                };
+                if (item.datasetIndex === 2) return '↑ All-Time High (ATH)';
+                if (item.datasetIndex === 3) return '↓ All-Time Low (ATL)';
+                return '';
               }
             }
           }
         },
         scales: {
           x: {
-            grid: { color: 'rgba(30,42,58,0.5)', drawBorder: false },
+            type: 'time',
+            time: {
+              unit: 'year',
+              displayFormats: { year: 'MMM YYYY' }
+            },
+            grid: {
+              color: C_GRID,
+              drawBorder: false
+            },
             ticks: {
-              color: '#5A6A7A',
-              font: { family: "'Space Mono', monospace", size: 10 },
+              color: C_ORANGE,         // TASK 3: Bitcoin orange
+              font: {
+                family: "'Space Mono', monospace",
+                size: 12,              // TASK 3: bigger
+                weight: '700'          // TASK 3: bold
+              },
               maxRotation: 0,
-              autoSkip: true,
               maxTicksLimit: 8
             },
-            border: { color: '#1E2A3A' }
+            border: { display: false }
           },
           y: {
-            min: -12,
-            max: 118,
-            grid: { color: 'rgba(30,42,58,0.5)', drawBorder: false },
-            ticks: {
-              color: '#5A6A7A',
-              font: { family: "'Space Mono', monospace", size: 10 },
-              callback: function (v) { return v === 100 ? 'ATH' : v === 0 ? 'ATL' : ''; },
-              stepSize: 50
+            min: -0.05,
+            max: 1.15,
+            grid: {
+              color: C_GRID,
+              drawBorder: false
             },
-            border: { color: '#1E2A3A' }
+            ticks: {
+              // TASK 3: Show ATH / ATL text labels instead of 0/1 numbers
+              color: function (ctx) {
+                var val = ctx.tick.value;
+                if (val >= 0.95) return C_ATH;   // amber for ATH
+                if (val <= 0.05) return C_ATL;   // blue for ATL
+                return 'rgba(0,0,0,0)';           // hide mid values
+              },
+              font: {
+                family: "'Space Mono', monospace",
+                size: 12,
+                weight: '700'
+              },
+              callback: function (val) {
+                if (val >= 0.95) return 'ATH';
+                if (val <= 0.05) return 'ATL';
+                return '';
+              },
+              stepSize: 1
+            },
+            border: { display: false }
           }
         }
       }
     });
 
-    // Live TODAY line — updates every second
-    setInterval(function () {
-      if (!chartInstance) return;
-      var now2 = new Date();
-      var frac2 = (now2.getTime() - data.first) / data.totalMs;
-      var newIdx = Math.round(frac2 * data.STEPS);
-      newIdx = Math.max(1, Math.min(data.STEPS - 1, newIdx));
-      liveNowIndex.val = newIdx;
-      chartInstance.update('none');
-    }, 1000);
+    canvas._chartInstance = chart;
   }
 
-  initChart();
+  /* ── Init ───────────────────────────────────────────────────── */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', tryRender);
+  } else {
+    tryRender();
+  }
 
 })();
