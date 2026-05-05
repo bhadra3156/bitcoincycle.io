@@ -3,32 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The 1064/364 Bitcoin Cycle Model: Complete 2026 Guide | BitcoinCycle.io</title>
-<meta name="description" content="The complete guide to Bitcoin's 1,064-day expansion and 364-day compression model. Historical cycles from 2012–2022, Cycle 4 predictions through 2050, FAQ, and live dashboard." />
-<link rel="canonical" href="https://www.bitcoincycle.io/blog/1064-364-bitcoin-cycle-model-guide-2026.html" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="The 1064/364 Bitcoin Cycle Model: Complete 2026 Guide" />
-<meta property="og:description" content="The definitive guide to the 1064/364 expansion-compression Bitcoin cycle model, anchored to the November 2022 FTX bottom." />
-<meta property="og:url" content="https://www.bitcoincycle.io/blog/1064-364-bitcoin-cycle-model-guide-2026.html" />
-<meta property="og:image" content="https://www.bitcoincycle.io/public/assets/images/og-image.png" />
-<meta name="twitter:card" content="summary_large_image" />
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "The 1064/364 Bitcoin Cycle Model: Complete 2026 Guide",
-  "datePublished": "2026-05-04",
-  "dateModified": "2026-05-04",
-  "author": { "@type": "Organization", "name": "BitcoinCycle.io" },
-  "publisher": {
-    "@type": "Organization",
-    "name": "BitcoinCycle.io",
-    "url": "https://www.bitcoincycle.io"
-  },
-  "description": "The definitive guide to Bitcoin's 1,064-day expansion and 364-day compression model, anchored to the November 2022 FTX bottom with predictions through 2050."
-}
-</script>
+<title>Bitcoin Cycle Explained: Expansion vs Compression | BitcoinCycle.io</title>
+<meta name="description" content="A beginner-friendly breakdown of Bitcoin's expansion and compression phases. Learn what drives each part of the cycle and how to use the 1064/364 model to navigate markets." />
+<link rel="canonical" href="https://www.bitcoincycle.io/blog/bitcoin-cycle-explained" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,25 +16,18 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:         #0D0D0F;
-  --surface:    #13131A;
-  --elevated:   #1A1A24;
-  --border:     #1E2030;
-  --border2:    #2A2D45;
-  --text1:  #EEEEF0;
-  --text2:  #9aaaba;
-  --text3:  #4A4D65;
-  --btc:    #F7931A;
-  --btc-d:  rgba(247,147,26,.12);
-  --btc-g:  rgba(247,147,26,.05);
-  --ath-color: #F0B429;
-  --ath-bg:    rgba(240,180,41,.10);
-  --ath-border:rgba(240,180,41,.25);
-  --atl-color: #60A5FA;
-  --atl-bg:    rgba(96,165,250,.10);
-  --atl-border:rgba(96,165,250,.25);
-  --green:  #34D399;
-  --purple: #818CF8;
+  --bg:      #0D0D0F;
+  --surface: #13131A;
+  --border:  #1E2030;
+  --border2: #2A2D45;
+  --text1:   #EEEEF0;
+  --text2:   #8B8FA8;
+  --text3:   #4A4D65;
+  --btc:     #F7931A;
+  --btc-g:   rgba(247,147,26,.05);
+  --green:   #34D399;
+  --atl:     #60A5FA;
+  --purple:  #818CF8;
   --mono: 'Space Mono', monospace;
   --sans: 'DM Sans', sans-serif;
   --r: 10px;
@@ -108,333 +78,156 @@ body::after {
   padding: 20px 0;
   border-bottom: 1px solid var(--border);
 }
-
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: flex; align-items: center; gap: 10px;
   text-decoration: none;
-  font-family: var(--mono);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  color: var(--text1);
-  justify-self: start;
+  font-family: var(--mono); font-size: 14px; font-weight: 700;
+  letter-spacing: 1.5px; color: var(--text1); justify-self: start;
 }
-
 .brand-icon {
-  width: 34px; height: 34px;
-  border-radius: 8px;
+  width: 34px; height: 34px; border-radius: 8px;
   background: linear-gradient(135deg, #F7931A 0%, #E07010 100%);
   display: flex; align-items: center; justify-content: center;
   font-size: 17px; color: #0A0A0A; font-weight: 900;
   box-shadow: 0 0 16px rgba(247,147,26,.35);
 }
-
-.nav-centre {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
+.nav-centre { display: flex; align-items: center; gap: 8px; }
 .nav-link {
-  color: #b0bec8;
-  text-decoration: none;
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  padding: 6px 14px;
-  border: 1px solid #1e1e32;
-  border-radius: 6px;
+  color: #b0bec8; text-decoration: none;
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em;
+  padding: 6px 14px; border: 1px solid #1e1e32; border-radius: 6px;
   transition: border-color 0.2s, color 0.2s;
 }
-.nav-link:hover, .nav-link.active {
-  border-color: #f7931a;
-  color: #e2e8f0;
-}
-
+.nav-link:hover { border-color: #f7931a; color: #e2e8f0; }
 .nav-right { justify-self: end; }
-
 .follow-x-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 16px;
-  background: var(--btc);
-  color: #000;
-  border-radius: var(--r-sm);
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 16px; background: var(--btc); color: #000;
+  border-radius: var(--r-sm); font-family: var(--mono); font-size: 11px;
+  font-weight: 700; letter-spacing: 0.5px; text-decoration: none;
   transition: background .2s, transform .18s;
   box-shadow: 0 0 20px rgba(247,147,26,.35);
 }
 .follow-x-btn:hover { background: #E07010; transform: translateY(-1px); color: #000; }
 
-/* BREADCRUMB */
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 24px 0 0;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--text3);
-}
-.breadcrumb a { color: var(--text3); text-decoration: none; }
-.breadcrumb a:hover { color: var(--btc); }
-.breadcrumb-sep { color: var(--text3); opacity: .4; }
-
 /* ARTICLE LAYOUT */
 .article-wrap {
   max-width: 760px;
   margin: 0 auto;
+  padding: 56px 0 0;
 }
 
-/* ARTICLE HEADER */
-.article-header {
-  padding: 40px 0 36px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 40px;
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 1px;
+  color: var(--text3); text-decoration: none;
+  margin-bottom: 32px;
+  transition: color .2s;
 }
+.back-link:hover { color: var(--btc); }
 
 .article-category {
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--btc);
-  margin-bottom: 16px;
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--btc); margin-bottom: 14px;
 }
 
-h1.article-title {
+.article-title {
   font-family: var(--mono);
-  font-size: clamp(22px, 4vw, 34px);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--text1);
-  margin-bottom: 20px;
-}
-
-.article-desc {
-  font-size: 17px;
-  color: var(--text2);
-  line-height: 1.75;
-  margin-bottom: 24px;
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight: 700; line-height: 1.2;
+  color: var(--text1); margin-bottom: 16px;
 }
 
 .article-meta {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  margin-bottom: 40px; padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
 }
-
-.meta-pill {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--text3);
-  letter-spacing: 0.5px;
+.meta-item {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--text3); letter-spacing: 0.5px;
 }
 
 /* ARTICLE BODY */
 .article-body h2 {
-  font-family: var(--mono);
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--btc);
-  margin: 40px 0 16px;
-  padding-top: 8px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-family: var(--mono); font-size: 18px; font-weight: 700;
+  color: var(--btc); margin: 40px 0 14px;
+  border-left: 3px solid var(--btc); padding-left: 14px;
 }
 
 .article-body h3 {
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text1);
-  margin: 28px 0 12px;
+  font-family: var(--mono); font-size: 14px; font-weight: 700;
+  color: var(--text1); margin: 28px 0 10px;
 }
 
 .article-body p {
-  color: var(--text2);
-  font-size: 15px;
-  line-height: 1.85;
-  margin-bottom: 18px;
+  color: var(--text2); margin-bottom: 18px; line-height: 1.85;
 }
 
-.article-body p strong {
-  color: var(--text1);
-  font-weight: 600;
+.article-body ul, .article-body ol {
+  color: var(--text2); margin: 0 0 18px 24px; line-height: 1.85;
 }
+.article-body li { margin-bottom: 8px; }
 
-.article-body a {
-  color: var(--btc);
-  text-decoration: none;
+.article-body strong { color: var(--text1); }
+
+.highlight-box {
+  background: #111;
+  border: 1px solid rgba(247,147,26,.2);
+  border-left: 4px solid var(--btc);
+  padding: 16px 20px; margin: 24px 0; border-radius: 6px;
 }
-.article-body a:hover { text-decoration: underline; }
+.highlight-box p { margin: 0; color: var(--text2); }
 
-/* INFO BOX */
 .info-box {
-  background: var(--surface);
-  border: 1px solid var(--border2);
-  border-left: 3px solid var(--btc);
-  border-radius: 0 var(--r-sm) var(--r-sm) 0;
-  padding: 20px 24px;
+  background: #111;
+  border: 1px solid rgba(96,165,250,.2);
+  border-left: 4px solid var(--atl);
+  padding: 16px 20px; margin: 24px 0; border-radius: 6px;
+}
+.info-box p { margin: 0; color: var(--text2); }
+
+.phase-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   margin: 24px 0;
 }
-
-.info-box p {
-  margin-bottom: 0 !important;
-  font-size: 14px !important;
+.phase-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 20px 22px;
 }
-
-/* DATA TABLE */
-.data-table-wrap {
-  overflow-x: auto;
-  margin: 24px 0;
-  border-radius: var(--r);
-  border: 1px solid var(--border);
+.phase-card.expansion { border-top: 3px solid var(--btc); }
+.phase-card.compression { border-top: 3px solid var(--atl); }
+.phase-label {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 8px;
 }
-
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 480px;
-  background: var(--surface);
+.phase-card.expansion .phase-label { color: var(--btc); }
+.phase-card.compression .phase-label { color: var(--atl); }
+.phase-days {
+  font-family: var(--mono); font-size: 32px; font-weight: 700;
+  line-height: 1; margin-bottom: 6px;
 }
+.phase-card.expansion .phase-days { color: var(--btc); }
+.phase-card.compression .phase-days { color: var(--atl); }
+.phase-desc { font-size: 13px; color: var(--text2); }
 
-.data-table thead th {
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text3);
-  padding: 12px 16px;
-  text-align: left;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
-  white-space: nowrap;
+/* ARTICLE FOOTER */
+.article-footer {
+  margin-top: 48px; padding-top: 28px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
 }
-
-.data-table tbody tr {
-  border-bottom: 1px solid rgba(30,32,48,.6);
-}
-.data-table tbody tr:last-child { border-bottom: none; }
-.data-table tbody tr:hover { background: rgba(255,255,255,.015); }
-
-.data-table td {
-  padding: 11px 16px;
-  font-size: 13px;
-  color: var(--text2);
-  font-family: var(--mono);
-  white-space: nowrap;
-}
-
-.data-table td:first-child { color: var(--text1); font-weight: 700; }
-
-.tp {
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 4px;
-}
-.tp-ath { background: var(--ath-bg); color: var(--ath-color); border: 1px solid var(--ath-border); }
-.tp-atl { background: var(--atl-bg); color: var(--atl-color); border: 1px solid var(--atl-border); }
-
-/* FAQ */
-.faq-item {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  padding: 22px 24px;
-  margin-bottom: 10px;
-}
-
-.faq-q {
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text1);
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-
-.faq-a {
-  font-size: 14px;
-  color: var(--text2);
-  line-height: 1.75;
-  margin: 0;
-}
-
-.faq-a strong { color: var(--text1); }
-
-/* CTA BOX */
-.cta-box {
-  background: linear-gradient(135deg, rgba(247,147,26,.08) 0%, rgba(247,147,26,.03) 100%);
-  border: 1px solid rgba(247,147,26,.25);
-  border-radius: var(--r);
-  padding: 28px 32px;
-  text-align: center;
-  margin: 40px 0;
-}
-
-.cta-box p {
-  color: var(--text2);
-  font-size: 15px;
-  margin-bottom: 20px;
-}
-
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 28px;
-  background: var(--btc);
-  color: #000;
-  border-radius: var(--r-sm);
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-decoration: none;
-  transition: background .2s, transform .18s;
-  box-shadow: 0 0 24px rgba(247,147,26,.35);
-}
-.cta-btn:hover { background: #E07010; transform: translateY(-1px); color: #000; text-decoration: none; }
-
-/* DISCLAIMER */
-.article-disclaimer {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  padding: 20px 24px;
-  margin: 40px 0;
-  font-size: 12px;
-  color: var(--text3);
-  line-height: 1.7;
+.disclaimer-block {
+  font-size: 11px; color: var(--text3); line-height: 1.6;
+  max-width: 560px;
 }
 
 footer {
   border-top: 1px solid var(--border);
-  padding-top: 28px;
-  text-align: center;
-  margin-top: 48px;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--text3);
-  line-height: 1.9;
+  padding-top: 28px; text-align: center; margin-top: 48px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 1px;
+  color: var(--text3); line-height: 1.9;
 }
 footer a { color: var(--text3); text-decoration: none; }
 footer a:hover { color: var(--btc); }
@@ -443,7 +236,7 @@ footer a:hover { color: var(--btc); }
   .app { padding: 0 16px 60px; }
   .nav { grid-template-columns: 1fr auto; }
   .nav-centre { display: none; }
-  .article-header { padding: 32px 0 28px; }
+  .phase-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -458,8 +251,8 @@ footer a:hover { color: var(--btc); }
       BitcoinCycle
     </a>
     <div class="nav-centre">
-      <a href="/blog/" class="nav-link active">BLOG</a>
-      <a href="/about.html" class="nav-link">ABOUT US</a>
+      <a href="/blog" class="nav-link active">BLOG</a>
+      <a href="/about" class="nav-link">ABOUT US</a>
     </div>
     <div class="nav-right">
       <a href="https://x.com/bitcoincycle_" target="_blank" rel="noopener" class="follow-x-btn">
@@ -469,268 +262,116 @@ footer a:hover { color: var(--btc); }
     </div>
   </nav>
 
-  <!-- BREADCRUMB -->
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a>
-    <span class="breadcrumb-sep">/</span>
-    <a href="/blog/">Blog</a>
-    <span class="breadcrumb-sep">/</span>
-    <span>1064/364 Complete Guide</span>
-  </nav>
-
   <!-- ARTICLE -->
   <div class="article-wrap">
-    <header class="article-header">
-      <div class="article-category">📘 Pillar Guide · Cycle Education</div>
-      <h1 class="article-title">The 1064/364 Bitcoin Cycle Model: Complete 2026 Guide</h1>
-      <p class="article-desc">The definitive breakdown of Bitcoin's 1,064-day expansion and 364-day compression model. Covers every historical cycle from 2012–2022, why the Nov 2022 FTX bottom anchors Cycle 4, full predictions through 2050, and a 10-question FAQ.</p>
-      <div class="article-meta">
-        <span class="meta-pill">📅 May 4, 2026</span>
-        <span class="meta-pill">⏱ 12 min read</span>
-        <span class="meta-pill">✍️ BitcoinCycle.io</span>
-      </div>
-    </header>
+
+    <a href="/blog" class="back-link">← Back to Blog</a>
+
+    <div class="article-category">📗 Beginner Guide · Cycle Basics</div>
+    <h1 class="article-title">Bitcoin Cycle Explained: Expansion vs Compression</h1>
+
+    <div class="article-meta">
+      <span class="meta-item">📅 May 5, 2026</span>
+      <span class="meta-item">⏱ 8 min read</span>
+      <span class="meta-item">✍️ BitcoinCycle.io</span>
+    </div>
 
     <div class="article-body">
 
-      <h2>🔍 What Is the 1064/364 Model?</h2>
+      <p>If you've been in crypto for any length of time, you've heard the phrase "Bitcoin cycle." But what does it actually mean — and more importantly, how can you use it? This guide breaks it down simply, even if you've never traded a single satoshi.</p>
 
-      <p>
-        The <strong>1064/364 model</strong> is a framework for understanding Bitcoin's recurring market structure. It divides every Bitcoin cycle into two distinct phases:
-      </p>
+      <h2>What Is a Bitcoin Cycle?</h2>
+      <p>A Bitcoin cycle is a repeating pattern in which Bitcoin's price goes through two distinct phases: a long expansion (bull market) and a shorter compression (bear market). These phases have repeated with remarkable consistency since Bitcoin's early days.</p>
+      <p>The <strong>1064/364 model</strong> defines these phases precisely:</p>
+
+      <div class="phase-grid">
+        <div class="phase-card expansion">
+          <div class="phase-label">Expansion Phase</div>
+          <div class="phase-days">1,064</div>
+          <div class="phase-desc">Days of bull market — from the cycle low (ATL) to the cycle high (ATH)</div>
+        </div>
+        <div class="phase-card compression">
+          <div class="phase-label">Compression Phase</div>
+          <div class="phase-days">364</div>
+          <div class="phase-desc">Days of bear market — from the cycle high (ATH) back to the next cycle low (ATL)</div>
+        </div>
+      </div>
+
+      <p>Together these form a full cycle of <strong>1,428 days</strong> — roughly 3 years and 11 months. The current cycle is anchored to the <strong>21 November 2022 FTX bottom</strong> at ~$15,500.</p>
+
+      <h2>The Expansion Phase (Bull Market)</h2>
+      <p>The expansion phase is what most people think of as the "Bitcoin bull run." It starts from the cycle's lowest point (ATL) and ends at its highest point (ATH). During this phase:</p>
+      <ul>
+        <li>Demand steadily outpaces new supply</li>
+        <li>Retail and institutional interest increases</li>
+        <li>Prices make higher highs and higher lows</li>
+        <li>Media coverage intensifies as price rises</li>
+        <li>A halving event typically occurs mid-expansion, acting as a catalyst</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p>📈 <strong>In the current cycle:</strong> The expansion phase started 21 Nov 2022 and lasted 1,064 days, with the model predicting a cycle top around <strong>19 Oct 2025</strong>. Bitcoin reached approximately $126,200 on 6 Oct 2025, closely matching this window.</p>
+      </div>
+
+      <h2>The Compression Phase (Bear Market)</h2>
+      <p>The compression phase follows the ATH. It's shorter — only 364 days — but psychologically brutal. During this phase:</p>
+      <ul>
+        <li>Prices retrace significantly from the ATH</li>
+        <li>Weaker hands sell, long-term holders accumulate</li>
+        <li>Media coverage turns negative</li>
+        <li>Exchange supply drops as holders move coins to cold storage</li>
+        <li>The market "compresses" in preparation for the next expansion</li>
+      </ul>
 
       <div class="info-box">
-        <p>
-          <strong>Expansion Phase (ATL → ATH):</strong> 1,064 days — the bull market from cycle low to cycle high.<br/><br/>
-          <strong>Compression Phase (ATH → ATL):</strong> 364 days — the bear market from cycle high to the next cycle low.<br/><br/>
-          <strong>Full Cycle:</strong> 1,428 days, approximately 3 years and 11 months.
-        </p>
+        <p>📉 <strong>In the current cycle:</strong> The compression phase is projected to run from ~Oct 2025 to ~Oct 2026, with the next ATL (cycle low) predicted around <strong>19 October 2026</strong> — which would mark the start of Cycle 5.</p>
       </div>
 
-      <p>
-        Unlike the popular 4-year halving cycle thesis, the 1064/364 model is anchored to <strong>market structure</strong> rather than supply events. The current cycle (Cycle 4) is anchored to the <strong>21 November 2022 FTX crash bottom</strong> — one of the most clearly defined macro lows in Bitcoin's history.
-      </p>
+      <h2>Why Does the Cycle Repeat?</h2>
+      <p>The cycle repeats because of a combination of structural and psychological forces:</p>
 
-      <h2>📊 Historical Cycle Data</h2>
+      <h3>1. Bitcoin's Supply Schedule</h3>
+      <p>Every ~4 years, Bitcoin's block reward halves. This reduces the rate of new supply entering the market. When demand stays constant or rises but supply slows, prices tend to increase — feeding the expansion phase.</p>
 
-      <p>
-        The model is derived from measuring the actual durations between Bitcoin's major all-time lows (ATLs) and all-time highs (ATHs) across three complete historical cycles.
-      </p>
+      <h3>2. Market Psychology</h3>
+      <p>Human emotions — fear and greed — drive predictable patterns. Greed drives prices to extremes during expansion; fear and capitulation push prices to extremes during compression. These emotional extremes create the ATH and ATL that anchor each cycle.</p>
 
-      <div class="data-table-wrap">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Cycle</th>
-              <th>Event</th>
-              <th>Date</th>
-              <th>Phase</th>
-              <th>Days</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Cycle 1</td>
-              <td><span class="tp tp-atl">ATL</span></td>
-              <td>Nov 18, 2011</td>
-              <td>Origin / Anchor</td>
-              <td>—</td>
-            </tr>
-            <tr>
-              <td>Cycle 1</td>
-              <td><span class="tp tp-ath">ATH</span></td>
-              <td>Nov 30, 2013</td>
-              <td>Expansion</td>
-              <td>742</td>
-            </tr>
-            <tr>
-              <td>Cycle 1</td>
-              <td><span class="tp tp-atl">ATL</span></td>
-              <td>Jan 14, 2015</td>
-              <td>Compression</td>
-              <td>410</td>
-            </tr>
-            <tr>
-              <td>Cycle 2</td>
-              <td><span class="tp tp-ath">ATH</span></td>
-              <td>Dec 17, 2017</td>
-              <td>Expansion</td>
-              <td>1,067</td>
-            </tr>
-            <tr>
-              <td>Cycle 2</td>
-              <td><span class="tp tp-atl">ATL</span></td>
-              <td>Dec 15, 2018</td>
-              <td>Compression</td>
-              <td>363</td>
-            </tr>
-            <tr>
-              <td>Cycle 3</td>
-              <td><span class="tp tp-ath">ATH</span></td>
-              <td>Nov 10, 2021</td>
-              <td>Expansion</td>
-              <td>1,061</td>
-            </tr>
-            <tr>
-              <td>Cycle 3</td>
-              <td><span class="tp tp-atl">ATL</span></td>
-              <td>Nov 21, 2022</td>
-              <td>Compression</td>
-              <td>376</td>
-            </tr>
-            <tr>
-              <td>Cycle 4</td>
-              <td><span class="tp tp-ath">ATH</span></td>
-              <td>~Oct 6, 2025</td>
-              <td>Expansion (predicted)</td>
-              <td>1,064</td>
-            </tr>
-            <tr>
-              <td>Cycle 4</td>
-              <td><span class="tp tp-atl">ATL</span></td>
-              <td>Oct 19, 2026</td>
-              <td>Compression (predicted)</td>
-              <td>364</td>
-            </tr>
-          </tbody>
-        </table>
+      <h3>3. Liquidity Cycles</h3>
+      <p>Macro liquidity conditions — central bank policy, credit expansion, risk appetite — move in multi-year cycles that often sync with Bitcoin's pattern.</p>
+
+      <h2>How to Use the Cycle Model</h2>
+      <p>The 1064/364 model is a <strong>macro framework</strong>, not a trading signal. Here's how to apply it sensibly:</p>
+      <ul>
+        <li><strong>Early expansion:</strong> Historically the best time to accumulate Bitcoin for long-term holders</li>
+        <li><strong>Mid expansion:</strong> After the halving, the pace of price increase often accelerates</li>
+        <li><strong>Late expansion:</strong> Risk increases; the cycle top is approaching</li>
+        <li><strong>Compression:</strong> Patience pays — this phase ends and a new expansion begins</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p>⚠️ <strong>Important:</strong> No model is perfect. Use the 1064/364 cycle as one tool among many. Always consider position sizing, your own risk tolerance, and never invest more than you can afford to lose.</p>
       </div>
 
-      <p>
-        The average expansion across Cycles 2 and 3 is <strong>1,064 days</strong>. The average compression across Cycles 2 and 3 is <strong>364 days</strong>. These averages form the basis of the model — hence the name 1064/364.
-      </p>
+      <h2>Where Are We Now?</h2>
+      <p>As of May 2026, Bitcoin is in the <strong>compression phase</strong> of Cycle 4, with the model projecting the next ATL around October 2026. Visit <a href="/" style="color:var(--btc);">BitcoinCycle.io</a> for the live countdown and exact cycle position.</p>
 
-      <h2>📌 Why the Nov 2022 FTX Bottom?</h2>
-
-      <p>
-        The <strong>21 November 2022 low (~$15,500)</strong> was caused by the collapse of the FTX exchange — a black swan event that wiped out billions in market value within days. While extreme, this low displayed all the hallmarks of a macro cycle bottom: extreme fear, maximum capitulation, and a sharp volume spike followed by a sustained recovery.
-      </p>
-
-      <p>
-        Using this as the Cycle 4 anchor produces highly aligned predictions with the model's historical averages, making it the natural starting point.
-      </p>
-
-      <h2>🗓️ Cycle 4 Predictions (2022–2026)</h2>
-
-      <p>Adding <strong>1,064 days</strong> to 21 November 2022 gives a predicted ATH of <strong>approximately 17 September 2025</strong>. Bitcoin reached an all-time high of around $126,200 in early October 2025 — within the predicted window.</p>
-
-      <p>Adding a further <strong>364 days</strong> to that ATH gives the predicted next ATL: <strong>19 October 2026</strong>. That date marks the end of the current compression phase and the start of Cycle 5.</p>
-
-      <div class="info-box">
-        <p>
-          <strong>Cycle 4 Summary</strong><br/><br/>
-          ATL (Anchor): 21 Nov 2022<br/>
-          Predicted ATH: ~17 Sep 2025 (actual peak ~6 Oct 2025 ≈ $126,200)<br/>
-          Predicted ATL: 19 Oct 2026<br/>
-          Full cycle duration: 1,428 days
-        </p>
+      <div class="article-footer">
+        <div class="disclaimer-block">
+          ⚠ Not financial advice. The 1064/364 model is an educational framework based on historical data. Past cycles do not guarantee future performance.
+        </div>
+        <a href="/blog" style="font-family:var(--mono);font-size:11px;color:var(--btc);text-decoration:none;border:1px solid rgba(247,147,26,.4);padding:8px 16px;border-radius:6px;">← All Articles</a>
       </div>
 
-      <h2>🔮 Predictions Through 2050</h2>
-
-      <p>
-        Applying the 1064/364 model forward from the November 2022 anchor produces the following predicted cycle dates. All dates are model projections and carry inherent uncertainty — real markets will vary.
-      </p>
-
-      <div class="data-table-wrap">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Cycle</th>
-              <th>Event</th>
-              <th>Predicted Date</th>
-              <th>Phase Duration</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>4</td><td><span class="tp tp-atl">ATL</span></td><td>21 Nov 2022</td><td>Anchor</td></tr>
-            <tr><td>4</td><td><span class="tp tp-ath">ATH</span></td><td>17 Sep 2025</td><td>1,064 days</td></tr>
-            <tr><td>4</td><td><span class="tp tp-atl">ATL</span></td><td>19 Oct 2026</td><td>364 days</td></tr>
-            <tr><td>5</td><td><span class="tp tp-ath">ATH</span></td><td>17 Aug 2029</td><td>1,064 days</td></tr>
-            <tr><td>5</td><td><span class="tp tp-atl">ATL</span></td><td>16 Sep 2030</td><td>364 days</td></tr>
-            <tr><td>6</td><td><span class="tp tp-ath">ATH</span></td><td>14 Jul 2033</td><td>1,064 days</td></tr>
-            <tr><td>6</td><td><span class="tp tp-atl">ATL</span></td><td>13 Aug 2034</td><td>364 days</td></tr>
-            <tr><td>7</td><td><span class="tp tp-ath">ATH</span></td><td>11 Jun 2037</td><td>1,064 days</td></tr>
-            <tr><td>7</td><td><span class="tp tp-atl">ATL</span></td><td>11 Jul 2038</td><td>364 days</td></tr>
-            <tr><td>8</td><td><span class="tp tp-ath">ATH</span></td><td>9 May 2041</td><td>1,064 days</td></tr>
-            <tr><td>8</td><td><span class="tp tp-atl">ATL</span></td><td>8 Jun 2042</td><td>364 days</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- CTA -->
-      <div class="cta-box">
-        <p>Track these dates live with our real-time countdown dashboard — updated every second.</p>
-        <a href="/" class="cta-btn">← View Live Dashboard</a>
-      </div>
-
-      <h2>❓ Frequently Asked Questions</h2>
-
-      <div class="faq-item">
-        <div class="faq-q">Q1: What exactly is the 1064/364 model?</div>
-        <p class="faq-a">It's a Bitcoin cycle prediction framework using <strong>1,064 days</strong> for the bull market expansion phase (ATL to ATH) and <strong>364 days</strong> for the bear market compression phase (ATH to ATL). These averages are derived from Cycles 2 and 3.</p>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Q2: Why is it anchored to November 2022 and not the 2024 halving?</div>
-        <p class="faq-a">The model is anchored to <strong>market structure</strong> — specifically the clearest macro low in recent history. The halving is a supply event, not a market bottom. Bitcoin hit an ATH <em>before</em> the 2024 halving, suggesting the halving cycle hypothesis has decoupled from real market behaviour.</p>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Q3: When is the next Bitcoin ATH predicted?</div>
-        <p class="faq-a">Cycle 4's ATH was predicted on ~17 September 2025 (actual: ~6 Oct 2025 at ~$126,200). The <strong>next ATH (Cycle 5)</strong> is predicted on approximately <strong>17 August 2029</strong>.</p>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Q4: When is the next Bitcoin ATL predicted?</div>
-        <p class="faq-a">The next predicted cycle low is <strong>19 October 2026</strong> — the end of the current compression phase and the start of Cycle 5's expansion.</p>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Q5: How accurate has the model been historically?</div>
-        <p class="faq-a">Cycles 2 and 3 had expansion durations of 1,067 and 1,061 days respectively — both within 3 days of the 1,064-day average. The compression durations were 363 and 376 days. The model is a <strong>mathematical average</strong>, not a guarantee.</p>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Q6: How long is a full Bitcoin cycle?</div>
-        <p class="faq-a">According to the model, a full cycle is <strong>1,428 days</strong> — roughly <strong>3 years and 11 months</strong>. This covers one expansion and one compression phase.</p>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Q7: Is this the same as the 4-year cycle?</div>
-        <p class="faq-a">Similar but distinct. The 4-year halving cycle aligns Bitcoin cycles with block reward halvings (~1,460 days). The 1064/364 model uses observed market structure and averages <strong>1,428 days per cycle</strong> — about 32 days shorter than a 4-year cycle.</p>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Q8: Does this account for the 2024 halving?</div>
-        <p class="faq-a">The model does not use the halving as an input. However, the 2024 halving (April 2024) fell <strong>within</strong> the Cycle 4 expansion phase, consistent with the historical pattern of halvings occurring mid-expansion.</p>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Q9: Will the cycle get shorter over time as Bitcoin matures?</div>
-        <p class="faq-a">Possibly. As Bitcoin's market cap grows and liquidity deepens, cycles may compress. The model will need updating if future cycle data diverges materially from the 1064/364 averages. We monitor this on the dashboard.</p>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Q10: Is this financial advice?</div>
-        <p class="faq-a"><strong>No.</strong> The 1064/364 model is a mathematical framework for educational purposes only. It is not a guarantee of future performance. Always conduct your own research and consult a qualified financial professional before making investment decisions.</p>
-      </div>
-
-      <!-- DISCLAIMER -->
-      <div class="article-disclaimer">
-        ⚠️ <strong>Disclaimer:</strong> This article and all content on BitcoinCycle.io is for educational and informational purposes only. It does not constitute financial advice. Bitcoin and cryptocurrency markets are highly volatile. Past cycle performance does not guarantee future results. Always do your own research (DYOR).
-      </div>
-
-    </div><!-- /.article-body -->
+    </div>
   </div><!-- /.article-wrap -->
 
   <footer>
-    BitcoinCycle.io · 1064/364 Expansion–Compression Model · Anchored to 21 Nov 2022 FTX ATL<br/>
+    BitcoinCycle.io · 1064/364 Expansion–Compression Model<br/>
     Not financial advice &nbsp;·&nbsp;
-    <a href="/blog/">Blog</a> &nbsp;·&nbsp;
-    <a href="/about.html">About Us</a>
+    <a href="/blog">Blog</a> &nbsp;·&nbsp;
+    <a href="/about">About Us</a>
   </footer>
 
-</div><!-- /.app -->
+</div>
 </body>
 </html>
