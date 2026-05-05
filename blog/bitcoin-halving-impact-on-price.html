@@ -1,337 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bitcoin Halving and Its Impact on Bitcoin Price | BitcoinCycle.io</title>
-  <meta name="description" content="A deep-dive into Bitcoin's halving events — what they are, how they've driven price appreciation in every cycle, and what the 2024 halving means for Bitcoin's price in 2025 and beyond." />
-  <meta name="keywords" content="bitcoin halving, bitcoin price impact, BTC halving 2024, bitcoin cycle, halving history, supply shock, bitcoin ATH" />
-  <meta name="author" content="BitcoinCycle.io" />
-  <link rel="canonical" href="https://www.bitcoincycle.io/blog/bitcoin-halving-impact-on-price.html" />
-  <meta property="og:title" content="Bitcoin Halving and Its Impact on Bitcoin Price" />
-  <meta property="og:description" content="Every 4 years Bitcoin's supply is cut in half. Here's the full breakdown of every halving cycle and what it means for price." />
-  <meta property="og:url" content="https://www.bitcoincycle.io/blog/bitcoin-halving-impact-on-price.html" />
-  <meta property="og:type" content="article" />
-  <meta property="og:image" content="https://www.bitcoincycle.io/public/assets/images/og-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@bitcoincycle_" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Bitcoin Halving and Its Impact on Bitcoin Price",
-    "datePublished": "2025-05-01",
-    "dateModified": "2025-05-01",
-    "author": { "@type": "Organization", "name": "BitcoinCycle.io", "url": "https://www.bitcoincycle.io" },
-    "publisher": { "@type": "Organization", "name": "BitcoinCycle.io", "url": "https://www.bitcoincycle.io" },
-    "description": "A deep-dive into Bitcoin halvings and their historical price impact.",
-    "url": "https://www.bitcoincycle.io/blog/bitcoin-halving-impact-on-price.html",
-    "mainEntityOfPage": "https://www.bitcoincycle.io/blog/bitcoin-halving-impact-on-price.html"
-  }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23F7931A'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%230A0A0A' font-weight='bold'>₿</text></svg>" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #0A0A0A; --surface: #11151F; --elevated: #181E2E;
-      --border: #1E2A3A; --border2: #2A3A4A;
-      --text1: #F0F0F0; --text2: #B8C4D0; --text3: #7A8A9A;
-      --btc: #F7931A; --btc-d: rgba(247,147,26,.14); --btc-g: rgba(247,147,26,.06);
-      --atl: #F43F5E; --atl-d: rgba(244,63,94,.14);
-      --acc: #38BDF8; --acc-d: rgba(56,189,248,.10);
-      --green: #22C55E;
-      --mono: 'Space Mono', monospace; --sans: 'DM Sans', sans-serif;
-      --radius: 12px;
-    }
-    body {
-      background: var(--bg); color: var(--text1); font-family: var(--sans);
-      min-height: 100vh; overflow-x: hidden; line-height: 1.8;
-      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
-    }
-    body::before {
-      content: ''; position: fixed; inset: 0;
-      background-image: linear-gradient(rgba(56,189,248,.02) 1px,transparent 1px), linear-gradient(90deg,rgba(56,189,248,.02) 1px,transparent 1px);
-      background-size: 44px 44px; pointer-events: none; z-index: 0;
-    }
-    .app { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 20px 80px; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Does the Bitcoin Halving Still Drive the Cycle? | BitcoinCycle.io</title>
+<meta name="description" content="With Bitcoin hitting an ATH before the 2024 halving, has the 4-year halving cycle broken down? We examine the evidence and what the 1064/364 model says instead." />
+<link rel="canonical" href="https://www.bitcoincycle.io/blog/bitcoin-halving-impact-on-price" />
 
-    /* NAV */
-    .nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 0; border-bottom: 1px solid var(--border); margin-bottom: 48px;
-    }
-    .brand { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 15px; font-weight: 700; letter-spacing: 2px; color: var(--text1); text-decoration: none; }
-    .brand-icon { width: 34px; height: 34px; border-radius: 8px; background: linear-gradient(135deg, var(--btc) 0%, #e07f10 100%); display: flex; align-items: center; justify-content: center; font-size: 18px; color: #0A0A0A; font-weight: 900; box-shadow: 0 0 18px rgba(247,147,26,.4); }
-    .nav-links { display: flex; align-items: center; gap: 20px; }
-    .nav-link { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; color: var(--text2); text-decoration: none; text-transform: uppercase; font-weight: 700; transition: color .2s; }
-    .nav-link:hover { color: var(--btc); }
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23F7931A'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%230A0A0A' font-weight='bold'>&#x20BF;</text></svg>" />
 
-    /* ARTICLE */
-    .article-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
-    .article-tag { font-family: var(--mono); font-size: 9px; letter-spacing: 1.5px; color: var(--btc); background: var(--btc-d); padding: 3px 9px; border-radius: 4px; text-transform: uppercase; }
-    h1 { font-family: var(--mono); font-size: clamp(22px,4vw,34px); font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 14px; }
-    .article-meta { font-family: var(--mono); font-size: 10px; color: var(--text3); letter-spacing: 1px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); display: flex; gap: 16px; flex-wrap: wrap; }
-    .article-body h2 { font-family: var(--mono); font-size: clamp(16px,2.5vw,20px); font-weight: 700; color: #fff; margin: 40px 0 14px; padding-top: 8px; border-top: 1px solid var(--border); }
-    .article-body h3 { font-size: 16px; font-weight: 600; color: var(--btc); margin: 28px 0 10px; }
-    .article-body p { margin-bottom: 18px; color: var(--text2); font-size: 15px; line-height: 1.8; }
-    .article-body strong { color: var(--text1); font-weight: 600; }
-    .article-body em { color: var(--acc); font-style: italic; }
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* TABLE */
-    .halving-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 28px 0; border-radius: var(--radius); border: 1px solid var(--border); }
-    .halving-table { width: 100%; border-collapse: collapse; min-width: 560px; }
-    .halving-table thead th { font-family: var(--mono); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--text2); padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); background: #0D1017; white-space: nowrap; }
-    .halving-table tbody tr { border-bottom: 1px solid rgba(30,42,58,.7); transition: background .15s; }
-    .halving-table tbody tr:last-child { border-bottom: none; }
-    .halving-table tbody tr:hover { background: rgba(255,255,255,.02); }
-    .halving-table td { padding: 12px 16px; font-size: 13px; color: var(--text2); white-space: nowrap; }
-    .halving-table .mono { font-family: var(--mono); font-size: 12px; }
-    .positive { color: var(--green); font-weight: 700; font-family: var(--mono); }
-    .pending { color: var(--btc); font-weight: 700; font-family: var(--mono); }
+:root {
+  --bg:      #0D0D0F;
+  --surface: #13131A;
+  --border:  #1E2030;
+  --border2: #2A2D45;
+  --text1:   #EEEEF0;
+  --text2:   #8B8FA8;
+  --text3:   #4A4D65;
+  --btc:     #F7931A;
+  --btc-g:   rgba(247,147,26,.05);
+  --green:   #34D399;
+  --atl:     #60A5FA;
+  --purple:  #818CF8;
+  --ath:     #F0B429;
+  --mono: 'Space Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+  --r: 10px;
+  --r-sm: 6px;
+}
 
-    /* CALLOUT */
-    .callout {
-      background: var(--surface); border-left: 3px solid var(--btc);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 18px 20px; margin: 28px 0; color: var(--text2);
-      font-size: 14px; line-height: 1.7;
-    }
-    .callout strong { color: var(--text1); }
-    .callout.blue { border-left-color: var(--acc); }
-    .callout.red { border-left-color: var(--atl); }
+html { scroll-behavior: smooth; }
 
-    /* CTA */
-    .cta-card {
-      background: var(--surface); border: 1px solid rgba(247,147,26,.3);
-      border-radius: var(--radius); padding: 28px; margin: 40px 0;
-      text-align: center; position: relative; overflow: hidden;
-    }
-    .cta-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--btc), transparent);
-    }
-    .cta-card h3 { font-family: var(--mono); font-size: 14px; color: var(--btc); margin-bottom: 8px; letter-spacing: 1px; }
-    .cta-card p { color: var(--text2); font-size: 13px; margin-bottom: 18px; }
-    .cta-btn { display: inline-block; background: var(--btc); color: #0A0A0A; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 1px; transition: background .2s, transform .2s; }
-    .cta-btn:hover { background: #e07f10; transform: translateY(-1px); }
+body {
+  background: var(--bg);
+  color: var(--text1);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.8;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
 
-    /* DISCLAIMER */
-    .disclaimer-box { font-size: 12px; color: var(--text3); background: var(--surface); padding: 16px 18px; border-radius: 8px; margin-top: 40px; border: 1px solid var(--border); line-height: 1.6; }
-    .disclaimer-box strong { color: var(--text2); }
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background-image: radial-gradient(600px 600px at 50% -100px, rgba(247,147,26,.04) 0%, transparent 70%);
+  pointer-events: none;
+}
 
-    /* FOOTER */
-    footer { border-top: 1px solid var(--border); padding-top: 28px; margin-top: 60px; text-align: center; }
-    .footer-copy { font-family: var(--mono); font-size: 10px; letter-spacing: 1px; color: var(--text3); line-height: 1.7; }
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.012) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
 
-    @media (max-width: 600px) {
-      .app { padding: 0 14px 60px; }
-    }
-  </style>
+.app {
+  position: relative; z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* NAV */
+.nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+  font-family: var(--mono); font-size: 14px; font-weight: 700;
+  letter-spacing: 1.5px; color: var(--text1); justify-self: start;
+}
+.brand-icon {
+  width: 34px; height: 34px; border-radius: 8px;
+  background: linear-gradient(135deg, #F7931A 0%, #E07010 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; color: #0A0A0A; font-weight: 900;
+  box-shadow: 0 0 16px rgba(247,147,26,.35);
+}
+.nav-centre { display: flex; align-items: center; gap: 8px; }
+.nav-link {
+  color: #b0bec8; text-decoration: none;
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em;
+  padding: 6px 14px; border: 1px solid #1e1e32; border-radius: 6px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.nav-link:hover { border-color: #f7931a; color: #e2e8f0; }
+.nav-right { justify-self: end; }
+.follow-x-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 16px; background: var(--btc); color: #000;
+  border-radius: var(--r-sm); font-family: var(--mono); font-size: 11px;
+  font-weight: 700; letter-spacing: 0.5px; text-decoration: none;
+  transition: background .2s, transform .18s;
+  box-shadow: 0 0 20px rgba(247,147,26,.35);
+}
+.follow-x-btn:hover { background: #E07010; transform: translateY(-1px); color: #000; }
+
+/* ARTICLE LAYOUT */
+.article-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 0 0;
+}
+
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 1px;
+  color: var(--text3); text-decoration: none;
+  margin-bottom: 32px; transition: color .2s;
+}
+.back-link:hover { color: var(--btc); }
+
+.article-category {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--btc); margin-bottom: 14px;
+}
+
+.article-title {
+  font-family: var(--mono);
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight: 700; line-height: 1.2;
+  color: var(--text1); margin-bottom: 16px;
+}
+
+.article-meta {
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  margin-bottom: 40px; padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.meta-item {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--text3); letter-spacing: 0.5px;
+}
+
+/* ARTICLE BODY */
+.article-body h2 {
+  font-family: var(--mono); font-size: 18px; font-weight: 700;
+  color: var(--btc); margin: 40px 0 14px;
+  border-left: 3px solid var(--btc); padding-left: 14px;
+}
+.article-body h3 {
+  font-family: var(--mono); font-size: 14px; font-weight: 700;
+  color: var(--text1); margin: 28px 0 10px;
+}
+.article-body p { color: var(--text2); margin-bottom: 18px; line-height: 1.85; }
+.article-body ul, .article-body ol {
+  color: var(--text2); margin: 0 0 18px 24px; line-height: 1.85;
+}
+.article-body li { margin-bottom: 8px; }
+.article-body strong { color: var(--text1); }
+
+.highlight-box {
+  background: #111;
+  border: 1px solid rgba(247,147,26,.2);
+  border-left: 4px solid var(--btc);
+  padding: 16px 20px; margin: 24px 0; border-radius: 6px;
+}
+.highlight-box p { margin: 0; color: var(--text2); }
+
+.verdict-box {
+  background: #111;
+  border: 1px solid rgba(52,211,153,.2);
+  border-left: 4px solid var(--green);
+  padding: 16px 20px; margin: 24px 0; border-radius: 6px;
+}
+.verdict-box p { margin: 0; color: var(--text2); }
+
+/* COMPARISON TABLE */
+.compare-table {
+  width: 100%; border-collapse: collapse;
+  margin: 24px 0; font-size: 13px;
+}
+.compare-table th {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--text3);
+  padding: 10px 14px; text-align: left;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.compare-table td {
+  padding: 10px 14px; color: var(--text2);
+  border-bottom: 1px solid rgba(30,32,48,.6);
+}
+.compare-table tr:hover td { background: rgba(255,255,255,.015); }
+.c-green { color: var(--green); }
+.c-orange { color: var(--btc); }
+.c-blue { color: var(--atl); }
+
+/* ARTICLE FOOTER */
+.article-footer {
+  margin-top: 48px; padding-top: 28px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.disclaimer-block {
+  font-size: 11px; color: var(--text3); line-height: 1.6; max-width: 560px;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding-top: 28px; text-align: center; margin-top: 48px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 1px;
+  color: var(--text3); line-height: 1.9;
+}
+footer a { color: var(--text3); text-decoration: none; }
+footer a:hover { color: var(--btc); }
+
+@media (max-width: 768px) {
+  .app { padding: 0 16px 60px; }
+  .nav { grid-template-columns: 1fr auto; }
+  .nav-centre { display: none; }
+}
+</style>
 </head>
 <body>
+
 <div class="app">
 
-  <nav class="nav">
+  <!-- NAV -->
+  <nav class="nav" aria-label="Main navigation">
     <a href="/" class="brand">
       <div class="brand-icon">₿</div>
       BitcoinCycle
     </a>
-    <div class="nav-links">
-      <a href="/" class="nav-link">Dashboard</a>
-      <a href="/blog/" class="nav-link">Blog</a>
+    <div class="nav-centre">
+      <a href="/blog" class="nav-link active">BLOG</a>
+      <a href="/about" class="nav-link">ABOUT US</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://x.com/bitcoincycle_" target="_blank" rel="noopener" class="follow-x-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Follow on X →
+      </a>
     </div>
   </nav>
 
-  <article>
-    <div class="article-tags">
-      <span class="article-tag">Halving</span>
-      <span class="article-tag">Education</span>
-      <span class="article-tag">Market Cycles</span>
-    </div>
+  <!-- ARTICLE -->
+  <div class="article-wrap">
 
-    <h1>Bitcoin Halving and Its Impact on Bitcoin Price</h1>
+    <a href="/blog" class="back-link">← Back to Blog</a>
+
+    <div class="article-category">📙 Analysis · Halving &amp; Cycles</div>
+    <h1 class="article-title">Does the Bitcoin Halving Still Drive the Cycle?</h1>
 
     <div class="article-meta">
-      <span>BitcoinCycle.io</span>
-      <span>·</span>
-      <span>May 2025</span>
-      <span>·</span>
-      <span>8 min read</span>
+      <span class="meta-item">📅 May 5, 2026</span>
+      <span class="meta-item">⏱ 10 min read</span>
+      <span class="meta-item">✍️ BitcoinCycle.io</span>
     </div>
 
     <div class="article-body">
 
-      <p>Every four years, something remarkable happens inside the Bitcoin network: the reward miners receive for validating transactions is cut in half. This event — known as the <strong>halving</strong> — is one of the most anticipated events in all of crypto. But what does it actually mean for price? And does it explain why Bitcoin moves in such dramatic, repeatable cycles?</p>
+      <p>For years, the dominant narrative in Bitcoin was simple: the 4-year halving cycle drives everything. Every ~4 years, the block reward halves, supply shock follows, and price explodes. But in 2024, something unexpected happened — Bitcoin hit a new all-time high <strong>before</strong> the halving. Has the model broken down? Or is something deeper at work?</p>
 
-      <p>This is the question at the heart of everything BitcoinCycle.io is built on. Let's go deep.</p>
+      <h2>The Traditional Halving Narrative</h2>
+      <p>The classic halving cycle theory goes like this:</p>
+      <ul>
+        <li>Bitcoin's block reward halves every ~210,000 blocks (~4 years)</li>
+        <li>This reduces daily new supply entering the market</li>
+        <li>If demand stays constant, reduced supply pushes prices up</li>
+        <li>The ATH arrives roughly 12–18 months after each halving</li>
+        <li>A bear market follows, resetting for the next cycle</li>
+      </ul>
 
-      <h2>What Is the Bitcoin Halving?</h2>
+      <p>This framework worked remarkably well for three cycles:</p>
 
-      <p>Bitcoin was designed by Satoshi Nakamoto with a fixed supply cap of <strong>21 million BTC</strong>. New coins enter circulation only through mining — a process where computers compete to solve cryptographic puzzles and add blocks to the blockchain. The winner receives a block reward in freshly minted BTC.</p>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Halving</th>
+            <th>Date</th>
+            <th>Pre-Halving Price</th>
+            <th>Cycle ATH</th>
+            <th>ATH Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="c-orange" style="font-family:var(--mono)">Halving 1</td>
+            <td>Nov 2012</td>
+            <td>~$12</td>
+            <td>~$1,150</td>
+            <td>Nov 2013</td>
+          </tr>
+          <tr>
+            <td class="c-orange" style="font-family:var(--mono)">Halving 2</td>
+            <td>Jul 2016</td>
+            <td>~$650</td>
+            <td>~$19,800</td>
+            <td>Dec 2017</td>
+          </tr>
+          <tr>
+            <td class="c-orange" style="font-family:var(--mono)">Halving 3</td>
+            <td>May 2020</td>
+            <td>~$8,700</td>
+            <td>~$69,000</td>
+            <td>Nov 2021</td>
+          </tr>
+          <tr>
+            <td class="c-blue" style="font-family:var(--mono)">Halving 4</td>
+            <td>Apr 2024</td>
+            <td>~$63,000</td>
+            <td>~$126,200</td>
+            <td>Oct 2025</td>
+          </tr>
+        </tbody>
+      </table>
 
-      <p>Satoshi hard-coded a deflationary rule into Bitcoin's protocol: every <strong>210,000 blocks</strong> (approximately every 4 years), the block reward is cut in half. This continues until all 21 million Bitcoin have been mined — estimated around the year 2140.</p>
-
-      <div class="halving-table-wrap">
-        <table class="halving-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Date</th>
-              <th>Block Reward</th>
-              <th>BTC Price</th>
-              <th>Cycle ATH (~18m later)</th>
-              <th>Gain</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="mono">Genesis</td>
-              <td>Jan 2009</td>
-              <td class="mono">50 BTC</td>
-              <td class="mono">&lt; $0.01</td>
-              <td>—</td>
-              <td>—</td>
-            </tr>
-            <tr>
-              <td class="mono">1st</td>
-              <td>Nov 2012</td>
-              <td class="mono">25 BTC</td>
-              <td class="mono">~$12</td>
-              <td class="mono">~$1,150 (Dec 2013)</td>
-              <td class="positive">+9,500%</td>
-            </tr>
-            <tr>
-              <td class="mono">2nd</td>
-              <td>Jul 2016</td>
-              <td class="mono">12.5 BTC</td>
-              <td class="mono">~$650</td>
-              <td class="mono">~$19,800 (Dec 2017)</td>
-              <td class="positive">+2,900%</td>
-            </tr>
-            <tr>
-              <td class="mono">3rd</td>
-              <td>May 2020</td>
-              <td class="mono">6.25 BTC</td>
-              <td class="mono">~$8,700</td>
-              <td class="mono">~$69,000 (Nov 2021)</td>
-              <td class="positive">+690%</td>
-            </tr>
-            <tr>
-              <td class="mono">4th</td>
-              <td>Apr 2024</td>
-              <td class="mono">3.125 BTC</td>
-              <td class="mono">~$63,000</td>
-              <td class="mono">TBD (2025–2026)</td>
-              <td class="pending">TBD</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="highlight-box">
+        <p>🚨 <strong>The anomaly:</strong> For Halving 4 (April 2024), Bitcoin was already at ~$63,000 — <em>above</em> its previous cycle ATH of $19,800 — before the halving even occurred. The old "buy before the halving" playbook had already played out.</p>
       </div>
 
-      <p>The pattern is unmistakable: each halving has historically been followed by a significant bull market. Returns diminish as Bitcoin's market cap grows, but the directional signal has been consistent across every single cycle.</p>
+      <h2>Why Did the 2024 Cycle Break the Old Pattern?</h2>
+      <p>Several structural changes explain why Cycle 4 behaved differently:</p>
 
-      <h2>The Supply Shock Mechanism</h2>
+      <h3>1. Spot Bitcoin ETFs (January 2024)</h3>
+      <p>The approval of US Spot Bitcoin ETFs in January 2024 brought unprecedented institutional demand <em>before</em> the halving. BlackRock's IBIT, Fidelity's FBTC, and others absorbed enormous sell-side pressure, front-running the supply shock. Demand arrived early; price followed.</p>
 
-      <p>To understand <em>why</em> halvings affect price, you need to apply basic supply and demand economics to a fixed-supply asset.</p>
+      <h3>2. Market Maturity and Pre-Positioning</h3>
+      <p>With each cycle, more sophisticated participants enter the market. By 2023–2024, institutions, hedge funds, and algorithmic traders had fully modelled the halving cycle. They bought early — compressing the pre-halving accumulation phase and front-running the traditional post-halving rally.</p>
 
-      <h3>Before the halving</h3>
-      <p>At 6.25 BTC per block with a ~10-minute block time, miners produce approximately <strong>900 new BTC per day</strong>. These coins flow continuously onto exchanges as miners sell to cover operational costs — electricity, hardware, staff. This creates significant, predictable daily sell pressure on the market.</p>
+      <h3>3. Macro Liquidity Environment</h3>
+      <p>The Federal Reserve's rate-cut signals in late 2023 and 2024 injected risk appetite into markets. Bitcoin, now widely traded as a macro asset, responded to liquidity conditions independently of its own supply schedule.</p>
 
-      <h3>After the halving</h3>
-      <p>That daily supply drops to <strong>450 BTC per day</strong> — overnight. At $63,000 per BTC, this represents roughly $28 million in daily sell pressure disappearing from the market. If demand stays constant, or continues to grow, the reduced supply creates sustained upward price pressure. This is the <strong>supply shock</strong>.</p>
+      <h2>The 1064/364 Model: A Better Framework?</h2>
+      <p>This is where the 1064/364 model offers a more robust explanation. Instead of anchoring to the halving date, it anchors to <strong>market structure</strong> — specifically the cycle low (ATL) — which is a more reliable starting point that isn't dependent on an arbitrary block reward schedule.</p>
 
-      <div class="callout">
-        💡 <strong>Think of it this way:</strong> Imagine a gold mine that produces 1,000 ounces per day suddenly starts producing 500 ounces per day. If investors, jewellers, and central banks still want the same amount of gold, the price must rise to ration the reduced supply. Bitcoin works the same way — but the halving is scheduled, predictable, and written in immutable code.
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Halving Cycle Model</th>
+            <th>1064/364 Model</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Anchor Point</td>
+            <td>Halving date (supply event)</td>
+            <td class="c-green">Cycle low ATL (market event)</td>
+          </tr>
+          <tr>
+            <td>Expansion Length</td>
+            <td>Variable (~12–18 months post-halving)</td>
+            <td class="c-green">Fixed 1,064 days</td>
+          </tr>
+          <tr>
+            <td>Compression Length</td>
+            <td>Variable (~12–18 months)</td>
+            <td class="c-green">Fixed 364 days</td>
+          </tr>
+          <tr>
+            <td>2024 ATH Prediction</td>
+            <td>❌ Predicted post-halving; arrived pre-halving</td>
+            <td class="c-green">✅ Oct 2025 window — Bitcoin ATH was 6 Oct 2025</td>
+          </tr>
+          <tr>
+            <td>Dependency on Halving</td>
+            <td>Yes — directly tied</td>
+            <td class="c-green">No — halving is a mid-cycle catalyst only</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>So Is the Halving Irrelevant?</h2>
+      <p>Not exactly. The halving still matters — but as a <strong>mid-cycle accelerant</strong>, not a starting gun.</p>
+      <p>In the 1064/364 model, the halving typically occurs around day 500–600 of the expansion phase. It acts as fuel already in the engine, not the ignition key. The real ignition is the cycle low — the moment of maximum fear and capitulation where smart money begins accumulating.</p>
+
+      <div class="verdict-box">
+        <p>✅ <strong>Verdict:</strong> The halving is not dead — but it no longer defines the cycle timing on its own. The 1064/364 model, anchored to market structure rather than supply events, provides a more accurate and front-running-resistant framework for cycle prediction.</p>
       </div>
 
-      <h2>Why the Cycle Takes 12–18 Months to Play Out</h2>
+      <h2>What This Means for Cycle 5 and Beyond</h2>
+      <p>If the 1064/364 model holds, the next cycle low (ATL) is projected around <strong>19 October 2026</strong> — marking the start of Cycle 5's expansion phase. The next halving (~2028) would then fall mid-expansion, again acting as an accelerant rather than a trigger.</p>
+      <p>As Bitcoin matures, adoption deepens, and more sophisticated capital enters, the 1064/364 model's market-structure anchor is likely to remain more reliable than the halving-date anchor.</p>
 
-      <p>One of the most common misconceptions is that halvings cause immediate price spikes. They don't — and understanding <em>why</em> is crucial to using cycle analysis effectively.</p>
+      <p>Track the live cycle position and countdown at <a href="/" style="color:var(--btc);">BitcoinCycle.io</a>.</p>
 
-      <p>The supply shock is real, but it takes time to propagate through the market. Here's the typical sequence every cycle follows:</p>
-
-      <h3>Months 1–3 post-halving: Consolidation</h3>
-      <p>The market has largely anticipated the halving. Short-term traders who bought the rumour sell the news. Price often consolidates or dips modestly right after. This phase shakes out weak hands and sets the foundation for the real move.</p>
-
-      <h3>Months 3–9: Quiet accumulation</h3>
-      <p>The cumulative effect of reduced issuance begins to tighten available supply on exchanges. On-chain metrics — exchange outflows, long-term holder accumulation, MVRV ratios — begin flashing conviction signals. Institutional players accumulate quietly.</p>
-
-      <h3>Months 9–18: Price discovery</h3>
-      <p>Media coverage accelerates. New retail participants enter for the first time. Institutional demand grows. Supply on exchanges tightens sharply. This is where the explosive, parabolic price moves occur — the phase most people think of as "the bull market."</p>
-
-      <h3>Post-ATH: Compression phase</h3>
-      <p>Overextension, euphoria, and cascading profit-taking trigger a sharp correction. In the <strong>1064/364 model</strong> used here at BitcoinCycle.io, this compression phase lasts exactly 364 days — from ATH to the following ATL, resetting the cycle for the next expansion.</p>
-
-      <h2>The 1064/364 Model and Its Relationship to Halvings</h2>
-
-      <p>At BitcoinCycle.io, we use the <strong>1064/364 expansion-compression model</strong> anchored to the November 2022 FTX bottom. This model doesn't replace halving analysis — it <em>complements</em> and quantifies it.</p>
-
-      <p>The halving tells you <em>what drives</em> the cycle. The 1064/364 model attempts to tell you <em>when</em> each phase peaks and troughs, using the fractal, self-similar structure of Bitcoin's market history going back to 2012.</p>
-
-      <div class="callout blue">
-        📊 <strong>Key insight:</strong> The expansion phase of 1,064 days captures the full bull market — from the ATL all-time low to the ATH all-time high. The compression phase of 364 days captures the bear market washout. Together they form a 1,428-day (~3.91 year) cycle that maps remarkably closely to Bitcoin's halving schedule — because both are driven by the same underlying supply dynamics.
-      </div>
-
-      <h2>What the 2024 Halving Means for This Cycle</h2>
-
-      <p>The fourth halving occurred on <strong>19 April 2024</strong> at block height 840,000, reducing rewards to 3.125 BTC per block. Bitcoin was trading near $63,000 at the time — already close to its previous all-time high. This is unprecedented heading into a halving.</p>
-
-      <p>Several factors make this cycle structurally different from all previous ones:</p>
-
-      <h3>Spot Bitcoin ETFs</h3>
-      <p>For the first time in Bitcoin's history, institutional and retail capital can flow into Bitcoin through <strong>regulated ETF vehicles</strong>. BlackRock's IBIT, Fidelity's FBTC, and others accumulated tens of billions in assets within months of their January 2024 launch. This adds a powerful, persistent new demand driver that previous halvings simply did not have.</p>
-
-      <h3>Miner maturity and reduced sell pressure</h3>
-      <p>With rewards at 3.125 BTC, only the most capital-efficient mining operations can survive profitably. Well-capitalised public miners like Marathon Digital and CleanSpark hold rather than sell. This further reduces the daily sell pressure that Bitcoin markets must absorb.</p>
-
-      <h3>Macro environment</h3>
-      <p>Central bank monetary policy, inflation dynamics, and the global search for non-sovereign stores of value all feed into Bitcoin demand. With sovereign debt levels at historic highs globally, Bitcoin's fixed supply narrative has never been more relevant to institutional allocators.</p>
-
-      <div class="callout red">
-        ⚠️ <strong>Diminishing but still significant returns:</strong> While +9,500% cycles are history, even a move from $63k to $150,000–$200,000 would represent +140% to +200% — extraordinary performance by any traditional asset class standard.
-      </div>
-
-      <h2>Common Halving Myths, Debunked</h2>
-
-      <h3>"The halving is already priced in"</h3>
-      <p>This argument has been made before every single halving — and has been wrong every time. Markets are not perfectly efficient, especially in crypto where retail sentiment, leverage cycles, and liquidity constraints create persistent and measurable mispricings.</p>
-
-      <h3>"This cycle will be different (bearish)"</h3>
-      <p>Every cycle feels different from the inside. Macro conditions shift, regulation evolves, new narratives emerge. But the underlying supply-demand mechanics of a provably scarce asset with growing adoption have reasserted themselves across 15 years and four complete cycles.</p>
-
-      <h3>"Miners don't matter anymore"</h3>
-      <p>Transaction fees are growing as a proportion of miner revenue — which is by design. But at current fee levels, block rewards still dominate miner income. Miner sell pressure remains a significant, measurable supply variable tracked by on-chain analysts globally.</p>
-
-      <h2>Conclusion</h2>
-
-      <p>Bitcoin's halving is not a magic price catalyst — it is a <strong>structural supply event</strong> engineered into the protocol that systematically reduces new issuance every four years. Combined with growing global adoption, maturing institutional infrastructure, and the psychological impact of each cycle on market participants, it has produced some of the most dramatic, repeatable price appreciation in financial history.</p>
-
-      <p>Understanding the halving is the foundation of understanding Bitcoin cycles. And understanding cycles — their timing, their phases, and their predictable structure — is what BitcoinCycle.io is built to help you navigate.</p>
-
-      <div class="cta-card">
-        <h3>⬡ Track the Current Cycle Live</h3>
-        <p>See exactly where we are in the 1064/364 expansion–compression model, with countdown to the next predicted ATH and ATL — anchored to the Nov 2022 FTX bottom.</p>
-        <a href="/" class="cta-btn">View the Live Dashboard →</a>
-      </div>
-
-      <div class="disclaimer-box">
-        <strong>⚠ Not financial advice.</strong> This article is for educational and informational purposes only. Bitcoin is a highly volatile asset. Past cycle performance does not guarantee future results. Historical patterns are not a reliable indicator of future performance. Always conduct your own thorough research and consult a qualified financial advisor before making any investment decisions.
+      <div class="article-footer">
+        <div class="disclaimer-block">
+          ⚠ Not financial advice. This analysis is based on historical data and the 1064/364 model. Past cycle patterns do not guarantee future performance. Always do your own research.
+        </div>
+        <a href="/blog" style="font-family:var(--mono);font-size:11px;color:var(--btc);text-decoration:none;border:1px solid rgba(247,147,26,.4);padding:8px 16px;border-radius:6px;">← All Articles</a>
       </div>
 
     </div>
-  </article>
+  </div><!-- /.article-wrap -->
+
+  <footer>
+    BitcoinCycle.io · 1064/364 Expansion–Compression Model<br/>
+    Not financial advice &nbsp;·&nbsp;
+    <a href="/blog">Blog</a> &nbsp;·&nbsp;
+    <a href="/about">About Us</a>
+  </footer>
 
 </div>
-
-<footer>
-  <div class="footer-copy">
-    BitcoinCycle.io · 1064/364 Expansion–Compression Model · Not financial advice
-  </div>
-</footer>
-
 </body>
 </html>
