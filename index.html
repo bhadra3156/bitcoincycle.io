@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- ═══ CHARSET & VIEWPORT (must be first) ═══ -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<!-- ═══ PRIMARY TITLE ═══ -->
 <title>Bitcoin Cycle Prediction | 1064/364 Model | Live ATH &amp; ATL Dates</title>
-
-<!-- ═══ SEO META TAGS ═══ -->
-<meta name="description" content="Track Bitcoin's market cycle live. The 1064/364 model predicts the next ATH and ATL using the Nov 2022 FTX anchor. Free dashboard with countdown, chart and dates to 2050." />
+<meta name="description" content="Live Bitcoin cycle countdown using the 1064/364 model. Predicts the next ATH on 17 Sept 2029 and ATL on 19 Oct 2026, anchored to the Nov 2022 FTX bottom. Free dashboard with cycle dates to 2050." />
 <meta name="keywords" content="bitcoin cycle prediction, 1064 364 model, bitcoin ATH ATL prediction, bitcoin cycle dashboard, crypto cycle analysis" />
 <meta name="author" content="BitcoinCycle.io" />
 <link rel="canonical" href="https://www.bitcoincycle.io/" />
-
-<!-- ═══ OPEN GRAPH ═══ -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Bitcoin Cycle Prediction | 1064/364 Model Dashboard" />
-<meta property="og:description" content="Predicting Bitcoin's future price action using the 1064/364 expansion/compression cycle model. Live cycle and event dates." />
+<meta property="og:description" content="Live countdown: Next Bitcoin ATH predicted 17 Sept 2029, next ATL 19 Oct 2026. The 1064/364 cycle model anchored to the Nov 2022 FTX bottom." />
 <meta property="og:url" content="https://www.bitcoincycle.io/" />
 <meta property="og:site_name" content="BitcoinCycle.io" />
 <meta property="og:image" content="https://www.bitcoincycle.io/public/assets/images/og-image.png" />
@@ -28,7 +20,6 @@
 <meta name="twitter:description" content="Live Bitcoin cycle predictions using the 1064/364 expansion/compression model." />
 <meta name="twitter:image" content="https://www.bitcoincycle.io/public/assets/images/og-image.png" />
 
-<!-- ═══ SCHEMA: FAQ ═══ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -36,18 +27,10 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is the Bitcoin cycle prediction for 2025?",
+      "name": "What is the Bitcoin cycle?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Using the 1064/364 model anchored to the November 2022 FTX bottom, the next predicted Bitcoin ATH is in 2025, followed by an ATL in 2026. The model uses 1,064 days for the expansion phase and 364 days for the compression phase."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the 1064/364 Bitcoin model?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The 1064/364 model is a Bitcoin cycle prediction framework that uses 1,064 days for the bull market expansion phase (ATL to ATH) and 364 days for the bear market compression phase (ATH to ATL), forming a 1,428-day full cycle anchored to the Nov 2022 FTX bottom."
+        "text": "A Bitcoin cycle is a recurring pattern of market expansion and compression. The 1064/364 model identifies 1,064-day bull phases (ATL to ATH) and 364-day bear phases (ATH to ATL), forming a complete 1,428-day cycle of approximately 3.91 years."
       }
     },
     {
@@ -55,705 +38,1284 @@
       "name": "When is the next Bitcoin ATH predicted?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "According to the 1064/364 Bitcoin cycle model, the next predicted Bitcoin all-time high (ATH) date can be tracked live at BitcoinCycle.io using the countdown dashboard anchored to November 21, 2022."
+        "text": "According to the 1064/364 model anchored to the November 21, 2022 FTX bottom, the next predicted Bitcoin all-time high (ATH) is on 17 September 2029."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is the next Bitcoin ATL predicted?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The next predicted Bitcoin all-time low (ATL) is 19 October 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the 1064/364 Bitcoin model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 1064/364 model is a Bitcoin cycle prediction framework using 1,064 days for the bull market expansion phase and 364 days for the bear market compression phase. The full cycle is 1,428 days, anchored to the November 2022 FTX bottom."
       }
     }
   ]
 }
 </script>
 
-<!-- ═══ SCHEMA: SOFTWARE APPLICATION ═══ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "BitcoinCycle.io — 1064/364 Prediction Dashboard",
-  "url": "https://www.bitcoincycle.io",
-  "description": "A live dashboard predicting Bitcoin market cycle peaks (ATH) and troughs (ATL) using the 1064-day expansion and 364-day compression model, anchored to the November 2022 FTX bottom.",
-  "applicationCategory": "FinanceApplication",
-  "operatingSystem": "Web",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "author": {
-    "@type": "Organization",
-    "name": "BitcoinCycle.io",
-    "url": "https://www.bitcoincycle.io",
-    "sameAs": ["https://x.com/bitcoincycle_"]
-  },
-  "keywords": "bitcoin cycle prediction, 1064/364 model, ATH ATL prediction"
-}
-</script>
-
-<!-- ═══ PRECONNECT ═══ -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-
-<!-- ═══ FONTS ═══ -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" as="style" />
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
-
-<!-- ═══ FAVICON ═══ -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23F7931A'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%230A0A0A' font-weight='bold'>&#x20BF;</text></svg>" />
 
-<!-- ═══ CRITICAL INLINE CSS ═══ -->
 <style>
-/* ── RESET & VARIABLES ── */
+/* ═══════════════════════════════════════════════
+   RESET & VARIABLES
+═══════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 :root {
-  --bg: #0A0A0A;
-  --surface: #11151F;
-  --elevated: #181E2E;
-  --border: #1E2A3A;
-  --border2: #2A3A4A;
-  --text1: #F0F0F0;
-  --text2: #B0BCC8;
-  --text3: #7A8A9A;
-  --btc: #F7931A;
-  --btc-d: rgba(247,147,26,.14);
-  --btc-g: rgba(247,147,26,.06);
-  --atl: #F43F5E;
-  --atl-d: rgba(244,63,94,.14);
-  --atl-blue: #4FC3F7;
-  --atl-blue-d: rgba(79,195,247,.14);
-  --acc: #38BDF8;
-  --acc-d: rgba(56,189,248,.10);
-  --green: #22C55E;
+  --bg:         #0D0D0F;
+  --surface:    #13131A;
+  --elevated:   #1A1A24;
+  --border:     #1E2030;
+  --border2:    #2A2D45;
+  --text1:  #EEEEF0;
+  --text2:  #9BA3B8;
+  --text3:  #4A4D65;
+  --btc:    #F7931A;
+  --btc-d:  rgba(247,147,26,.15);
+  --btc-g:  rgba(247,147,26,.06);
+  --ath-color: #F0B429;
+  --ath-bg:    rgba(240,180,41,.12);
+  --ath-border:rgba(240,180,41,.30);
+  --atl-color: #60A5FA;
+  --atl-bg:    rgba(96,165,250,.12);
+  --atl-border:rgba(96,165,250,.30);
+  --green:  #34D399;
+  --red:    #F87171;
   --purple: #818CF8;
   --mono: 'Space Mono', monospace;
   --sans: 'DM Sans', sans-serif;
-  --r: 12px;
-  --r-sm: 7px;
+  --r:    10px;
+  --r-sm: 6px;
+  --r-lg: 16px;
 }
 
 html { scroll-behavior: smooth; }
+
 body {
   background: var(--bg);
   color: var(--text1);
   font-family: var(--sans);
   font-size: 15px;
-  line-height: 1.75;
+  line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
 body::before {
   content: '';
-  position: fixed; inset: 0;
+  position: fixed; inset: 0; z-index: 0;
   background-image:
-    linear-gradient(rgba(56,189,248,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56,189,248,.025) 1px, transparent 1px);
-  background-size: 44px 44px;
-  pointer-events: none; z-index: 0;
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.06) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,.04) 0%, transparent 100%),
+    radial-gradient(600px 600px at 50% -100px, rgba(247,147,26,.04) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-.app { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 0 20px 80px; }
-
-/* ── SKELETON LOADER ── */
-.skeleton {
-  background: linear-gradient(90deg, var(--surface) 25%, var(--elevated) 50%, var(--surface) 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-  border-radius: var(--r-sm);
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.012) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
 }
-@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
 
-/* ── NAV ── */
+.app {
+  position: relative; z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ═══════════════════════════════════════════════
+   NAV — TASK 1 & 2
+   Brand LEFT · Model badge CENTRE · Links RIGHT
+═══════════════════════════════════════════════ */
 .nav {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 18px 0; border-bottom: 1px solid var(--border);
-  margin-bottom: 40px; gap: 12px; flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  gap: 12px;
 }
+
+/* LEFT: logo */
 .brand {
-  display: flex; align-items: center; gap: 10px;
-  font-family: var(--mono); font-size: clamp(13px,2.5vw,16px);
-  font-weight: 700; letter-spacing: 2px; color: var(--text1); text-decoration: none;
-}
-.brand-icon {
-  width: 36px; height: 36px; border-radius: 8px;
-  background: linear-gradient(135deg, var(--btc) 0%, #e07f10 100%);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 19px; color: #0A0A0A; font-weight: 900;
-  box-shadow: 0 0 18px rgba(247,147,26,.4), 0 0 40px rgba(247,147,26,.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text1);
   flex-shrink: 0;
 }
-.nav-pill {
-  font-family: var(--mono); font-size: clamp(10px,1.8vw,12px);
-  font-weight: 700; letter-spacing: 1.5px; padding: 5px 13px;
-  border-radius: 20px; border: 1px solid var(--btc);
-  color: var(--btc); background: var(--btc-d);
-  text-shadow: 0 0 10px rgba(247,147,26,.5);
+
+.brand-icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #F7931A 0%, #E07010 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: #0A0A0A; font-weight: 900;
+  box-shadow: 0 0 14px rgba(247,147,26,.40);
+  flex-shrink: 0;
+}
+
+/* CENTRE: model badge — TASK 1 */
+.nav-model-badge {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--btc);
+  color: #000;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  border-radius: var(--r-sm);
   white-space: nowrap;
+  box-shadow: 0 0 24px rgba(247,147,26,.45), 0 2px 8px rgba(0,0,0,.5);
+  text-decoration: none;
 }
-.nav-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-.nav-link {
-  font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px;
-  color: var(--text2); text-decoration: none; transition: color .2s;
-  text-transform: uppercase; font-weight: 700;
+
+.nav-model-badge .badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.5);
+  flex-shrink: 0;
 }
-.nav-link:hover { color: var(--btc); }
-.nav-link.blog-link {
+
+/* RIGHT: nav links — TASK 2 */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* All 3 nav buttons share this base */
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 7px 13px;
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity .18s, transform .18s, box-shadow .2s;
+  border: none;
+  cursor: pointer;
+}
+
+/* Blog — orange background */
+.nav-btn-blog {
+  background: var(--btc);
+  color: #000;
+  box-shadow: 0 0 14px rgba(247,147,26,.30);
+}
+.nav-btn-blog:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+  box-shadow: 0 0 22px rgba(247,147,26,.50);
+}
+
+/* About Us — orange background */
+.nav-btn-about {
+  background: var(--btc);
+  color: #000;
+  box-shadow: 0 0 14px rgba(247,147,26,.30);
+}
+.nav-btn-about:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+  box-shadow: 0 0 22px rgba(247,147,26,.50);
+}
+
+/* Follow on X — orange background */
+.nav-btn-x {
+  background: var(--btc);
+  color: #000;
+  box-shadow: 0 0 14px rgba(247,147,26,.30);
+}
+.nav-btn-x:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+  box-shadow: 0 0 22px rgba(247,147,26,.50);
+}
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+.hero {
+  text-align: center;
+  padding: 60px 0 44px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
   color: var(--btc);
-  border: 1px solid rgba(247,147,26,.3);
-  padding: 4px 12px;
-  border-radius: 6px;
+  margin-bottom: 18px;
+  padding: 5px 14px;
+  border: 1px solid rgba(247,147,26,.25);
+  border-radius: 20px;
   background: var(--btc-g);
 }
-.nav-link.blog-link:hover {
-  background: var(--btc-d);
-  border-color: var(--btc);
-}
-.nav-link.about-link {
-  color: var(--text2);
-  border: 1px solid var(--border2);
-  padding: 4px 12px;
-  border-radius: 6px;
-}
-.nav-link.about-link:hover {
-  border-color: var(--btc);
-  color: var(--btc);
-}
 
-/* ── HERO ── */
-.hero { text-align: center; margin-bottom: 40px; }
-.eyebrow {
-  font-family: var(--mono); font-size: clamp(9px,1.8vw,11px);
-  letter-spacing: 3px; color: var(--acc); text-transform: uppercase;
-  margin-bottom: 14px; display: flex; align-items: center;
-  justify-content: center; gap: 10px;
+.hero-eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--btc);
+  animation: pulse-dot 2s ease-in-out infinite;
 }
-.eyebrow::before,.eyebrow::after {
-  content:''; flex:1; max-width:50px; height:1px;
-  background: linear-gradient(90deg, transparent, var(--acc-d));
+@keyframes pulse-dot {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:.4; transform:scale(.7); }
 }
-.eyebrow::after { background: linear-gradient(90deg, var(--acc-d), transparent); }
 
 h1.hero-title {
-  font-family: var(--mono); font-size: clamp(26px,5.5vw,52px);
-  font-weight: 700; line-height: 1.1; margin-bottom: 12px;
+  font-family: var(--mono);
+  font-size: clamp(30px, 6vw, 58px);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--text1);
+  margin-bottom: 14px;
 }
-.hero-title span.btc-accent {
-  background: linear-gradient(135deg, var(--btc) 0%, #ffe29a 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
-.hero-sub { color: var(--text2); font-size: clamp(13px,2vw,15px); max-width: 520px; margin: 0 auto; line-height: 1.6; }
 
-/* ── STAT CARDS ── */
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 12px; margin-bottom: 28px; }
+.hero-title .btc-accent {
+  color: var(--btc);
+  -webkit-text-fill-color: var(--btc);
+  background: none;
+}
+
+.hero-sub {
+  color: var(--text2);
+  font-size: clamp(13px, 2vw, 15px);
+  max-width: 460px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* ═══════════════════════════════════════════════
+   STAT CARDS
+═══════════════════════════════════════════════ */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
 .stat {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r); padding: clamp(14px,2.5vw,20px) clamp(14px,2.5vw,22px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 16px 18px;
   transition: border-color .2s, transform .2s;
 }
 .stat:hover { border-color: var(--border2); transform: translateY(-1px); }
 
-/* TASK 5: Brighter label fonts */
 .stat-lbl {
-  font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
-  color: var(--text2); text-transform: uppercase; margin-bottom: 8px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 8px;
 }
-.stat-val { font-family: var(--mono); font-size: clamp(18px,3vw,22px); font-weight: 700; }
-.stat-sub { font-size: 12px; color: var(--text2); margin-top: 3px; }
-.c-btc { color: var(--btc); }
-.c-atl { color: var(--atl); }
-.c-acc { color: var(--acc); }
-.c-grn { color: var(--green); }
 
-/* ── COUNTDOWN ── */
+.stat-val {
+  font-family: var(--mono);
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-sub { font-size: 11px; color: var(--text3); margin-top: 4px; }
+
+.c-btc { color: var(--btc); }
+.c-atl { color: var(--atl-color); }
+.c-acc { color: var(--purple); }
+.c-ath { color: var(--ath-color); }
+
+/* ═══════════════════════════════════════════════
+   COUNTDOWN
+═══════════════════════════════════════════════ */
 .cd-wrap {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 16px; padding: clamp(22px,4vw,36px) clamp(16px,4vw,32px);
-  margin-bottom: 28px; position: relative; overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: clamp(24px,4vw,36px) clamp(18px,4vw,36px);
+  margin-bottom: 22px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
 }
+
 .cd-wrap::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--btc), transparent);
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--btc) 50%, transparent 100%);
+  opacity: .7;
 }
-.cd-wrap.atl-next::before { background: linear-gradient(90deg, transparent, var(--atl), transparent); }
-.cd-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 26px; flex-wrap: wrap; gap: 10px; }
-.cd-title { font-family: var(--mono); font-size: clamp(10px,1.8vw,12px); letter-spacing: 2px; color: var(--text2); text-transform: uppercase; }
+
+.cd-wrap.atl-next::before {
+  background: linear-gradient(90deg, transparent 0%, var(--atl-color) 50%, transparent 100%);
+}
+
+.cd-wrap::after {
+  content: '';
+  position: absolute;
+  top: -40px; left: 50%; transform: translateX(-50%);
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(247,147,26,.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cd-wrap.atl-next::after {
+  background: radial-gradient(circle, rgba(96,165,250,.05) 0%, transparent 70%);
+}
+
+.cd-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cd-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.cd-label-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  animation: live-blink 1.5s ease-in-out infinite;
+}
+@keyframes live-blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
 .evt-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 16px; border-radius: 20px;
-  font-family: var(--mono); font-size: clamp(10px,1.8vw,12px); font-weight: 700; letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
-.evt-ath { background: var(--btc-d); color: var(--btc); border: 1px solid rgba(247,147,26,.3); }
-.evt-atl { background: var(--atl-d); color: var(--atl); border: 1px solid rgba(244,63,94,.3); }
-.cd-grid { display: flex; align-items: center; justify-content: center; gap: clamp(4px,1vw,10px); flex-wrap: wrap; }
-.cu { text-align: center; }
-.cv {
-  font-family: var(--mono); font-size: clamp(34px,6.5vw,66px); font-weight: 700;
-  background: linear-gradient(180deg, #fff 0%, var(--text2) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  line-height: 1; display: block; min-width: clamp(60px,8vw,100px);
+.evt-ath { background: var(--ath-bg); color: var(--ath-color); border: 1px solid var(--ath-border); }
+.evt-atl { background: var(--atl-bg); color: var(--atl-color); border: 1px solid var(--atl-border); }
+
+.cd-grid {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(6px,2vw,18px);
+  margin-bottom: 18px;
 }
-.cv.skeleton-val {
-  -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg,var(--surface) 25%,var(--elevated) 50%,var(--surface) 75%);
+
+.cd-unit { text-align: center; }
+
+.cd-val {
+  display: block;
+  font-family: var(--mono);
+  font-size: clamp(44px, 9vw, 78px);
+  font-weight: 700;
+  color: var(--text1);
+  line-height: 1;
+  min-width: clamp(66px, 10vw, 108px);
+  text-shadow: 0 0 28px rgba(247,147,26,.14);
+  transition: color .3s;
+}
+
+.cd-wrap.atl-next .cd-val { text-shadow: 0 0 28px rgba(96,165,250,.14); }
+
+.cd-unit-lbl {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-top: 8px;
+}
+
+.cd-sep {
+  font-family: var(--mono);
+  font-size: clamp(28px,6vw,56px);
+  color: var(--text3);
+  line-height: 1;
+  padding-bottom: 20px;
+  opacity: .4;
+}
+
+.cd-date { font-size: 13px; color: var(--text2); }
+.cd-date strong { color: var(--text1); font-family: var(--mono); }
+
+.sk {
+  background: linear-gradient(90deg, var(--surface) 25%, var(--elevated) 50%, var(--surface) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
-  border-radius: 8px;
-  min-height: 66px;
-  background-clip: border-box;
+  border-radius: 6px;
+}
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+/* ═══════════════════════════════════════════════
+   PREDICTION CARD
+═══════════════════════════════════════════════ */
+.prediction-card {
+  background: var(--surface);
+  border: 1px solid rgba(247,147,26,.22);
+  border-radius: var(--r);
+  padding: 22px 26px;
+  margin-bottom: 22px;
+  position: relative;
+  box-shadow: 0 0 36px rgba(247,147,26,.04);
 }
 
-/* TASK 5: Brighter countdown unit labels */
-.cl { font-family: var(--mono); font-size: 11px; letter-spacing: 2px; color: var(--text2); text-transform: uppercase; margin-top: 6px; }
-.csep { font-family: var(--mono); font-size: clamp(24px,4vw,50px); color: var(--text3); line-height: 1; padding-bottom: 18px; }
-.cd-date { text-align: center; margin-top: 18px; font-size: clamp(12px,2vw,14px); color: var(--text2); }
-.cd-date strong { color: var(--text1); font-family: var(--mono); }
-.cd-date.skeleton-text {
-  background: var(--elevated); height: 18px; width: 280px;
-  max-width: 80%; margin: 18px auto 0; border-radius: 4px;
-  animation: shimmer 1.5s infinite;
+.prediction-card::after {
+  content: 'AUTO-UPDATED';
+  position: absolute; top: 14px; right: 16px;
+  font-family: var(--mono); font-size: 8px; letter-spacing: 2px;
+  color: var(--green); opacity: .6;
 }
 
-/* ── CHART ── */
-.section { margin-bottom: 40px; }
-.section-hdr { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 16px; gap: 12px; flex-wrap: wrap; }
-.sec-title { font-family: var(--mono); font-size: clamp(12px,2vw,14px); font-weight: 700; color: var(--text1); display: flex; align-items: center; gap: 8px; }
-.sec-icon { color: var(--acc); }
+.prediction-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--btc);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 
-/* TASK 5: Brighter section subtitles */
-.sec-sub { font-size: 13px; color: var(--text2); margin-top: 4px; font-family: var(--mono); letter-spacing: 0.5px; }
+.prediction-body { font-size: 14px; color: var(--text2); line-height: 1.8; }
+.prediction-body strong { color: var(--text1); font-weight: 600; }
 
+.disclaimer {
+  font-size: 11px;
+  color: var(--text3);
+  line-height: 1.6;
+  border-top: 1px solid var(--border);
+  margin-top: 14px;
+  padding-top: 12px;
+}
+
+/* Learn more strip */
+.learn-more-strip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 14px 18px;
+  margin-bottom: 22px;
+  font-size: 13px;
+  color: var(--text2);
+}
+.learn-more-strip a { color: var(--btc); text-decoration: none; }
+.learn-more-strip a:hover { text-decoration: underline; }
+
+/* ═══════════════════════════════════════════════
+   SECTIONS
+═══════════════════════════════════════════════ */
+.section { margin-bottom: 28px; }
+
+.section-hdr {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sec-title {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text1);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.sec-title svg { color: var(--purple); }
+
+.sec-sub {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 3px;
+  font-family: var(--mono);
+  letter-spacing: 0.5px;
+}
+
+/* ═══════════════════════════════════════════════
+   CHART CARD — TASK 3
+═══════════════════════════════════════════════ */
 .chart-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r); padding: clamp(16px,3vw,24px) clamp(8px,2vw,16px) 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 16px 16px 12px;
   overflow: hidden;
 }
-.chart-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; padding: 0 4px; }
-.li { display: flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 10px; letter-spacing: 1px; color: var(--text2); text-transform: uppercase; }
-.ld { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+
+/* Chart legend — cleaner, bigger */
+.chart-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  padding: 0 4px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: var(--text2);
+}
+
+.legend-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
 #pulseChart { width: 100% !important; max-height: 300px; }
 
-/* ── TABLE ── */
-.tbl-controls { display: flex; gap: 6px; flex-wrap: wrap; }
+/* ═══════════════════════════════════════════════
+   TABLE — TASK 4: Brighter, bigger, easier to read
+═══════════════════════════════════════════════ */
+.tbl-controls { display: flex; gap: 6px; }
+
 .fbtn {
-  font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
-  padding: 5px 13px; border-radius: var(--r-sm); border: 1px solid var(--border);
-  background: transparent; color: var(--text2); cursor: pointer; transition: all .15s;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border2);
+  background: transparent;
+  color: var(--text3);
+  cursor: pointer;
+  transition: all .15s;
 }
-.fbtn:hover { border-color: var(--acc); color: var(--acc); }
-.fbtn.a-all { background: var(--acc-d); border-color: var(--acc); color: var(--acc); }
-.fbtn.a-ath { background: var(--btc-d); border-color: var(--btc); color: var(--btc); }
-.fbtn.a-atl { background: var(--atl-d); border-color: var(--atl); color: var(--atl); }
-.tbl-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+.fbtn:hover { border-color: var(--purple); color: var(--purple); }
+.fbtn.a-all { background: rgba(129,140,248,.12); border-color: var(--purple); color: var(--purple); }
+.fbtn.a-ath { background: var(--ath-bg); border-color: var(--ath-border); color: var(--ath-color); }
+.fbtn.a-atl { background: var(--atl-bg); border-color: var(--atl-border); color: var(--atl-color); }
+
+.tbl-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
 .tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-table { width: 100%; border-collapse: collapse; min-width: 520px; }
 
-/* TASK 5: Brighter table headers */
+table { width: 100%; border-collapse: collapse; min-width: 500px; }
+
 thead th {
-  font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--text2); padding: 12px 16px; text-align: left;
-  border-bottom: 1px solid var(--border); background: #0D1017; white-space: nowrap;
+  font-family: var(--mono);
+  font-size: 10px;           /* bigger than before */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text2);       /* brighter than before */
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,.4);
+  white-space: nowrap;
 }
-tbody tr { border-bottom: 1px solid rgba(30,42,58,.7); transition: background .15s; }
-tbody tr:last-child { border-bottom: none; }
-tbody tr:hover { background: rgba(255,255,255,.022); }
-tbody tr.is-past { opacity: .5; }
-tbody tr.is-next td { background: rgba(56,189,248,.05); }
-td { padding: 12px 16px; font-size: 13px; color: #C8C8D8; white-space: nowrap; }
-.mono { font-family: var(--mono); font-size: 12px; }
-.tp {
-  display: inline-flex; align-items: center; gap: 4px;
-  font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 1px;
-  padding: 2px 9px; border-radius: 4px;
-}
-.tp-ath { background: var(--btc-d); color: var(--btc); }
-.tp-atl { background: var(--atl-d); color: var(--atl); }
-.show-more {
-  width: 100%; padding: 14px; background: transparent; border: none;
-  border-top: 1px solid var(--border); color: var(--text2);
-  font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-  cursor: pointer; transition: color .15s; display: flex; align-items: center; justify-content: center; gap: 7px;
-}
-.show-more:hover { color: var(--acc); }
 
-/* ── AFFILIATES — TASK 3: Bigger cards with CTA ── */
+tbody tr {
+  border-bottom: 1px solid rgba(30,32,48,.9);
+  transition: background .15s;
+}
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: rgba(255,255,255,.025); }
+tbody tr.is-past { opacity: .5; }
+tbody tr.is-next {
+  background: rgba(96,165,250,.06);
+  border-left: 2px solid var(--atl-color);
+}
+
+td {
+  padding: 13px 18px;        /* more padding */
+  font-size: 13px;
+  color: var(--text1);       /* bright white text */
+  white-space: nowrap;
+}
+
+/* Row number */
+td:first-child {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text3);
+}
+
+/* Cycle number */
+td:nth-child(2) {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text2);
+  font-weight: 700;
+}
+
+/* Predicted date column — bigger, brighter */
+td:nth-child(4) {
+  font-family: var(--mono);
+  font-size: 14px;           /* bigger */
+  font-weight: 700;
+  color: var(--text1);       /* bright */
+  letter-spacing: 0.3px;
+}
+
+/* Duration column */
+td:nth-child(5) {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--btc);         /* orange accent */
+}
+
+.tp {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+.tp-ath { background: var(--ath-bg); color: var(--ath-color); border: 1px solid var(--ath-border); }
+.tp-atl { background: var(--atl-bg); color: var(--atl-color); border: 1px solid var(--atl-border); }
+
+.st {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.st-past  { color: var(--text3); }
+.st-next  { color: var(--green); font-size: 11px; }
+.st-future{ color: var(--text3); opacity: .7; }
+.st-origin{ color: var(--btc); }
+
+.show-more {
+  width: 100%; padding: 14px;
+  background: transparent; border: none;
+  border-top: 1px solid var(--border);
+  color: var(--text3);
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer; transition: color .15s;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+}
+.show-more:hover { color: var(--purple); }
+
+/* ═══════════════════════════════════════════════
+   CYCLE CALCULATOR
+═══════════════════════════════════════════════ */
+.calc-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 22px 26px;
+}
+
+/* ═══════════════════════════════════════════════
+   AFFILIATES
+═══════════════════════════════════════════════ */
 .affiliates {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
 .aff-card {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 0;
+  gap: 14px;
   background: var(--surface);
-  border: 1px solid rgba(247,147,26,.25);
+  border: 1px solid var(--border);
   border-radius: var(--r);
-  padding: 32px 28px 28px;
+  padding: 18px 20px;
   text-decoration: none;
   transition: border-color .2s, transform .2s, box-shadow .2s;
-  position: relative;
-  overflow: hidden;
-}
-.aff-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--btc), transparent);
-  opacity: .7;
 }
 .aff-card:hover {
-  border-color: rgba(247,147,26,.6);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(247,147,26,.15);
+  border-color: rgba(247,147,26,.35);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 24px rgba(247,147,26,.08);
 }
 
 .aff-logo {
-  width: 56px; height: 56px; border-radius: 12px;
+  width: 42px; height: 42px; border-radius: 8px;
   object-fit: contain; flex-shrink: 0;
-  background: #fff; padding: 6px;
-  margin-bottom: 14px;
+  background: #fff; padding: 4px;
 }
 .aff-logo-text {
-  width: 56px; height: 56px; border-radius: 12px;
+  width: 42px; height: 42px; border-radius: 8px;
   background: var(--elevated);
   border: 1px solid var(--border2);
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--mono); font-size: 14px; font-weight: 700;
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
   color: var(--btc); flex-shrink: 0;
-  margin-bottom: 14px;
 }
-.aff-name {
-  font-family: var(--mono); font-size: 15px; font-weight: 700;
-  color: var(--text1); letter-spacing: 1.5px;
-  margin-bottom: 6px;
-}
-.aff-text { font-size: 14px; color: var(--text2); margin-bottom: 10px; line-height: 1.5; }
+.aff-name { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--text1); letter-spacing: 1px; }
+.aff-text { font-size: 12px; color: var(--text2); margin-top: 2px; }
 .aff-badge {
-  display: inline-block; margin-bottom: 20px;
-  font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px;
+  display: inline-block; margin-top: 5px;
+  font-family: var(--mono); font-size: 9px; letter-spacing: 1px;
   color: var(--btc); background: var(--btc-d);
-  padding: 4px 12px; border-radius: 4px;
-  border: 1px solid rgba(247,147,26,.2);
+  padding: 2px 8px; border-radius: 4px;
 }
-.aff-cta {
-  display: inline-flex; align-items: center; gap: 8px;
+
+/* ═══════════════════════════════════════════════
+   FOOTER — TASK 4: all 3 footer links same orange bg
+═══════════════════════════════════════════════ */
+footer {
+  border-top: 1px solid var(--border);
+  padding-top: 28px;
+  text-align: center;
+}
+
+.footer-copy {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--text3);
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+/* Footer link buttons — all same orange */
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.footer-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: var(--r-sm);
   background: var(--btc);
   color: #000;
-  font-family: var(--mono); font-size: 12px; font-weight: 700;
-  letter-spacing: 1px;
-  padding: 12px 28px;
-  border-radius: var(--r-sm);
   text-decoration: none;
-  width: 100%;
-  justify-content: center;
-  transition: background .2s, transform .15s, box-shadow .2s;
-  box-shadow: 0 0 20px rgba(247,147,26,.3);
-  margin-top: auto;
+  transition: opacity .18s, transform .18s;
+  box-shadow: 0 0 12px rgba(247,147,26,.25);
 }
-.aff-cta:hover {
-  background: #E07010;
+.footer-link-btn:hover {
+  opacity: .85;
   transform: translateY(-1px);
-  box-shadow: 0 0 32px rgba(247,147,26,.5);
-  color: #000;
-}
-.aff-cta-hl {
-  background: var(--purple);
-  box-shadow: 0 0 20px rgba(129,140,248,.3);
-}
-.aff-cta-hl:hover {
-  background: #6366f1;
-  box-shadow: 0 0 32px rgba(129,140,248,.5);
+  box-shadow: 0 0 20px rgba(247,147,26,.45);
 }
 
-/* ── FOOTER ── */
-footer {
-  border-top: 1px solid var(--border); padding-top: 28px; margin-top: 16px;
-  display: flex; flex-direction: column; align-items: center; gap: 14px;
+/* ═══════════════════════════════════════════════
+   SHARE BAR
+═══════════════════════════════════════════════ */
+.share-bar {
+  padding: 22px 0 8px;
+  border-top: 1px solid var(--border);
 }
 
-/* TASK 5: Brighter footer text */
-.footer-copy {
-  font-family: var(--mono); font-size: 12px; letter-spacing: 1px;
-  color: var(--text2); text-align: center; line-height: 1.9;
+.share-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 14px;
 }
-.footer-copy a { color: var(--text2); text-decoration: none; }
-.footer-copy a:hover { color: var(--acc); }
 
-footer, footer p, footer span, footer a { font-size: 0.82rem; color: #8B8FA8; }
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
-/* ── SHARE BAR ── */
-.share-bar { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 8px; }
-.share-label { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; color: var(--text2); text-transform: uppercase; }
-.share-buttons { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
 .share-btn {
-  display: inline-flex; align-items: center; gap: 7px;
-  padding: 9px 16px; border-radius: 8px; border: 1px solid var(--border2);
-  font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 1px;
-  cursor: pointer; transition: all .2s; background: var(--surface); color: var(--text2);
-  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border: none;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  transition: opacity .15s, transform .15s;
 }
-.share-btn.facebook { color: #1877F2; border-color: rgba(24,119,242,.3); }
-.share-btn.facebook:hover { background: rgba(24,119,242,.1); border-color: #1877F2; }
-.share-btn.whatsapp { color: #25D366; border-color: rgba(37,211,102,.3); }
-.share-btn.whatsapp:hover { background: rgba(37,211,102,.1); border-color: #25D366; }
-.share-btn.twitter { color: var(--text1); border-color: var(--border2); }
-.share-btn.twitter:hover { background: var(--elevated); border-color: var(--text2); }
-.share-btn.viber { color: #7360F2; border-color: rgba(115,96,242,.3); }
-.share-btn.viber:hover { background: rgba(115,96,242,.1); border-color: #7360F2; }
+.share-btn:hover { opacity: .82; transform: translateY(-1px); }
+.share-btn.facebook  { background: #1877F2; }
+.share-btn.whatsapp  { background: #25D366; color: #000; }
+.share-btn.twitter   { background: #111; border: 1px solid #333; }
 
-/* TASK 5: Global brightness fixes */
-.meta-item { color: var(--text2) !important; font-size: 11px !important; }
-.cd-label { color: var(--text2) !important; font-size: 11px !important; }
-.share-label { color: var(--text2) !important; font-size: 11px !important; }
-.cd-sep { color: var(--text2) !important; }
-.stat-sub { color: var(--text2) !important; font-size: 12px !important; }
+/* ═══════════════════════════════════════════════
+   DIVIDER
+═══════════════════════════════════════════════ */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border2), transparent);
+  margin: 26px 0;
+}
 
-/* ── MOBILE ── */
-@media (max-width: 600px) {
-  .app { padding: 0 14px 60px; }
-  .nav { margin-bottom: 28px; padding: 14px 0; }
-  .affiliates { grid-template-columns: 1fr; gap: 12px; }
-  .aff-card { padding: 24px 20px 22px; }
-  .cd-grid { gap: 3px; }
-  .csep { font-size: 22px; padding-bottom: 14px; }
-  .cv { min-width: 52px; }
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — Mobile-first
+═══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .nav-model-badge { font-size: 9px; padding: 6px 12px; }
+}
+
+@media (max-width: 768px) {
+  .app { padding: 0 16px 60px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
+  .affiliates { grid-template-columns: 1fr; }
+  .nav-model-badge { position: static; transform: none; order: 3; width: 100%; justify-content: center; margin-top: 8px; }
+  .nav { flex-wrap: wrap; }
+  .nav-right { gap: 5px; }
+  .nav-btn { font-size: 9px; padding: 6px 10px; }
+}
+
+@media (max-width: 540px) {
+  .nav-model-badge { font-size: 9px; }
+  .nav-btn span { display: none; }   /* hide text, keep icon on very small screens */
+  .cd-val { font-size: clamp(34px,10vw,54px); min-width: 54px; }
+  .cd-sep { font-size: 22px; padding-bottom: 16px; }
+  h1.hero-title { font-size: 26px; }
+  .hero { padding: 36px 0 28px; }
+  .prediction-card { padding: 16px; }
+  .aff-card { padding: 14px; }
 }
 </style>
 </head>
 <body>
+
 <div class="app" role="main">
 
-  <!-- ═══ NAV ═══ -->
-  <nav class="nav" aria-label="Main navigation">
-    <a href="/" class="brand" aria-label="BitcoinCycle.io home">
-      <div class="brand-icon" aria-hidden="true">₿</div>
-      BitcoinCycle
+<!-- ═══ NAV ═══ -->
+<nav class="nav" aria-label="Main navigation">
+
+  <!-- LEFT: Brand -->
+  <a href="/" class="brand" aria-label="BitcoinCycle.io home">
+    <div class="brand-icon" aria-hidden="true">₿</div>
+    BitcoinCycle
+  </a>
+
+  <!-- CENTRE: Model badge (TASK 1 — orange background) -->
+  <span class="nav-model-badge" aria-label="BTC 1064/364 Model">
+    <span class="badge-dot"></span>
+    BTC · 1064/364 MODEL
+  </span>
+
+  <!-- RIGHT: All 3 nav links with orange background (TASK 2) -->
+  <div class="nav-right">
+    <a href="/blog/" class="nav-btn nav-btn-blog" aria-label="Blog">
+      📖 BLOG
     </a>
-    <div class="nav-right">
-      <div class="nav-pill" aria-label="Model: BTC 1064 over 364 days">BTC · 1064/364 MODEL</div>
-      <a href="/blog/" class="nav-link blog-link">BLOG</a>
-      <a href="/about.html" class="nav-link about-link">ABOUT US</a>
-      <a href="https://x.com/bitcoincycle_" target="_blank" rel="noopener" class="nav-link" style="display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border:1px solid var(--border2);border-radius:6px;">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        Follow on X →
-      </a>
-    </div>
-  </nav>
-
-  <!-- ═══ HERO ═══ -->
-  <header class="hero">
-    <h1 class="hero-title"><span class="btc-accent">The Bitcoin Cycle</span></h1>
-    <p class="hero-sub">Algorithmic cycle predictions based on the 1064-day expansion and 364-day compression model, anchored to the Nov 2022 FTX bottom ATL.</p>
-  </header>
-
-  <!-- ═══ STAT CARDS ═══ -->
-  <section class="stats" aria-label="Cycle statistics">
-    <div class="stat">
-      <div class="stat-lbl">Expansion Phase</div>
-      <div class="stat-val c-btc">1,064</div>
-      <div class="stat-sub">days · ATL → ATH</div>
-    </div>
-    <div class="stat">
-      <div class="stat-lbl">Compression Phase</div>
-      <div class="stat-val c-atl">364</div>
-      <div class="stat-sub">days · ATH → ATL</div>
-    </div>
-    <div class="stat">
-      <div class="stat-lbl">Full Cycle</div>
-      <div class="stat-val c-acc">1,428</div>
-      <div class="stat-sub">days · ~3.91 years</div>
-    </div>
-    <div class="stat" id="prev-stat">
-      <div class="stat-lbl">Last Event</div>
-      <div class="stat-val" id="prev-val" style="height:22px" aria-live="polite"></div>
-      <div class="stat-sub" id="prev-sub" style="height:14px"></div>
-    </div>
-  </section>
-
-  <!-- ═══ COUNTDOWN ═══ -->
-  <section class="cd-wrap" id="cd-wrap" aria-label="Countdown to next predicted event" aria-live="polite">
-    <div class="cd-hdr">
-      <div class="cd-title">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:inline;margin-right:6px;vertical-align:middle"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Next Predicted Event
-      </div>
-      <div class="evt-badge evt-ath" id="evt-badge" aria-live="polite">↑ ATH</div>
-    </div>
-    <div class="cd-grid" role="timer">
-      <div class="cu"><span class="cv skeleton-val" id="cd-d" aria-label="days">000</span><span class="cl">Days</span></div>
-      <div class="csep" aria-hidden="true">:</div>
-      <div class="cu"><span class="cv skeleton-val" id="cd-h" aria-label="hours">00</span><span class="cl">Hrs</span></div>
-      <div class="csep" aria-hidden="true">:</div>
-      <div class="cu"><span class="cv skeleton-val" id="cd-m" aria-label="minutes">00</span><span class="cl">Min</span></div>
-      <div class="csep" aria-hidden="true">:</div>
-      <div class="cu"><span class="cv skeleton-val" id="cd-s" aria-label="seconds">00</span><span class="cl">Sec</span></div>
-    </div>
-    <div class="cd-date skeleton-text" id="cd-date"> </div>
-  </section>
-
-  <!-- ═══ PREDICTION CARD — TASK 1: REMOVED ═══ -->
-  <!-- The "Current Cycle Prediction" card has been removed as requested -->
-
-  <!-- ═══ CHART ═══ -->
-  <section class="section" aria-labelledby="chart-heading">
-    <div class="section-hdr">
-      <div>
-        <div class="sec-title" id="chart-heading">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" class="sec-icon"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          Cycle Pulse Chart
-        </div>
-        <div class="sec-sub">2022 – 2038 · Expansion (1064 days) / Compression (364 days) wave</div>
-      </div>
-    </div>
-    <div class="chart-card">
-      <div class="chart-legend">
-        <div class="li"><div class="ld" style="background:#22C55E"></div>Rising (Expansion)</div>
-        <div class="li"><div class="ld" style="background:#F43F5E"></div>Falling (Compression)</div>
-        <div class="li"><div class="ld" style="background:#F7931A"></div>All-Time High (ATH)</div>
-        <div class="li"><div class="ld" style="background:#4FC3F7"></div>All-Time Low (ATL)</div>
-        <div class="li"><div class="ld" style="background:var(--acc);border-radius:2px"></div>Today</div>
-      </div>
-      <canvas id="pulseChart" role="img" aria-label="Bitcoin Cycle Chart showing alternating ATH peaks and ATL valleys from 2022 to 2038"></canvas>
-    </div>
-  </section>
-
-  <!-- ═══ TABLE ═══ -->
-  <section class="section" aria-labelledby="table-heading">
-    <div class="section-hdr">
-      <div>
-        <div class="sec-title" id="table-heading">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" class="sec-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Predicted Cycle Dates
-        </div>
-        <div class="sec-sub">All events from Nov 2022 anchor through 2050</div>
-      </div>
-      <div class="tbl-controls" role="group" aria-label="Filter table">
-        <button class="fbtn a-all" id="f-ALL" onclick="setFilter('ALL')">ALL</button>
-        <button class="fbtn" id="f-ATH" onclick="setFilter('ATH')">ATH</button>
-        <button class="fbtn" id="f-ATL" onclick="setFilter('ATL')">ATL</button>
-      </div>
-    </div>
-    <div class="tbl-card">
-      <div class="tbl-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Cycle</th>
-              <th scope="col">Event</th>
-              <th scope="col">Predicted Date</th>
-              <th scope="col">Duration</th>
-              <th scope="col">Status</th>
-            </tr>
-          </thead>
-          <tbody id="tbl-body"></tbody>
-        </table>
-      </div>
-      <button class="show-more" id="show-more-btn" onclick="toggleShowAll()" aria-expanded="false">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="show-icon" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-        <span id="show-label">SHOW ALL EVENTS</span>
-      </button>
-    </div>
-  </section>
-
-  <!-- ═══ AFFILIATES — TASK 3: Bigger cards with CTA buttons ═══ -->
-  <div style="text-align:center; margin-bottom:16px;">
-    <div style="font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--btc);margin-bottom:6px;">Trusted Partners</div>
-    <p style="font-size:14px;color:var(--text2);">Trade on top exchanges and support this site at no extra cost to you.</p>
+    <a href="/about.html" class="nav-btn nav-btn-about" aria-label="About Us">
+      👤 ABOUT US
+    </a>
+    <a href="https://x.com/bitcoincycle_"
+       target="_blank" rel="noopener"
+       class="nav-btn nav-btn-x"
+       aria-label="Follow on X">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="10" height="10" aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+      FOLLOW ON X →
+    </a>
   </div>
 
-  <section class="affiliates" aria-label="Partner exchanges">
+</nav>
 
-    <div class="aff-card">
-      <img src="/public/assets/okx-logo.png" alt="OKX" class="aff-logo"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-      <div class="aff-logo-text" style="display:none">OKX</div>
-      <div class="aff-name">OKX DEX</div>
-      <div class="aff-text">World's leading crypto exchange.<br/>Get 10% off all trading fees.</div>
-      <span class="aff-badge">CODE: BITCOINCYCLE</span>
-      <a href="https://web3.okx.com/join/BITCOINCYCLE" target="_blank" rel="noopener sponsored"
-         class="aff-cta" aria-label="Trade on OKX">
-        🚀 Start Trading on OKX →
-      </a>
-    </div>
-
-    <div class="aff-card" style="border-color:rgba(129,140,248,.25);">
-      <img src="/public/assets/hyperliquid-logo.png" alt="Hyperliquid" class="aff-logo"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-      <div class="aff-logo-text" style="display:none; color:var(--purple)">HL</div>
-      <div class="aff-name" style="color:var(--purple)">HYPERLIQUID</div>
-      <div class="aff-text">On-chain perps with CEX-level speed.<br/>Unleash your trading potential.</div>
-      <span class="aff-badge" style="color:var(--purple);background:rgba(129,140,248,.1);border-color:rgba(129,140,248,.2);">REFERRAL: BITCOINCYCLE</span>
-      <a href="https://app.hyperliquid.xyz/join/BITCOINCYCLE" target="_blank" rel="noopener sponsored"
-         class="aff-cta aff-cta-hl" aria-label="Trade on Hyperliquid">
-        ⚡ Start Trading on HL →
-      </a>
-    </div>
-
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+  <section style="display:none" aria-hidden="true">
+    <h2>What is the Bitcoin Cycle?</h2>
+    <p>A Bitcoin cycle is a recurring pattern of price expansion and compression. The 1064/364 model predicts each cycle lasts 1,428 days — 1,064 expansion then 364 compression — anchored to November 2022.</p>
   </section>
+  <div class="hero-eyebrow">
+    <span class="hero-eyebrow-dot"></span>
+    Live Cycle Tracker
+  </div>
+  <h1 class="hero-title"><span class="btc-accent">The Bitcoin Cycle</span></h1>
+  <p class="hero-sub">Algorithmic cycle predictions based on the 1064-day expansion and 364-day compression model, anchored to the Nov 2022 FTX bottom ATL.</p>
+</header>
 
-  <!-- ═══ FOOTER — TASK 4: Blog/About Us buttons below "Not financial advice" ═══ -->
-  <footer>
-    <div class="footer-copy">
-      BitcoinCycle.io · 1064/364 Expansion–Compression Model · Anchored to 21 Nov 2022 FTX ATL<br/>
-      Not financial advice
+<!-- ═══ STAT CARDS ═══ -->
+<section class="stats" aria-label="Cycle statistics">
+  <div class="stat">
+    <div class="stat-lbl">Expansion Phase</div>
+    <div class="stat-val c-btc">1,064</div>
+    <div class="stat-sub">days · ATL → ATH</div>
+  </div>
+  <div class="stat">
+    <div class="stat-lbl">Compression Phase</div>
+    <div class="stat-val c-atl">364</div>
+    <div class="stat-sub">days · ATH → ATL</div>
+  </div>
+  <div class="stat">
+    <div class="stat-lbl">Full Cycle</div>
+    <div class="stat-val c-acc">1,428</div>
+    <div class="stat-sub">days · ~3.91 years</div>
+  </div>
+  <div class="stat" id="prev-stat">
+    <div class="stat-lbl">Last Event</div>
+    <div class="stat-val c-ath" id="prev-val" style="min-height:26px"></div>
+    <div class="stat-sub" id="prev-sub"></div>
+  </div>
+</section>
+
+<!-- ═══ COUNTDOWN ═══ -->
+<section class="cd-wrap" id="cd-wrap" aria-label="Countdown to next predicted event" aria-live="polite">
+  <div class="cd-header">
+    <div class="cd-label">
+      <span class="cd-label-dot"></span>
+      Next Predicted Event
     </div>
-
-    <div style="display:flex;justify-content:center;gap:12px;margin-top:4px;flex-wrap:wrap;">
-      <a href="/blog/" style="display:inline-flex;align-items:center;gap:6px;padding:9px 22px;background:var(--btc);color:#000;border-radius:var(--r-sm);font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:1px;text-decoration:none;box-shadow:0 0 16px rgba(247,147,26,.3);transition:background .2s;" onmouseover="this.style.background='#E07010'" onmouseout="this.style.background='#F7931A'">📖 Blog</a>
-      <a href="/about.html" style="display:inline-flex;align-items:center;gap:6px;padding:9px 22px;background:var(--btc);color:#000;border-radius:var(--r-sm);font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:1px;text-decoration:none;box-shadow:0 0 16px rgba(247,147,26,.3);transition:background .2s;" onmouseover="this.style.background='#E07010'" onmouseout="this.style.background='#F7931A'">👤 About Us</a>
-      <a href="https://x.com/bitcoincycle_" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:9px 22px;background:var(--surface);color:var(--text2);border:1px solid var(--border2);border-radius:var(--r-sm);font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:1px;text-decoration:none;transition:border-color .2s,color .2s;" onmouseover="this.style.borderColor='var(--text2)';this.style.color='var(--text1)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--text2)'">@bitcoincycle_</a>
+    <div class="evt-badge evt-ath" id="evt-badge">↑ ATH</div>
+  </div>
+  <div class="cd-grid" role="timer">
+    <div class="cd-unit">
+      <span class="cd-val sk" id="cd-d" aria-label="days" style="border-radius:8px">000</span>
+      <span class="cd-unit-lbl">Days</span>
     </div>
+    <div class="cd-sep" aria-hidden="true">:</div>
+    <div class="cd-unit">
+      <span class="cd-val sk" id="cd-h" aria-label="hours" style="border-radius:8px">00</span>
+      <span class="cd-unit-lbl">Hours</span>
+    </div>
+    <div class="cd-sep" aria-hidden="true">:</div>
+    <div class="cd-unit">
+      <span class="cd-val sk" id="cd-m" aria-label="minutes" style="border-radius:8px">00</span>
+      <span class="cd-unit-lbl">Min</span>
+    </div>
+    <div class="cd-sep" aria-hidden="true">:</div>
+    <div class="cd-unit">
+      <span class="cd-val sk" id="cd-s" aria-label="seconds" style="border-radius:8px">00</span>
+      <span class="cd-unit-lbl">Sec</span>
+    </div>
+  </div>
+  <div class="cd-date" id="cd-date">
+    <span class="sk" style="display:inline-block;width:240px;height:16px;border-radius:4px"> </span>
+  </div>
+</section>
 
-    <!-- ===== SOCIAL SHARE BAR ===== -->
-    <div class="share-bar">
-      <p class="share-label">Share This Page</p>
-      <div class="share-buttons">
-        <button class="share-btn facebook" onclick="shareToFacebook()">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          Facebook
-        </button>
-        <button class="share-btn whatsapp" onclick="shareToWhatsApp()">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp
-        </button>
-        <button class="share-btn twitter" onclick="shareToTwitter()">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          X / Twitter
-        </button>
+<!-- ═══ PREDICTION CARD ═══ -->
+<div class="prediction-card" role="note">
+  <div class="prediction-title">
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    Current Cycle Prediction
+  </div>
+  <div class="prediction-body">
+    Based on the 1064/364 model anchored to the <strong>21 Nov 2022 FTX ATL</strong>, the next predicted ATH lands on <strong id="next-ath-date">calculating…</strong> and the following ATL on <strong id="next-atl-date">calculating…</strong>. Each expansion phase lasts exactly 1,064 days; each compression phase 364 days.
+  </div>
+  <div class="disclaimer">
+    ⚠ This is a mathematical model based on historical cycle patterns, not financial advice. Past cycles do not guarantee future performance. Always conduct your own research before making investment decisions.
+  </div>
+</div>
+
+<!-- ═══ LEARN MORE ═══ -->
+<div class="learn-more-strip">
+  📖 <strong>Want to understand the model?</strong>
+  <a href="/blog/bitcoin-cycle-explained.html">The Bitcoin Cycle Explained: Complete Guide →</a>
+</div>
+
+<!-- ═══ CHART — TASK 3 ═══ -->
+<section class="section" aria-labelledby="chart-heading">
+  <div class="section-hdr">
+    <div>
+      <h2 class="sec-title" id="chart-heading">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Cycle Pulse Chart
+      </h2>
+      <p class="sec-sub">2022 – 2038 · Expansion (1064 days) / Compression (364 days) wave</p>
+    </div>
+  </div>
+  <div class="chart-card">
+    <!-- Legend row — clean, always visible -->
+    <div class="chart-legend-row" role="list" aria-label="Chart legend">
+      <div class="legend-item" role="listitem">
+        <span class="legend-dot" style="background:#34D399;"></span>
+        Rising (Expansion)
+      </div>
+      <div class="legend-item" role="listitem">
+        <span class="legend-dot" style="background:#F87171;"></span>
+        Falling (Compression)
+      </div>
+      <div class="legend-item" role="listitem">
+        <span class="legend-dot" style="background:#F0B429; width:10px; height:10px; border-radius:50%;"></span>
+        ATH
+      </div>
+      <div class="legend-item" role="listitem">
+        <span class="legend-dot" style="background:#60A5FA; width:10px; height:10px; border-radius:50%;"></span>
+        ATL
       </div>
     </div>
+    <canvas id="pulseChart" role="img" aria-label="Bitcoin Cycle Pulse Chart 2022 to 2038"></canvas>
+  </div>
+</section>
 
-    <script>
-    function getShareData() {
-      return {
-        url: encodeURIComponent('https://bitcoincycle.io'),
-        title: encodeURIComponent('Bitcoin Cycle Prediction | 1064/364 Model Dashboard')
-      };
-    }
-    function shareToFacebook() {
-      const { url } = getShareData();
-      window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, '_blank', 'width=600,height=500,noopener,noreferrer');
-    }
-    function shareToWhatsApp() {
-      const { url, title } = getShareData();
-      window.open('https://wa.me/?text=' + title + '%20' + url, '_blank', 'noopener,noreferrer');
-    }
-    function shareToTwitter() {
-      const { url, title } = getShareData();
-      window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + title, '_blank', 'width=600,height=500,noopener,noreferrer');
-    }
-    </script>
-  </footer>
+<!-- ═══ TABLE — TASK 4 ═══ -->
+<section class="section" aria-labelledby="table-heading">
+  <div class="section-hdr">
+    <div>
+      <div class="sec-title" id="table-heading">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Predicted Cycle Dates
+      </div>
+      <div class="sec-sub">All events · Nov 2022 anchor through 2050</div>
+    </div>
+    <div class="tbl-controls" role="group" aria-label="Filter table">
+      <button class="fbtn a-all" id="f-ALL" onclick="setFilter('ALL')">All</button>
+      <button class="fbtn" id="f-ATH" onclick="setFilter('ATH')">ATH</button>
+      <button class="fbtn" id="f-ATL" onclick="setFilter('ATL')">ATL</button>
+    </div>
+  </div>
+  <div class="tbl-card">
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Cycle</th>
+            <th scope="col">Event</th>
+            <th scope="col">Predicted Date</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody id="tbl-body"></tbody>
+      </table>
+    </div>
+    <button class="show-more" id="show-more-btn" onclick="toggleShowAll()" aria-expanded="false">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="show-icon"><polyline points="6 9 12 15 18 9"/></svg>
+      <span id="show-label">Show All Events</span>
+    </button>
+  </div>
+</section>
+
+<!-- ═══ CYCLE CALCULATOR ═══ -->
+<section class="section" aria-labelledby="calc-heading">
+  <div class="section-hdr">
+    <div>
+      <h2 class="sec-title" id="calc-heading">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Cycle Date Calculator
+      </h2>
+      <p class="sec-sub">Enter any date to find its position in the 1064/364 cycle</p>
+    </div>
+  </div>
+  <div class="calc-card">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:18px;">
+      <div>
+        <label style="font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--text3);text-transform:uppercase;display:block;margin-bottom:8px;">Enter a Date</label>
+        <input type="date" id="calc-input"
+          style="background:var(--bg);border:1px solid var(--border2);border-radius:6px;padding:9px 14px;color:var(--text1);font-family:var(--mono);font-size:13px;outline:none;width:auto;" />
+      </div>
+      <button onclick="calculateCyclePosition()"
+        style="background:var(--btc);color:#000;border:none;border-radius:6px;padding:10px 22px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;white-space:nowrap;">
+        CALCULATE
+      </button>
+    </div>
+    <div id="calc-result" style="font-size:14px;color:var(--text2);line-height:1.8;min-height:40px;"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ AFFILIATES ═══ -->
+<section class="affiliates" aria-label="Partner exchanges">
+  <a href="https://web3.okx.com/join/BITCOINCYCLE" target="_blank" rel="noopener sponsored" class="aff-card">
+    <img src="/public/assets/okx-logo.png" alt="OKX" class="aff-logo"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+    <div class="aff-logo-text" style="display:none">OKX</div>
+    <div>
+      <div class="aff-name">OKX DEX</div>
+      <div class="aff-text">Get 10% off service fees</div>
+      <span class="aff-badge">CODE: BITCOINCYCLE</span>
+    </div>
+  </a>
+  <a href="https://app.hyperliquid.xyz/join/BITCOINCYCLE" target="_blank" rel="noopener sponsored" class="aff-card">
+    <img src="/public/assets/hyperliquid-logo.png" alt="Hyperliquid" class="aff-logo"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+    <div class="aff-logo-text" style="display:none;color:#818CF8">HL</div>
+    <div>
+      <div class="aff-name">HYPERLIQUID</div>
+      <div class="aff-text">Unleash your potential.</div>
+      <span class="aff-badge" style="color:#818CF8;background:rgba(129,140,248,.1)">REFERRAL: BITCOINCYCLE</span>
+    </div>
+  </a>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-copy">
+    BitcoinCycle.io · 1064/364 Expansion–Compression Model · Anchored to 21 Nov 2022 FTX ATL<br/>
+    Not financial advice
+  </div>
+
+  <!-- TASK 4: All 3 footer buttons same orange background -->
+  <div class="footer-links">
+    <a href="/blog/" class="footer-link-btn">
+      📖 Blog
+    </a>
+    <a href="/about.html" class="footer-link-btn">
+      👤 About Us
+    </a>
+    <a href="https://x.com/bitcoincycle_" target="_blank" rel="noopener" class="footer-link-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11" aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+      @bitcoincycle_
+    </a>
+  </div>
+
+  <div class="share-bar">
+    <p class="share-label">Share This Page</p>
+    <div class="share-buttons">
+      <button class="share-btn facebook" onclick="shareToFacebook()">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </button>
+      <button class="share-btn whatsapp" onclick="shareToWhatsApp()">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </button>
+      <button class="share-btn twitter" onclick="shareToTwitter()">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X / Twitter
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function getShareData(){return{url:encodeURIComponent('https://bitcoincycle.io'),title:encodeURIComponent('Bitcoin Cycle Prediction | 1064/364 Model Dashboard')};}
+    function shareToFacebook(){var d=getShareData();window.open('https://www.facebook.com/sharer/sharer.php?u='+d.url,'_blank','width=600,height=500,noopener,noreferrer');}
+    function shareToWhatsApp(){var d=getShareData();window.open('https://wa.me/?text='+d.title+'%20'+d.url,'_blank','noopener,noreferrer');}
+    function shareToTwitter(){var d=getShareData();window.open('https://twitter.com/intent/tweet?url='+d.url+'&text='+d.title,'_blank','width=600,height=500,noopener,noreferrer');}
+  </script>
+</footer>
 
 </div><!-- /.app -->
 
-<!-- ═══ SCRIPTS ═══ -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <script src="/public/js/main.js"></script>
 <script src="/public/js/countdown.js"></script>
 <script src="/public/js/chart.js"></script>
+
+<script>
+function calculateCyclePosition() {
+  var anchor = new Date('2022-11-21');
+  var input = document.getElementById('calc-input').value;
+  if (!input) {
+    document.getElementById('calc-result').innerHTML = '<span style="color:var(--atl-color)">Please enter a date.</span>';
+    return;
+  }
+  var target = new Date(input);
+  var diff = Math.floor((target - anchor) / 86400000);
+  if (diff < 0) {
+    document.getElementById('calc-result').innerHTML = '<span style="color:var(--atl-color)">Date must be after 21 Nov 2022 anchor.</span>';
+    return;
+  }
+  var cycleLen = 1428;
+  var pos = diff % cycleLen;
+  var cycleNum = Math.floor(diff / cycleLen) + 1;
+  var phase, daysLeft, nextEvent, nextDate;
+  if (pos < 1064) {
+    phase = '📈 Expansion Phase (ATL → ATH)';
+    daysLeft = 1064 - pos;
+    var athDate = new Date(anchor.getTime() + (Math.floor(diff / cycleLen) * cycleLen + 1064) * 86400000);
+    nextEvent = 'ATH';
+    nextDate = athDate.toDateString();
+  } else {
+    phase = '📉 Compression Phase (ATH → ATL)';
+    daysLeft = cycleLen - pos;
+    var atlDate = new Date(anchor.getTime() + (Math.floor(diff / cycleLen) * cycleLen + 1428) * 86400000);
+    nextEvent = 'ATL';
+    nextDate = atlDate.toDateString();
+  }
+  document.getElementById('calc-result').innerHTML =
+    '<strong style="color:var(--text1)">Cycle ' + cycleNum + '</strong> · Day <strong style="color:var(--btc)">' + pos + '</strong> of 1,428 · ' + phase + '<br>' +
+    '<strong style="color:var(--text1)">' + daysLeft + ' days</strong> until predicted <strong style="color:var(--ath-color)">' + nextEvent + '</strong> on <strong style="color:var(--text1)">' + nextDate + '</strong>';
+}
+</script>
 
 </body>
 </html>
