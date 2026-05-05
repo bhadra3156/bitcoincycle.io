@@ -93,7 +93,7 @@
   --atl-border:rgba(96,165,250,.30);
   --green:  #34D399;
   --red:    #F87171;
-  --purple: #818CF8;
+  --btc: #818CF8;
   --mono: 'Space Mono', monospace;
   --sans: 'DM Sans', sans-serif;
   --r:    10px;
@@ -370,7 +370,7 @@ h1.hero-title {
 
 .c-btc { color: var(--btc); }
 .c-atl { color: var(--atl-color); }
-.c-acc { color: var(--purple); }
+.c-acc { color: var(--btc); }
 .c-ath { color: var(--ath-color); }
 
 /* ═══════════════════════════════════════════════
@@ -588,7 +588,7 @@ h1.hero-title {
   align-items: center;
   gap: 7px;
 }
-.sec-title svg { color: var(--purple); }
+.sec-title svg { color: var(--btc); }
 
 .sec-sub {
   font-size: 11px;
@@ -655,8 +655,8 @@ h1.hero-title {
   cursor: pointer;
   transition: all .15s;
 }
-.fbtn:hover { border-color: var(--purple); color: var(--purple); }
-.fbtn.a-all { background: rgba(129,140,248,.12); border-color: var(--purple); color: var(--purple); }
+.fbtn:hover { border-color: var(--btc); color: var(--btc); }
+.fbtn.a-all { background: rgba(129,140,248,.12); border-color: var(--btc); color: var(--btc); }
 .fbtn.a-ath { background: var(--ath-bg); border-color: var(--ath-border); color: var(--ath-color); }
 .fbtn.a-atl { background: var(--atl-bg); border-color: var(--atl-border); color: var(--atl-color); }
 
@@ -770,7 +770,7 @@ td:nth-child(5) {
   cursor: pointer; transition: color .15s;
   display: flex; align-items: center; justify-content: center; gap: 7px;
 }
-.show-more:hover { color: var(--purple); }
+.show-more:hover { color: var(--btc); }
 
 /* ═══════════════════════════════════════════════
    CYCLE CALCULATOR
@@ -1077,19 +1077,7 @@ footer {
   </div>
 </section>
 
-<!-- ═══ PREDICTION CARD ═══ -->
-<div class="prediction-card" role="note">
-  <div class="prediction-title">
-    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-    Current Cycle Prediction
-  </div>
-  <div class="prediction-body">
-    Based on the 1064/364 model anchored to the <strong>21 Nov 2022 FTX ATL</strong>, the next predicted ATH lands on <strong id="next-ath-date">calculating…</strong> and the following ATL on <strong id="next-atl-date">calculating…</strong>. Each expansion phase lasts exactly 1,064 days; each compression phase 364 days.
-  </div>
-  <div class="disclaimer">
-    ⚠ This is a mathematical model based on historical cycle patterns, not financial advice. Past cycles do not guarantee future performance. Always conduct your own research before making investment decisions.
-  </div>
-</div>
+
 
 <!-- ═══ LEARN MORE ═══ -->
 <div class="learn-more-strip">
@@ -1201,29 +1189,41 @@ footer {
 <div class="divider"></div>
 
 <!-- ═══ AFFILIATES ═══ -->
-<section class="affiliates" aria-label="Partner exchanges">
-  <a href="https://web3.okx.com/join/BITCOINCYCLE" target="_blank" rel="noopener sponsored" class="aff-card">
-    <img src="/public/assets/okx-logo.png" alt="OKX" class="aff-logo"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-    <div class="aff-logo-text" style="display:none">OKX</div>
-    <div>
-      <div class="aff-name">OKX DEX</div>
-      <div class="aff-text">Get 10% off service fees</div>
-      <span class="aff-badge">CODE: BITCOINCYCLE</span>
-    </div>
-  </a>
-  <a href="https://app.hyperliquid.xyz/join/BITCOINCYCLE" target="_blank" rel="noopener sponsored" class="aff-card">
-    <img src="/public/assets/hyperliquid-logo.png" alt="Hyperliquid" class="aff-logo"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-    <div class="aff-logo-text" style="display:none;color:#818CF8">HL</div>
-    <div>
-      <div class="aff-name">HYPERLIQUID</div>
-      <div class="aff-text">Unleash your potential.</div>
-      <span class="aff-badge" style="color:#818CF8;background:rgba(129,140,248,.1)">REFERRAL: BITCOINCYCLE</span>
-    </div>
-  </a>
-</section>
 
+<div style="text-align:center; margin-bottom:16px;">
+    <div style="font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--btc);margin-bottom:6px;">Trusted Partners</div>
+    <p style="font-size:14px;color:var(--text2);">Trade on top exchanges and support this site at no extra cost to you.</p>
+  </div>
+ 
+  <section class="affiliates" aria-label="Partner exchanges">
+ 
+    <div class="aff-card">
+      <img src="/public/assets/okx-logo.png" alt="OKX" class="aff-logo"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="aff-logo-text" style="display:none">OKX</div>
+      <div class="aff-name">OKX DEX</div>
+      <div class="aff-text">World's leading crypto exchange.<br/>Get 10% off all trading fees.</div>
+      <span class="aff-badge">CODE: BITCOINCYCLE</span>
+      <a href="https://web3.okx.com/join/BITCOINCYCLE" target="_blank" rel="noopener sponsored"
+         class="aff-cta" aria-label="Trade on OKX">
+        🚀 Start Trading on OKX →
+      </a>
+    </div>
+ 
+    <div class="aff-card" style="border-color:rgba(129,140,248,.25);">
+      <img src="/public/assets/hyperliquid-logo.png" alt="Hyperliquid" class="aff-logo"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="aff-logo-text" style="display:none; color:var(--btc)">HL</div>
+      <div class="aff-name" style="color:var(--btc)">HYPERLIQUID</div>
+      <div class="aff-text">On-chain perps with CEX-level speed.<br/>Unleash your trading potential.</div>
+      <span class="aff-badge" style="color:var(--btc);background:rgba(129,140,248,.1);border-color:rgba(129,140,248,.2);">REFERRAL: BITCOINCYCLE</span>
+      <a href="https://app.hyperliquid.xyz/join/BITCOINCYCLE" target="_blank" rel="noopener sponsored"
+         class="aff-cta aff-cta-hl" aria-label="Trade on Hyperliquid">
+        ⚡ Start Trading on HL →
+      </a>
+    </div>
+ 
+  </section>
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-copy">
